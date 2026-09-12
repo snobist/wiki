@@ -36,7 +36,7 @@ reads at start and maintains as it works. Nothing in it has to be re-explained p
 needs. If the task touches a service, read its row in `wiki/access.md` before asking Alex for anything.
 
 **During:** when you learn something durable (a decision, a fact, a path, a gotcha, a new access route),
-write it into the right page immediately — don't wait for the end. Cross-link with `[[slug]]`.
+write it into the right page immediately — don't wait for the end. Cross-link with double-bracket wiki links.
 
 **End of session (if anything changed):**
 1. update `wiki/index.md` if pages were added/removed/renamed,

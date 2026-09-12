@@ -17,7 +17,7 @@ How Alex wants sessions to behave. `Last-verified: 2026-09-12`
 
 ## Wiki hygiene
 - One topic per page. Prefer updating an existing page over creating a near-duplicate.
-- `[[slug]]` links resolve by filename (Obsidian-style). Keep slugs unique across the wiki.
+- Double-bracket links resolve by filename (Obsidian-style). Keep slugs unique across the wiki.
 - Every project folder with > 2 pages gets its own `index.md`.
 - Log entries are short: what changed, why, what's open. Newest at top.
 - Old per-project wikis (`~/Documents/ClaudeProjects/*-wiki`) are frozen; this wiki supersedes them.
