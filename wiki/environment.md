@@ -27,6 +27,11 @@
 - Loose meeting transcripts: `meeting_01-09.txt`, `notes_04.09`, `meetingnotes09-09.txt`, `meeting10-09.txt`,
   `APIAPpcahe method.txt` — candidates for `raw/meetings/` ingestion.
 
+## Git from the Cowork VM — gotcha
+The VM cannot unlink files in mounted folders unless delete permission was granted for the session, so any git write
+leaves `.git/*.lock` and `tmp_obj_*` behind and the next git call fails. Rule: sessions only edit markdown; the Mac
+LaunchAgent syncs. If a lock is found: `find .git -name '*.lock' -delete` after requesting delete permission.
+
 ## Tooling
 - Mac: git 2.34 (in the Cowork VM), no `gh`. Obsidian: not detected (optional — open `~/Documents/wiki` as a vault).
 - Codex skills/automations exist but are not registered on this Mac yet (see bundle README).

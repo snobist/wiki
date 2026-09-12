@@ -7,7 +7,8 @@ reads at start and maintains as it works. Nothing in it has to be re-explained p
 ## Location
 - macOS path: `/Users/alexgrtsenko/Documents/wiki`
 - From a Cowork session shell (Linux VM with Documents mounted): `$HOME/mnt/Documents/wiki`
-- Remote: private git repo (see `wiki/access.md` → "wiki repo"). Synced by `bin/sync.sh`.
+- Remote: private git repo (see `wiki/access.md` → "wiki repo"). Synced by `bin/sync.sh`; automated on the Mac by
+  LaunchAgent `com.alex.wiki-sync` every 15 min (pull --rebase, commit, push).
 
 ## Layers
 1. `raw/` — immutable inputs. Never edited, only cited. Subfolders per source type
@@ -40,7 +41,9 @@ write it into the right page immediately — don't wait for the end. Cross-link 
 **End of session (if anything changed):**
 1. update `wiki/index.md` if pages were added/removed/renamed,
 2. append a `wiki/log.md` entry,
-3. run `bin/sync.sh` (commit + push). Never leave the wiki unsynced after edits.
+3. sync: on the Mac (Claude Code / Codex / Terminal) run `bin/sync.sh`. From a **Cowork session shell do NOT run
+   git** — that Linux VM cannot delete git's lock/temp files and leaves the repo locked; the Mac LaunchAgent
+   `com.alex.wiki-sync` (`bin/install-sync-agent.sh`) commits and pushes every 15 min anyway.
 
 ## Operations
 - **ingest** — Alex drops a source into `raw/` (or points at a file/folder/URL) and says "ingest".
