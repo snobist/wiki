@@ -1,0 +1,50 @@
+{
+  "source": {
+    "restored_from": "/Users/oleksandrgrytsenko/.codex.backup-20260601-143443/automations/customers-ticket-report/team_ownership_cache.json",
+    "generated_at": "2026-04-06T15:46:17+02:00",
+    "source_file": "/Users/oleksandrgrytsenko/Downloads/export (1).csv",
+    "source_format": "utf-16-tab-separated-hct-export",
+    "lookup_rule": "prefer exact cache key; otherwise normalize to leading team code like KH01, TVM02, LV03 before lookup"
+  },
+  "team": {
+    "team": "KH05",
+    "source_team_names": [
+      "KH05"
+    ],
+    "team_urls": [
+      "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH05+team",
+      "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH06+Team"
+    ],
+    "components": [
+      "CICD - CMDB",
+      "CICD - DB Updater",
+      "CICD - Daily Extract",
+      "CICD - File Storage Agent",
+      "Fusion - DB Data",
+      "Fusion - DB Structure",
+      "Infra - Oracle DB",
+      "MS - AppCache",
+      "MS - DB Maintenance",
+      "MS - Daily Extract Scheduler",
+      "MS - Platform Lifecycle Manager",
+      "pre MS - Feature Flag Cache"
+    ],
+    "po_candidates": [
+      {
+        "name": "Oleksiy Milner",
+        "email": "oleksiy.m.milner@oracle.com",
+        "url": "https://confluence.oraclecorp.com/confluence/display/~oleksiy.m.milner@oracle.com",
+        "count": 14
+      }
+    ],
+    "dev_lead_candidates": [],
+    "dm_candidates": [
+      {
+        "name": "Oleksandr Grytsenko",
+        "email": "oleksandr.grytsenko@oracle.com",
+        "url": "https://confluence.oraclecorp.com/confluence/display/~oleksandr.grytsenko@oracle.com",
+        "count": 14
+      }
+    ]
+  }
+}

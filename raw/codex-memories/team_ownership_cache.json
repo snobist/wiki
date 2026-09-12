@@ -1,0 +1,1026 @@
+{
+  "generated_at": "2026-04-06T15:46:17+02:00",
+  "source_file": "/Users/oleksandrgrytsenko/Downloads/export (1).csv",
+  "source_format": "utf-16-tab-separated-hct-export",
+  "lookup_rule": "prefer exact cache key; otherwise normalize to leading team code like KH01, TVM02, LV03 before lookup",
+  "team_count": 23,
+  "teams": {
+    "ALL": {
+      "team": "ALL",
+      "source_team_names": [
+        "ALL"
+      ],
+      "team_urls": [],
+      "components": [
+        "ALL",
+        "CICD - OCI Log Searches",
+        "Dev - FAQA Tests",
+        "Documentation - Internal",
+        "Infra - OCI",
+        "Integration - Sample Code",
+        "Internal - Kafka topics management",
+        "Lib - Legacy Microservice Framework"
+      ],
+      "po_candidates": [
+        {
+          "name": "Mykhailo Shershniev",
+          "email": "mykhailo.shershniev@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~mykhailo.shershniev@oracle.com",
+          "count": 1
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Anton Velma",
+          "email": "anton.v.velma@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~anton.v.velma@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "ASC Team": {
+      "team": "ASC Team",
+      "source_team_names": [
+        "ASC Team"
+      ],
+      "team_urls": [],
+      "components": [
+        "Internal - Service Catalog"
+      ],
+      "po_candidates": [
+        {
+          "name": "Kyrylo Klimakov",
+          "email": "kyrylo.klimakov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~kyrylo.klimakov@oracle.com",
+          "count": 1
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Kyrylo Klimakov",
+          "email": "kyrylo.klimakov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~kyrylo.klimakov@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "CLE01": {
+      "team": "CLE01",
+      "source_team_names": [
+        "CLE01"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/CLE01+Team"
+      ],
+      "components": [
+        "CICD - Cloud Portal Metrics",
+        "CICD - Data Mart Frontend",
+        "CICD - Demo Console",
+        "Lib - JET Booking Calendar",
+        "MS - Activity BO Updater",
+        "MS ST - Common",
+        "VB - Redwood UI"
+      ],
+      "po_candidates": [
+        {
+          "name": "Maksym Kapustin",
+          "email": "maksym.kapustin@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~maksym.kapustin@oracle.com",
+          "count": 7
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Igor Makarykhin",
+          "email": "igor.makarykhin@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~igor.makarykhin@oracle.com",
+          "count": 3
+        },
+        {
+          "name": "Anatolii Tsapkov (?)",
+          "email": "anatolii.tsapkov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~anatolii.tsapkov@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Andrii Kolhanov",
+          "email": "andriy.k.kolganov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~andriy.k.kolganov@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Mykola Khodzynskiy",
+          "email": "mykola.khodzynskiy@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~mykola.khodzynskiy@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Sergii Cherkashyn",
+          "email": "sergii.c.cherkashyn@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~sergii.c.cherkashyn@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "Delivery Service Team": {
+      "team": "Delivery Service Team",
+      "source_team_names": [
+        "Delivery Service Team"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/Delivery+Service+Team"
+      ],
+      "components": [
+        "CICD - Core Pod Configurator",
+        "Deploy - MT Service config",
+        "Deploy - Metrics Analysis Tool",
+        "Deploy - Shepherd config",
+        "Dev - Baseline Images",
+        "Dev - CI Reports",
+        "Dev - CI Workflow Assistant",
+        "Dev - Jenkins Pipeline",
+        "Dev - K8s Jenkins"
+      ],
+      "po_candidates": [
+        {
+          "name": "Mykhailo Shershniev",
+          "email": "mykhailo.shershniev@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~mykhailo.shershniev@oracle.com",
+          "count": 9
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Prangshu Ghosh",
+          "email": "prangshu.ghosh@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~prangshu.ghosh@oracle.com",
+          "count": 2
+        },
+        {
+          "name": "Igor Makarykhin",
+          "email": "igor.makarykhin@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~igor.makarykhin@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Liudmyla Hriakova",
+          "email": "liudmyla.pryshchenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~liudmyla.pryshchenko@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Vadim Sedykh",
+          "email": "vadim.sedykh@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~vadim.sedykh@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "InfoDev": {
+      "team": "InfoDev",
+      "source_team_names": [
+        "InfoDev"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/SERVICE/Oracle+Field+Service+Cloud"
+      ],
+      "components": [
+        "Documentation - External"
+      ],
+      "po_candidates": [],
+      "dev_lead_candidates": [
+        {
+          "name": "Abhishek Sura",
+          "email": "abhishek.sura@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~abhishek.sura@oracle.com",
+          "count": 10
+        },
+        {
+          "name": "Vijay Tiwary",
+          "email": null,
+          "url": null,
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "Infrastructure Management": {
+      "team": "Infrastructure Management",
+      "source_team_names": [
+        "Infrastructure Management"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/Infrastructure+Management"
+      ],
+      "components": [
+        "CICD - Alert Rules",
+        "CICD - Grafana",
+        "CICD - OCTO Metrics Agent",
+        "Deploy - DNS config",
+        "Deploy - Infra Management (OpenTofu)",
+        "Deploy - ORC Validation (Inspec)",
+        "Deploy - OS Management (ORC)",
+        "Infra - Access",
+        "Infra - Connectivity",
+        "Infra - Exadata Cloud Service",
+        "Infra - K8s AlertManager",
+        "Infra - K8s Exporter: DNS Records Validation",
+        "Infra - K8s Exporter: FE connectivity",
+        "Infra - K8s Exporter: OCI metrics",
+        "Infra - K8s Exporter: Sentinel",
+        "Infra - K8s External Secrets Operator",
+        "Infra - K8s KubeStateMetrics",
+        "Infra - K8s Prometheus",
+        "Infra - Kafka",
+        "Infra - Kubernetes",
+        "Infra - Monitoring",
+        "Infra - Security",
+        "Infra - VM Image Upgrade Script",
+        "Infra - Valkey",
+        "Internal - Service Catalog"
+      ],
+      "po_candidates": [
+        {
+          "name": "Petro Surzhykov",
+          "email": "petro.surzhykov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~petro.surzhykov@oracle.com",
+          "count": 26
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Denys Chirtulov",
+          "email": "denys.chirtulov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~denys.chirtulov@oracle.com",
+          "count": 6
+        },
+        {
+          "name": "Iurii Kharchenko",
+          "email": "iurii.kharchenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~iurii.kharchenko@oracle.com",
+          "count": 2
+        },
+        {
+          "name": "Artem Viklenko",
+          "email": "artem.viklenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~artem.viklenko@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Maksym Lebid",
+          "email": "maksim.lebed@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~maksim.lebed@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Petro Surzhykov",
+          "email": "petro.surzhykov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~petro.surzhykov@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Serhii Stopkevych",
+          "email": "serhii.stopkevych@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~serhii.stopkevych@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "KH01": {
+      "team": "KH01",
+      "source_team_names": [
+        "KH01"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH01+team"
+      ],
+      "components": [
+        "CICD - Core DB Reader",
+        "CICD - DB monitoring",
+        "CICD - Env Health Exporter",
+        "MS - AppCache",
+        "MS - Core API",
+        "MS - Events Dispatcher",
+        "MS - Events Reader",
+        "MS - Mobile API",
+        "MS - Valkey Cache"
+      ],
+      "po_candidates": [
+        {
+          "name": "Maksym Vlasov",
+          "email": null,
+          "url": null,
+          "count": 7
+        },
+        {
+          "name": "Maksym Vlasov",
+          "email": "maksym.vlasov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~maksym.vlasov@oracle.com",
+          "count": 6
+        },
+        {
+          "name": "Vasyl Pirus",
+          "email": "vasyl.pirus@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~vasyl.pirus@oracle.com",
+          "count": 1
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Andrii Klymov",
+          "email": "andrii.klymov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~andrii.klymov@oracle.com",
+          "count": 2
+        },
+        {
+          "name": "Nazar Seniuk",
+          "email": "nazar.seniuk@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~nazar.seniuk@oracle.com",
+          "count": 2
+        },
+        {
+          "name": "Dmytro Pogrebniuk Dmytro Varvashenko",
+          "email": "dmytro.pogrebniuk@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~dmytro.pogrebniuk@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Leonid Ostapenko",
+          "email": "leonid.ostapenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~leonid.ostapenko@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Maksym Kuzmych",
+          "email": "maksym.kuzmych@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~maksym.kuzmych@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": [
+        {
+          "name": "Oleksandr Grytsenko",
+          "email": "oleksandr.grytsenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~oleksandr.grytsenko@oracle.com",
+          "count": 7
+        }
+      ]
+    },
+    "KH02": {
+      "team": "KH02",
+      "source_team_names": [
+        "KH02"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH02+team"
+      ],
+      "components": [
+        "MS - AppCache",
+        "MS - Configuration Provider",
+        "MS - Mobile API",
+        "VB - Setup UI"
+      ],
+      "po_candidates": [
+        {
+          "name": "Yuriy Silvestrov",
+          "email": "yuriy.silvestrov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~yuriy.silvestrov@oracle.com",
+          "count": 4
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Piotr Budzinski",
+          "email": "piotr.budzinski@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~piotr.budzinski@oracle.com",
+          "count": 4
+        }
+      ],
+      "dm_candidates": []
+    },
+    "KH03": {
+      "team": "KH03",
+      "source_team_names": [
+        "KH03"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH03+Team"
+      ],
+      "components": [
+        "MS - Assignment Optimizer",
+        "MS - Routing",
+        "MS - Routing Dispatcher",
+        "MS - Routing History Service",
+        "MS - Travel Provider"
+      ],
+      "po_candidates": [
+        {
+          "name": "Yuriy Silvestrov",
+          "email": "yuriy.silvestrov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~yuriy.silvestrov@oracle.com",
+          "count": 5
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Vladyslav Bezuglyy",
+          "email": "vladyslav.bezuglyy@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~vladyslav.bezuglyy@oracle.com",
+          "count": 4
+        },
+        {
+          "name": "Andriy Melnyk",
+          "email": "andriy.melnyk@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~andriy.melnyk@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "KH04": {
+      "team": "KH04",
+      "source_team_names": [
+        "KH04"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH04+team"
+      ],
+      "components": [
+        "Integration - Sample Code",
+        "MS - Mobile API",
+        "Microservice - Plugin Repository"
+      ],
+      "po_candidates": [
+        {
+          "name": "Igor Chemerovskyi",
+          "email": "igor.chemerovskyi@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~igor.chemerovskyi@oracle.com",
+          "count": 3
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Mykyta Kozar",
+          "email": "mykyta.kozar@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~mykyta.kozar@oracle.com",
+          "count": 2
+        },
+        {
+          "name": "Yevhen Kochuiev",
+          "email": "yevhen.kochuiev@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~yevhen.kochuiev@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "KH05": {
+      "team": "KH05",
+      "source_team_names": [
+        "KH05"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH05+team",
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH06+Team"
+      ],
+      "components": [
+        "CICD - CMDB",
+        "CICD - DB Updater",
+        "CICD - Daily Extract",
+        "CICD - File Storage Agent",
+        "Fusion - DB Data",
+        "Fusion - DB Structure",
+        "Infra - Oracle DB",
+        "MS - AppCache",
+        "MS - DB Maintenance",
+        "MS - Daily Extract Scheduler",
+        "MS - Platform Lifecycle Manager",
+        "pre MS - Feature Flag Cache"
+      ],
+      "po_candidates": [
+        {
+          "name": "Oleksiy Milner",
+          "email": "oleksiy.m.milner@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~oleksiy.m.milner@oracle.com",
+          "count": 14
+        }
+      ],
+      "dev_lead_candidates": [],
+      "dm_candidates": [
+        {
+          "name": "Oleksandr Grytsenko",
+          "email": "oleksandr.grytsenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~oleksandr.grytsenko@oracle.com",
+          "count": 14
+        }
+      ]
+    },
+    "KH07": {
+      "team": "KH07",
+      "source_team_names": [
+        "KH07",
+        "KH07 team"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH07+team"
+      ],
+      "components": [
+        "MS - Mobile API",
+        "MS - Where Is My Technician"
+      ],
+      "po_candidates": [
+        {
+          "name": "Igor Chemerovskyi",
+          "email": "igor.chemerovskyi@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~igor.chemerovskyi@oracle.com",
+          "count": 2
+        },
+        {
+          "name": "Igor Chemerovskyi",
+          "email": null,
+          "url": null,
+          "count": 1
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Oleksandr Razbakov Mykyta Kozar",
+          "email": "alexander.r.razbakov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~alexander.r.razbakov@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Oleksii Lynnyk Yevhen Kochuiev",
+          "email": "aleksey.lynnyk@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~aleksey.lynnyk@oracle.com",
+          "count": 1
+        },
+        {
+          "name": "Yevhen Kochuiev",
+          "email": "yevhen.kochuiev@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~yevhen.kochuiev@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "KH09": {
+      "team": "KH09",
+      "source_team_names": [
+        "KH09"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH01+team",
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/KH09+Team"
+      ],
+      "components": [
+        "CICD - Admin Console",
+        "CICD - Env Lookup",
+        "CICD - Login Portal",
+        "CICD - Platform updates launcher",
+        "CICD - Service Console",
+        "CICD - Service Manager",
+        "Infra - K8s Metrics Server",
+        "Infra - K8s Prometheus Adapter",
+        "MS - Health Check",
+        "MS - Mobile Inventory",
+        "MS - Parts Catalog",
+        "MS CP - FS LCM Regional",
+        "MS CP - Health Check",
+        "pre MS - Mobile Data Interface"
+      ],
+      "po_candidates": [
+        {
+          "name": "Eugene Litvinov",
+          "email": "eugene.litvinov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~eugene.litvinov@oracle.com",
+          "count": 15
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Liudmyla Hriakova",
+          "email": "liudmyla.pryshchenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~liudmyla.pryshchenko@oracle.com",
+          "count": 5
+        },
+        {
+          "name": "Mykhailo Antypenko",
+          "email": "michael.antipenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~michael.antipenko@oracle.com",
+          "count": 4
+        },
+        {
+          "name": "Oleksandr Haliuchenko",
+          "email": "oleksandr.haliuchenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~oleksandr.haliuchenko@oracle.com",
+          "count": 3
+        },
+        {
+          "name": "Yevhen Yuriev",
+          "email": "evgeniy.yuriev@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~evgeniy.yuriev@oracle.com",
+          "count": 2
+        },
+        {
+          "name": "Valerii Kryzhov",
+          "email": "valerii.kryzhov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~valerii.kryzhov@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "KH31": {
+      "team": "KH31",
+      "source_team_names": [
+        "KH31 QA PSR"
+      ],
+      "team_urls": [],
+      "components": [
+        "Dev - K8s Adapter",
+        "Dev - K8s Config Provider",
+        "Dev - Process Assistant",
+        "Lib - ngStriker Utils"
+      ],
+      "po_candidates": [
+        {
+          "name": "Mykhailo Shershniev",
+          "email": "mykhailo.shershniev@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~mykhailo.shershniev@oracle.com",
+          "count": 4
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Eugene Pisarenko",
+          "email": "eugene.pisarenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~eugene.pisarenko@oracle.com",
+          "count": 4
+        }
+      ],
+      "dm_candidates": []
+    },
+    "LV03": {
+      "team": "LV03",
+      "source_team_names": [
+        "LV03"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=252845360"
+      ],
+      "components": [
+        "MS - Mobile API"
+      ],
+      "po_candidates": [
+        {
+          "name": "Pavlo Yeremenko",
+          "email": "pavlo.yeremenko@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~pavlo.yeremenko@oracle.com",
+          "count": 3
+        }
+      ],
+      "dev_lead_candidates": [],
+      "dm_candidates": [
+        {
+          "name": "Vadym Semeniuk",
+          "email": "vadym.semeniuk@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~vadym.semeniuk@oracle.com",
+          "count": 3
+        }
+      ]
+    },
+    "LV04": {
+      "team": "LV04",
+      "source_team_names": [
+        "LV04"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=357006116"
+      ],
+      "components": [
+        "CICD - Geocoding Google",
+        "CICD - Geocoding HERE",
+        "CICD - Kafka REST Connector",
+        "MS - ETA Auto Adjust",
+        "MS - Email Delivery",
+        "MS - Geocoding Processor",
+        "MS - Map Shape Server",
+        "MS - Resource Updater",
+        "MS - Smart Location Reader",
+        "MS - Smart Location Track Processor",
+        "MS - Smart Location Writer",
+        "MS - Street Level Travel",
+        "MS - User Sync",
+        "Microservice - Map Writer"
+      ],
+      "po_candidates": [
+        {
+          "name": "Eugene Litvinov",
+          "email": "eugene.litvinov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~eugene.litvinov@oracle.com",
+          "count": 14
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Viktor Rusnak",
+          "email": "viktor.rusnak@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~viktor.rusnak@oracle.com",
+          "count": 5
+        },
+        {
+          "name": "Ivan Vydai",
+          "email": "ivan.vydai@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~ivan.vydai@oracle.com",
+          "count": 4
+        },
+        {
+          "name": "Petro Sliusar",
+          "email": "petro.sliusar@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~petro.sliusar@oracle.com",
+          "count": 4
+        },
+        {
+          "name": "Ivan Volkov",
+          "email": "ivan.volkov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~ivan.volkov@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "SRE": {
+      "team": "SRE",
+      "source_team_names": [
+        "SRE"
+      ],
+      "team_urls": [],
+      "components": [
+        "Deploy - CorePod config",
+        "Internal - Service Catalog"
+      ],
+      "po_candidates": [
+        {
+          "name": "Andriy Kalmykov",
+          "email": "andriy.kalmykov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~andriy.kalmykov@oracle.com",
+          "count": 1
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Andriy Kalmykov",
+          "email": "andriy.kalmykov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~andriy.kalmykov@oracle.com",
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "TVM01": {
+      "team": "TVM01",
+      "source_team_names": [
+        "TVM01"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=252845360"
+      ],
+      "components": [
+        "CICD - Apps Connector",
+        "Integration - BA Fusion Service",
+        "Integration - BA HCM",
+        "Integration - BA HCM (Gen2)",
+        "Integration - BA Inventory Management",
+        "Integration - BA Maintenance Cloud",
+        "Integration - BA Maintenance Cloud (Gen2)",
+        "Integration - BA Service Logistics",
+        "Integration - BA Siebel",
+        "Integration - Sample Code",
+        "Lib - Helidon Utils",
+        "MS - Event Sync",
+        "MS - Integrations Monitor"
+      ],
+      "po_candidates": [
+        {
+          "name": "Prashobh Kattil",
+          "email": "prashobh.kattil@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~prashobh.kattil@oracle.com",
+          "count": 12
+        },
+        {
+          "name": "Prashobh Kattil",
+          "email": null,
+          "url": null,
+          "count": 5
+        }
+      ],
+      "dev_lead_candidates": [],
+      "dm_candidates": [
+        {
+          "name": "Gnana Antony Jayant Gnana Pragasam",
+          "email": "jayant.gnana@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~jayant.gnana@oracle.com",
+          "count": 17
+        }
+      ]
+    },
+    "TVM02": {
+      "team": "TVM02",
+      "source_team_names": [
+        "TVM02"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=252845618"
+      ],
+      "components": [
+        "AP - Security",
+        "Fusion - ESS Job",
+        "Fusion - UI",
+        "MS - Forecasting",
+        "MS - Report Delivery",
+        "MS - Stats Provider",
+        "MS - Stats Wizard"
+      ],
+      "po_candidates": [
+        {
+          "name": "Prasad Nair",
+          "email": "prasad.nair@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~prasad.nair@oracle.com",
+          "count": 6
+        },
+        {
+          "name": "Prasad Nair",
+          "email": null,
+          "url": null,
+          "count": 1
+        }
+      ],
+      "dev_lead_candidates": [],
+      "dm_candidates": [
+        {
+          "name": "Sarath Chandran C",
+          "email": "sarath.chandran.c@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~sarath.chandran.c@oracle.com",
+          "count": 7
+        }
+      ]
+    },
+    "TVM03": {
+      "team": "TVM03",
+      "source_team_names": [
+        "TVM03"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/Teams#Teams-TVM03-Collaboration",
+        "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=551342780"
+      ],
+      "components": [
+        "AP - Objects",
+        "CICD - Apps Connector",
+        "CICD - Fleet Manager Connector",
+        "CICD - Refresh Environment",
+        "Fusion - DB Scripts",
+        "Integration - OFS Adapter for OIC",
+        "Integration - Sample Code",
+        "MS - APNS Push Service",
+        "MS - Bot Connector",
+        "MS - Collab Config Sync",
+        "MS - Collaboration",
+        "MS - Collaboration API",
+        "MS - FCM Push Service",
+        "MS - Mobile API",
+        "MS - WebSocket Connector"
+      ],
+      "po_candidates": [
+        {
+          "name": "Prasad Nair",
+          "email": null,
+          "url": null,
+          "count": 10
+        },
+        {
+          "name": "Prasad Nair",
+          "email": "prasad.nair@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~prasad.nair@oracle.com",
+          "count": 5
+        },
+        {
+          "name": "Maksym Kapustin",
+          "email": "maksym.kapustin@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~maksym.kapustin@oracle.com",
+          "count": 1
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Farooq A.K",
+          "email": "farooq.naveen.a.k@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~farooq.naveen.a.k@oracle.com",
+          "count": 15
+        },
+        {
+          "name": "Athulnath Thumbayil",
+          "email": null,
+          "url": null,
+          "count": 1
+        }
+      ],
+      "dm_candidates": []
+    },
+    "TVM05": {
+      "team": "TVM05",
+      "source_team_names": [
+        "TVM05"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=877805962"
+      ],
+      "components": [
+        "Mobile App - iOS"
+      ],
+      "po_candidates": [
+        {
+          "name": "Harsimran Singh",
+          "email": "harsimran.singh@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~harsimran.singh@oracle.com",
+          "count": 2
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Senthilkumar Duraisamy Gounder",
+          "email": "senthilkumar.duraisamy@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~senthilkumar.duraisamy@oracle.com",
+          "count": 2
+        }
+      ],
+      "dm_candidates": []
+    },
+    "TVM06": {
+      "team": "TVM06",
+      "source_team_names": [
+        "TVM06"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=13359915260"
+      ],
+      "components": [
+        "Mobile App - Android"
+      ],
+      "po_candidates": [
+        {
+          "name": "Harsimran Singh",
+          "email": "harsimran.singh@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~harsimran.singh@oracle.com",
+          "count": 2
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Senthilkumar Duraisamy Gounder",
+          "email": "senthilkumar.duraisamy@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~senthilkumar.duraisamy@oracle.com",
+          "count": 2
+        }
+      ],
+      "dm_candidates": []
+    },
+    "WW01": {
+      "team": "WW01",
+      "source_team_names": [
+        "WW01"
+      ],
+      "team_urls": [
+        "https://confluence.oraclecorp.com/confluence/display/OFSCdev/WW01"
+      ],
+      "components": [
+        "Dev - Code Search (OpenGrok)",
+        "Dev - K8s SonarQube",
+        "Dev - Pact Broker"
+      ],
+      "po_candidates": [
+        {
+          "name": "Kyrylo Klimakov",
+          "email": "kyrylo.klimakov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~kyrylo.klimakov@oracle.com",
+          "count": 3
+        }
+      ],
+      "dev_lead_candidates": [
+        {
+          "name": "Kyrylo Klimakov",
+          "email": "kyrylo.klimakov@oracle.com",
+          "url": "https://confluence.oraclecorp.com/confluence/display/~kyrylo.klimakov@oracle.com",
+          "count": 3
+        }
+      ],
+      "dm_candidates": []
+    }
+  }
+}

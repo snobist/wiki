@@ -1,0 +1,7 @@
+.secrets/
+.DS_Store
+.obsidian/workspace*.json
+*.env
+*.env.*
+**/auth.json
+**/Cookies

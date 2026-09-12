@@ -1,0 +1,48 @@
+{
+  "name": "confluence_mcp_recovery",
+  "last_validated": "2026-04-09",
+  "config": {
+    "server": "confluence",
+    "url": "https://emcp.oracle.com/atlassian/centralconfluence/v2",
+    "must_not_have_static_http_header_override": true
+  },
+  "verification_target": {
+    "space": "OFSCdev",
+    "title": "Teams",
+    "page_id": "232259465",
+    "url": "https://confluence.oraclecorp.com/confluence/pages/viewpage.action?pageId=232259465"
+  },
+  "important_observations": [
+    "OAuth browser callback success does not guarantee usable MCP token state",
+    "codex mcp login confluence success message is necessary but not sufficient",
+    "Need both MCP handshake check and real Confluence tool call check",
+    "Running Codex desktop and VS Code Codex concurrently can cause refresh token drift/race",
+    "If tool calls fail with 'name JSONResponse is not defined', issue is server-side MCP bug"
+  ],
+  "recover_steps": [
+    "codex mcp get confluence",
+    "ensure ~/.codex/config.toml has [mcp_servers.confluence] and no [mcp_servers.confluence.http_headers] override",
+    "close all Codex runtimes (desktop + VS Code extension) and restart only one runtime",
+    "codex mcp logout confluence",
+    "codex mcp login confluence",
+    "complete browser OAuth callback",
+    "verify MCP handshake by running resources/list against server confluence",
+    "run real tool call: Confluence search space = \"OFSCdev\" AND title = \"Teams\"",
+    "if auth errors persist (invalid_grant or invalid_token), repeat single-runtime relogin flow",
+    "if handshake works but tool call fails with server exception, treat as server bug and use REST/web fallback"
+  ],
+  "diagnostics": {
+    "auth_error_signatures": [
+      "invalid_grant: refresh token does not exist",
+      "invalid_token"
+    ],
+    "server_bug_signatures": [
+      "name 'JSONResponse' is not defined"
+    ]
+  },
+  "acceptance": [
+    "MCP handshake succeeds without auth errors",
+    "Confluence search returns page id 232259465",
+    "Confluence get_page works for page_id 232259465"
+  ]
+}
