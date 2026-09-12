@@ -21,7 +21,7 @@ fi
 
 # Refuse to commit anything that looks like a secret.
 PAT='(xox[abcp]-[0-9A-Za-z-]{10,}|ghp_[0-9A-Za-z]{20,}|github_pat_[0-9A-Za-z_]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY)'
-HITS="$(git ls-files -o -c --exclude-standard -z | grep -zv '^bin/sync.sh$' | xargs -0 grep -lEI "$PAT" 2>/dev/null || true)"
+HITS="$(git ls-files -o -c --exclude-standard | grep -v '^bin/sync.sh$' | tr '\n' '\0' | xargs -0 grep -lEI "$PAT" 2>/dev/null || true)"
 if [ -n "$HITS" ]; then
   echo "ABORT: secret-looking content found — remove it or move to .secrets/:" >&2; echo "$HITS" >&2; exit 2
 fi
