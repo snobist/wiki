@@ -19,6 +19,8 @@
 - `OFS_REPOS/` — Oracle Field Service repos: app_server, content-delivery, daily-extract, daily-extract-scheduler,
   db-maintenance, db-updater, mobile-data-interface, platform-lcm, web. Several have `README.md`/`AGENTS.md`.
 - `ClaudeProjects/` — frozen per-project wikis (superseded) + a Claude transcript.
+- `Private_Projects/` — non-Oracle repo checkouts: `stillcasting/` (cloned 2026-09-14 from GitHub, branch `develop`;
+  replaces the old-Mac `~/Documents/ClaudeProjects/stillcasting`).
 - `Codex/` — dated Codex work dirs (2026-08-27 … ), `Codex/bin`.
 - `Codex_Restored_2026-08-31/` — migration bundle from the old Mac: chat history, redacted config, skills
   (cli-ticket-creator, confluence-browser-access, grill-me, humanizer-alex, mr-review-risk, slack-browser-access),

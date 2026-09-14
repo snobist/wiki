@@ -7,6 +7,10 @@ Migrated 2026-09-12 from `~/Documents/ClaudeProjects/stillcasting-wiki` (frozen 
 updated daily; Caddy/nginx; Docker on an OCI box. ~24.7k title pages + ~100k+ person pages (~162k sitemap URLs).
 Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain property `sc-domain:stillcasting.app`.
 
+**Repo**: `git@github.com:snobist/stillcasting.app.git` (private, SSH; see [[access]]). Local clone on the new Mac:
+`~/Documents/Private_Projects/stillcasting`, branch `develop` (cloned 2026-09-14; HEAD f5a0f60 = main). Top level:
+`backend/`, `frontend/`, `worker/`, `nginx/`, `Caddyfile`, `docker-compose.yml`, `docker-compose.staging.yml`, `Makefile`, `docs/`.
+
 ## Pages
 - [[seo-indexing]] — indexability gates, soft-404 fix, sitemap/robots, dev-subdomain exposure, canonicals.
 - [[gsc-performance]] — Search Console metrics timeline, mid-July impression drop, traffic/ad-revenue model.

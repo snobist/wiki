@@ -2,6 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-14 — setup | stillcasting repo cloned to new Mac
+- Remote located (`git@github.com:snobist/stillcasting.app.git`, only reference was in the frozen old wiki) and cloned to `~/Documents/Private_Projects/stillcasting`, branch `develop`. Recorded in [[access]], [[environment]], [[stillcasting-index]].
+- Open: run the diag script / fixes against this checkout.
+
 ## 2026-09-14 — setup | stillcasting fix runbook, phase 1
 - Cowork cannot reach the OCI box (SSH blocked in the VM; Terminal is click-only for computer use). Wrote `bin/stillcasting-diag.sh`: installs key to `~/.ssh/oci-mas.key`, collects disk/containers/Caddyfile/sitemap-route/DB diagnostics into `raw/docs/stillcasting-diag-<date>.txt`.
 - Open: Alex runs it on the Mac; next session reads the output and applies the 3 fixes (duplicate entity, /sitemap.xml, dev lock-down).
