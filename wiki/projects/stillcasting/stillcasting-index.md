@@ -28,6 +28,10 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
+## Audit 2026-09-14 (Claude Code, with server access)
+- Full findings: [[stillcasting-bug-audit-2026-09-14]]. Workers confirmed RUNNING; `/data` at 92 %. Jeremy Thomas duplicate = false death
+  from the Wikipedia deaths checker (name-only match, DOB-less shells skip the birth-year gate); recurring (Terence Donovan 07-19, ~10 more).
+
 ## External check 2026-09-14 (from Cowork; no server access)
 - Site up; homepage stats: 283,564 titles / 1,154,852 cast / 72% alive / 87,090 deceased.
 - Data is FRESH — "Remembered This Week" has deaths dated up to 2026-09-13 → workers are running again (contradicts

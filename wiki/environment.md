@@ -7,7 +7,7 @@
 - **Old Mac** (retired ~2026-08-31): user `oleksandrgrytsenko`. Any path starting `/Users/oleksandrgrytsenko/` in
   raw sources is stale and must be re-mapped (lint item).
 - **OCI VPS** — hosts stillcasting prod/staging, financial-research-mas (prod+staging), Kasm. `/data` volume is
-  74 GB and chronically full (see [[infra-deploys]], stillcasting log 2026-08-26/28).
+  74 GB and chronically full (see [[infra-deploys]], stillcasting log 2026-08-26/28). 2026-09-14: 92 % used, 5.7 GB free; all workers running.
 
 ## Where sessions run
 - Claude Cowork: cloud container + a Linux VM on the Mac (`device_bash`). Mounted folders appear under

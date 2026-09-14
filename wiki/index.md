@@ -43,7 +43,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 - [[humanizer-alex]] — Alex's work voice (skill to port).
 
 ## Analyses
-- (none yet — lint reports and kept query answers go here)
+- [[stillcasting-bug-audit-2026-09-14]] — full site/code/prod audit: false-death matcher bug (Jeremy Thomas), sitemap >50k URLs, robots.txt shadowing, 30+ findings.
 
 ## Personal
 - [[tenerife-cruise-2027]] — Jan 2027 cruise dates and flight plan.

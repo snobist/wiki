@@ -1,0 +1,549 @@
+### stillcasting diagnostics 2026-09-14T10:08:25Z
+
+=== disk
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        45G   18G   27G  40% /
+/dev/sdb         74G   64G  5.7G  92% /data
+4.0K	/var/lib/docker
+
+=== containers
+NAMES                                    STATUS                  IMAGE
+stillcasting-frontend-1                  Up 3 days               stillcasting-frontend
+stillcasting-worker-images-1             Up 3 days               stillcasting-worker-images
+stillcasting-worker-1                    Up 3 days               stillcasting-worker
+stillcasting-worker-backfill-1           Up 3 days               stillcasting-worker-backfill
+stillcasting-backend-1                   Up 3 days               stillcasting-backend
+stillcasting-beat-1                      Up 3 days               stillcasting-beat
+stillcasting-staging-frontend-1          Up 3 days               stillcasting-staging-frontend
+stillcasting-staging-staging-backend-1   Up 3 days               stillcasting-staging-staging-backend
+stillcasting-staging-worker-images-1     Up 3 days               stillcasting-staging-worker-images
+stillcasting-staging-worker-1            Up 3 days               stillcasting-staging-worker
+stillcasting-staging-beat-1              Up 3 days               stillcasting-staging-beat
+stillcasting-nginx-1                     Up 3 days               stillcasting-nginx
+stillcasting-staging-staging-nginx-1     Up 3 days               stillcasting-staging-staging-nginx
+stillcasting-staging-postgres-1          Up 4 days (healthy)     postgres:16-alpine
+stillcasting-staging-redis-1             Up 4 days (healthy)     redis:7-alpine
+financial-research-mas-staging           Up 2 weeks              financial-research-mas-staging-mas
+financial-research-mas                   Up 4 days               financial-research-mas-mas
+kasm_proxy                               Up 2 months             kasmweb/nginx:1.25.3
+kasm_share                               Up 2 weeks (healthy)    kasmweb/share:1.15.0
+kasm_agent                               Up 2 months (healthy)   kasmweb/agent:1.15.0
+kasm_guac                                Up 2 months (healthy)   kasmweb/kasm-guac:1.15.0
+kasm_manager                             Up 2 weeks (healthy)    kasmweb/manager:1.15.0
+kasm_api                                 Up 2 weeks (healthy)    kasmweb/api:1.15.0
+kasm_redis                               Up 2 months             redis:5-alpine
+kasm_db                                  Up 2 weeks (healthy)    postgres:12-alpine
+stillcasting-caddy-1                     Up 3 days               caddy:2-alpine
+stillcasting-redis-1                     Up 3 months (healthy)   redis:7-alpine
+stillcasting-postgres-1                  Up 5 days (healthy)     postgres:16-alpine
+
+=== stillcasting tree
+total 156
+drwxr-xr-x 11 ubuntu ubuntu  4096 Sep  9 14:22 .
+drwxr-xr-x 24 ubuntu ubuntu  4096 Sep  9 14:13 ..
+-rw-r--r--  1 ubuntu ubuntu  6148 May 18 16:04 .DS_Store
+drwxr-xr-x  2 ubuntu ubuntu  4096 May  9 11:48 .claude
+-rw-r--r--  1 ubuntu ubuntu  2932 Sep  9 15:47 .env
+-rw-r--r--  1 ubuntu ubuntu  2425 May 14 10:18 .env.bak-20260514101853
+-rw-rw-r--  1 ubuntu ubuntu  2421 Jun  7 20:18 .env.example
+-rw-r--r--  1 ubuntu ubuntu  2862 Jun  7 16:15 .env.staging
+-rw-rw-r--  1 ubuntu ubuntu  2207 Jun  3 15:22 .env.staging.example
+drwxrwxr-x  8 ubuntu ubuntu  4096 Sep 10 16:56 .git
+drwxrwxr-x  3 ubuntu ubuntu  4096 Jun  3 15:22 .github
+-rw-rw-r--  1 ubuntu ubuntu   679 Jun  3 15:22 .gitignore
+-rw-rw-r--  1 ubuntu ubuntu  5893 Sep  9 14:22 Caddyfile
+-rw-rw-r--  1 ubuntu ubuntu  5264 Jun 19 13:14 Caddyfile.bak.1781867640
+-rw-r--r--  1 ubuntu ubuntu   518 May 18 13:34 Dockerfile
+-rw-rw-r--  1 ubuntu ubuntu  2330 Jun  3 15:22 Makefile
+-rw-rw-r--  1 ubuntu ubuntu 18053 Jun  3 18:43 README.md
+drwxr-xr-x  6 ubuntu ubuntu  4096 Sep  9 15:52 backend
+-rw-rw-r--  1 ubuntu ubuntu  4321 Jun  7 20:18 docker-compose.staging.yml
+-rw-rw-r--  1 ubuntu ubuntu  5110 Jun  9 16:44 docker-compose.yml
+-rw-r--r--  1 ubuntu ubuntu  2010 May 14 10:18 docker-compose.yml.bak-20260514101853
+drwxrwxr-x  4 ubuntu ubuntu  4096 Jun  3 15:22 docs
+drwxr-xr-x  4 ubuntu ubuntu  4096 Jun  7 15:30 frontend
+drwxr-xr-x  2 ubuntu ubuntu  4096 May  9 16:01 media
+drwxr-xr-x  2 ubuntu ubuntu  4096 Jun  6 11:55 nginx
+-rw-rw-r--  1 ubuntu ubuntu 13194 Jun  7 20:18 stillcasting_proposal_sitemap_noindex_2026-06-07.md
+drwxr-xr-x  6 ubuntu ubuntu  4096 Jun  3 15:22 worker
+Caddyfile
+Makefile
+README.md
+backend
+docker-compose.staging.yml
+docker-compose.yml
+docs
+frontend
+nginx
+stillcasting_proposal_sitemap_noindex_2026-06-07.md
+
+=== compose
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    shm_size: '256mb'
+    command: >
+      postgres
+      -c max_parallel_workers_per_gather=1
+      -c max_parallel_workers=2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: stillcasting
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/stillcasting
+      REDIS_URL: redis://redis:6379/0
+      MEDIA_ROOT: /app/media
+    volumes:
+      - media_data:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # User-facing worker: imports and scans — always responsive
+  worker:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/stillcasting
+      REDIS_URL: redis://redis:6379/0
+      MEDIA_ROOT: /app/media
+    volumes:
+      - media_data:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: ["celery", "-A", "stillcasting_worker.main", "worker",
+              "-Q", "imports.high,imports,scans,wiki-scans",
+              "--loglevel=info", "--concurrency=4"]
+
+  # Backfill worker: isolated single slot so scan floods never starve long-running backfills
+  worker-backfill:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/stillcasting
+      REDIS_URL: redis://redis:6379/0
+      MEDIA_ROOT: /app/media
+    volumes:
+      - media_data:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: ["celery", "-A", "stillcasting_worker.main", "worker",
+              "-Q", "backfill",
+              "--loglevel=info", "--concurrency=1"]
+
+  # Background worker: image downloads — isolated so it never blocks imports
+  worker-images:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/stillcasting
+      REDIS_URL: redis://redis:6379/0
+      MEDIA_ROOT: /app/media
+    volumes:
+      - media_data:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: ["celery", "-A", "stillcasting_worker.main", "worker",
+              "-Q", "images",
+              "--loglevel=info", "--concurrency=4"]
+
+  beat:
+    build:
+      context: .
+      dockerfile: worker/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/stillcasting
+      REDIS_URL: redis://redis:6379/0
+      MEDIA_ROOT: /app/media
+    volumes:
+      - media_data:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: ["celery", "-A", "stillcasting_worker.main", "beat", "--loglevel=info"]
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_BACKEND_URL: https://stillcasting.app/api
+        NEXT_PUBLIC_GA_ID: G-42HBFT8GYV   # L-6: prod GA4 property baked at build time
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      BACKEND_URL: http://backend:8000
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET}
+    depends_on:
+      - backend
+
+  nginx:
+    build:
+      context: ./nginx
+    restart: unless-stopped
+    # No host port bindings — Caddy reaches nginx via the Docker network (nginx:80)
+    environment:
+      HTTP_AUTH_USER: ${HTTP_AUTH_USER}
+      HTTP_AUTH_PASS: ${HTTP_AUTH_PASS}
+    volumes:
+      - media_data:/media:ro        # serve media files directly — bypass Python backend
+    depends_on:
+      - frontend
+      - backend
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "10.0.0.33:443:443"
+      - "8443:8443"
+      - "8081:8081"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - default
+      - kasm_network
+      - staging_network
+    depends_on:
+      - nginx
+      - backend
+
+volumes:
+  postgres_data:
+  media_data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  default:
+  kasm_network:
+    external: true
+    name: kasm_default_network
+  staging_network:
+    external: true
+    name: stillcasting-staging_default
+
+=== Caddyfile
+(common) {
+    encode gzip zstd
+
+    log {
+        output stdout
+        format json
+        level INFO
+    }
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -X-Powered-By
+        # H-8: Enforced Content Security Policy.
+        # script-src 'unsafe-inline' is required by Next.js (inline hydration + JSON-LD
+        # dangerouslySetInnerHTML). No nonce middleware is in place, so hash-based CSP
+        # is not practical without a major refactor.
+        # connect-src covers GA4 endpoints: analytics.google.com, google-analytics.com,
+        # and region1.google-analytics.com (EU data-collection endpoint).
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://image.tmdb.org https://www.themoviedb.org data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    }
+
+    route {
+        # Block sensitive path probes (.git, .env, config files)
+        @sensitive_paths {
+            path /.git/*
+            path /.env*
+            path /env
+            path /env.*
+            path /config.js
+            path /js/config.js
+            path /api/.env
+            path /api/.env*
+        }
+        respond @sensitive_paths 403
+
+        # Block all bots except legitimate search engines
+        # HEAD is excluded — uptime monitors (UptimeRobot, Pingdom, StatusCake)
+        # send HEAD requests with bot-like User-Agents. Allow them so health
+        # checks and link validators work correctly.
+        @generic_bots {
+            header_regexp User-Agent (?i)(bot|crawler|spider|scraper)
+            not header_regexp User-Agent (?i)(Googlebot|Bingbot|Bingpreview|DuckDuckBot|Slurp|Baiduspider|YandexBot|Applebot|AdsBot|Google-InspectionTool|GoogleOther|facebookexternalhit)
+            not method HEAD
+        }
+        respond @generic_bots 403
+
+        # Block crawlers from internal API
+        @googlebot_api {
+            path /api/*
+            header User-Agent *Googlebot*
+        }
+        respond @googlebot_api 403
+
+        @googleother_api {
+            path /api/*
+            header User-Agent *GoogleOther*
+        }
+        respond @googleother_api 403
+
+        @bingbot_api {
+            path /api/*
+            header User-Agent *bingbot*
+        }
+        respond @bingbot_api 403
+
+        handle_path /api/* {
+            # Route through nginx:8000 so /media/ is served directly from the
+            # volume with Cache-Control headers; everything else is proxied by
+            # nginx to backend:8000 (FastAPI).
+            reverse_proxy nginx:8000
+        }
+
+        handle {
+            reverse_proxy nginx:80
+        }
+    }
+}
+
+stillcasting.app {
+    import common
+}
+
+www.stillcasting.app {
+    redir https://stillcasting.app{uri} permanent
+}
+
+http://130.61.219.74 {
+    import common
+}
+
+# Kasm virtual desktop — proxied through Caddy for valid SSL cert
+stillcasting.app:8443 {
+    reverse_proxy https://kasm_proxy:8443 {
+        header_up Host {host}
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+# Staging environment — noindex so crawlers never index dev content
+dev.stillcasting.app:8081 {
+    encode gzip zstd
+
+    header {
+        X-Robots-Tag "noindex, nofollow"
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        -X-Powered-By
+        # H-8: Enforced CSP — same policy as production (staging validates before prod).
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://image.tmdb.org https://www.themoviedb.org data: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    }
+
+    handle_path /api/* {
+        # Staging goes direct to backend — nginx.conf port 8000 uses hardcoded
+        # 'backend' hostname which doesn't exist in the staging Docker network.
+        reverse_proxy staging-backend:8000
+    }
+
+    handle {
+        reverse_proxy staging-nginx:80
+    }
+}
+
+# Portfolio dashboard (financial-research-mas, Epic 10) — reverse-proxied to the
+# MAS container on the shared stillcasting_default network. App handles basic auth
+# (WEB_PASSWORD). noindex — private single-user dashboard.
+portfolioview.stillcasting.app {
+    encode gzip zstd
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        X-Robots-Tag "noindex, nofollow"
+        -X-Powered-By
+    }
+    reverse_proxy financial-research-mas:8080
+}
+
+=== git
+origin	git@github.com:snobist/stillcasting.app.git (fetch)
+origin	git@github.com:snobist/stillcasting.app.git (push)
+f5a0f60 perf(images): born-in only generates display images for the actors a page can show
+c6be633 perf(images): display-sized WebP for cached widgets, generated at cook time, swept when unreferenced
+5020547 perf(cache): stale-while-revalidate — serve cached data instantly, refresh in background, never delete
+2a66373 claude: 2026-09-09 14:58:41
+a1d1869 fix(homepage): Careers Across Generations shows only iconic films and real actors
+?? Caddyfile.bak.1781867640
+?? Dockerfile
+?? backend/src/stillcasting_api/connectors/persons.py
+?? backend/src/stillcasting_api/routers/scanner_service.py
+?? backend/src/stillcasting_api/routers/search_service.py
+?? backend/src/stillcasting_api/routers/tmdb.py
+?? backend/src/stillcasting_api/services/persons.py
+?? docker-compose.yml.bak-20260514101853
+?? nginx/nginx.conf.bak-20260514101853
+?? worker/src/stillcasting_worker/Dockerfile
+
+=== sitemap routes in frontend
+/home/ubuntu/stillcasting/backend/src/stillcasting_api/routers/persons.py
+/home/ubuntu/stillcasting/backend/src/stillcasting_api/routers/titles.py
+/home/ubuntu/stillcasting/backend/src/stillcasting_api/services/seo_service.py
+/home/ubuntu/stillcasting/backend/src/stillcasting_api/services/title_service.py
+/home/ubuntu/stillcasting/backend/src/stillcasting_api/models/__init__.py
+/home/ubuntu/stillcasting/frontend/src/app/(main)/titles/[slug]/page.tsx
+/home/ubuntu/stillcasting/frontend/src/app/robots.ts
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.ts
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts
+/home/ubuntu/stillcasting/frontend/tsconfig.tsbuildinfo
+/home/ubuntu/stillcasting/frontend/public/robots.txt
+/home/ubuntu/stillcasting/frontend/next.config.js
+/home/ubuntu/stillcasting/stillcasting_proposal_sitemap_noindex_2026-06-07.md
+/home/ubuntu/stillcasting/worker/src/stillcasting_worker/tasks.py
+/home/ubuntu/stillcasting/worker/.venv/lib/python3.14/site-packages/pygments/lexers/typoscript.py
+/home/ubuntu/stillcasting/README.md
+/home/ubuntu/stillcasting/docs/bugs/low.md
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.ts:3:// H-4: Cache the sitemap for 1 hour so `new Date()` calls within one generation
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.ts:44:    // /titles/sitemap returns only indexable titles — no noindex pages in sitemap.
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.ts:45:    // Single source of truth: both page template and sitemap read Title.indexable.
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.ts:46:    const res = await fetch(`${BACKEND}/titles/sitemap`, { cache: "no-store" });
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.ts:76:export default async function sitemap(
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts:29:    const res = await fetch(`${BACKEND}/titles/sitemap/lastmod`, { cache: "no-store" });
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts:51:  // sitemap 0 = static, 1 = titles, 2..N = persons
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts:54:    `  <sitemap><loc>${SITE}/sitemap/0.xml</loc></sitemap>`,
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts:56:    `  <sitemap><loc>${SITE}/sitemap/1.xml</loc>${lastmodAttr(titlesLastmod)}</sitemap>`,
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts:59:      `  <sitemap><loc>${SITE}/sitemap/${i + 2}.xml</loc>${lastmodAttr(personsLastmod)}</sitemap>`
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts:64:<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.xml/route.ts:66:</sitemapindex>`;
+
+=== died-this-week source
+/home/ubuntu/stillcasting/backend/src/stillcasting_api/routers/homepage.py
+/home/ubuntu/stillcasting/backend/src/stillcasting_api/services/display_images.py
+/home/ubuntu/stillcasting/backend/migrations/versions/0016_add_missing_indexes.py
+/home/ubuntu/stillcasting/frontend/src/app/(main)/died-this-week/page.tsx
+/home/ubuntu/stillcasting/frontend/src/app/(main)/page.tsx
+/home/ubuntu/stillcasting/frontend/src/app/sitemap.ts
+/home/ubuntu/stillcasting/frontend/src/app/api/revalidate/route.ts
+/home/ubuntu/stillcasting/frontend/src/app/globals.css
+/home/ubuntu/stillcasting/frontend/src/lib/api/homepage.ts
+/home/ubuntu/stillcasting/frontend/src/components/new/Sidebar.tsx
+/home/ubuntu/stillcasting/frontend/src/components/HomeSections.tsx
+/home/ubuntu/stillcasting/frontend/tsconfig.tsbuildinfo
+/home/ubuntu/stillcasting/frontend/public/llms.txt
+/home/ubuntu/stillcasting/worker/src/stillcasting_worker/tasks.py
+/home/ubuntu/stillcasting/worker/.venv/lib/python3.14/site-packages/click/decorators.py
+/home/ubuntu/stillcasting/README.md
+/home/ubuntu/stillcasting/docs/bugs/medium.md
+
+=== workers/cron
+0 * * * * /home/ubuntu/bin/docker-disk-cleanup.sh
+*/5 * * * * /home/ubuntu/warm_cache.sh >/dev/null 2>&1
+15 * * * * /home/ubuntu/death_check.sh
+NEXT                         LEFT        LAST                         PASSED       UNIT                         ACTIVATES                     
+Mon 2026-09-14 12:54:18 CEST 45min left  Mon 2026-09-14 01:33:19 CEST 10h ago      fwupd-refresh.timer          fwupd-refresh.service         
+Mon 2026-09-14 20:12:15 CEST 8h left     Mon 2026-09-14 08:33:27 CEST 3h 35min ago motd-news.timer              motd-news.service             
+Tue 2026-09-15 00:00:00 CEST 11h left    Mon 2026-09-14 00:00:01 CEST 12h ago      logrotate.timer              logrotate.service             
+Tue 2026-09-15 00:00:00 CEST 11h left    Mon 2026-09-14 00:00:01 CEST 12h ago      man-db.timer                 man-db.service                
+Tue 2026-09-15 02:21:37 CEST 14h left    Mon 2026-09-14 02:21:37 CEST 9h ago       systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+Tue 2026-09-15 04:04:21 CEST 15h left    Mon 2026-09-14 08:51:00 CEST 3h 17min ago apt-daily.timer              apt-daily.service             
+Tue 2026-09-15 06:47:02 CEST 18h left    Mon 2026-09-14 06:11:52 CEST 5h 56min ago apt-daily-upgrade.timer      apt-daily-upgrade.service     
+Sun 2026-09-20 03:10:18 CEST 5 days left Sun 2026-09-13 03:10:07 CEST 1 day 8h ago e2scrub_all.timer            e2scrub_all.service           
+Mon 2026-09-21 00:00:00 CEST 6 days left Mon 2026-09-14 00:00:01 CEST 12h ago      fstrim.timer                 fstrim.service                
+
+9 timers listed.
+Pass --all to see loaded but inactive timers, too.
+
+=== postgres container + schema
+PG=stillcasting-staging-postgres-1
+-- tables
+Did not find any relations.
+-- person table columns
+-- jeremy thomas rows
+ERROR:  relation "persons" does not exist
+LINE 1: select * from persons where slug in ('jeremy-thomas','jeremy...
+                      ^
+8652|Jeremy Thomas|3056|deceased|2026-09-11|'jeremi':1 'thoma':2|1949-07-26|London, England, UK|2026-09-13 00:30:07.852325+00|/mENxsXYilnQ2EO52Q04X73ukYM1.jpg|media/profiles/3056/w185.jpg|Q1365966|||2026-09-12 12:15:01.910488+00||United Kingdom|2|||Jeremy Jack Thomas|https://en.wikipedia.org/wiki/Jeremy_Thomas|Jeremy Jack Thomas is a British film producer. He is the founder and chairman of Recorded Picture Company. He produced Bernardo Bertolucci's The Last Emperor, which won him the 1988 Academy Award for Best Picture. In 2006 he received a European Film Award for Outstanding European Achievement in World Cinema. His father was director Ralph Thomas, while his uncle Gerald Thomas directed all of the films in the Carry On franchise.||jeremy-thomas|0.6887|||2026-09-12 12:15:02.098159+00|nm0859016|Production||Jeremy Jack Thomas (born 26 July 1949) was a British film producer. He is the founder and chairman of Recorded Picture Company. He produced Bernardo Bertolucci's The Last Emperor, which won the 1988 Academy Award for Best Picture. In 2006 he received a European Film Award for Outstanding European Achievement in World Cinema. His father was director Ralph Thomas (director of many of the Doctor films), while his uncle Gerald Thomas directed all of the films in the Carry On franchise.
+
+Description above from the Wikipedia article Jeremy Thomas, licensed under CC-BY-SA, full list of contributors on Wikipedia.|||||t|
+ERROR:  relation "people" does not exist
+LINE 1: select * from people where slug in ('jeremy-thomas','jeremy-...
+                      ^
+ERROR:  relation "people" does not exist
+LINE 1: select * from people where slug in ('jeremy-thomas','jeremy-...
+                      ^
+ERROR:  relation "person" does not exist
+LINE 1: select * from person where slug in ('jeremy-thomas','jeremy-...
+                      ^
+ERROR:  relation "person" does not exist
+LINE 1: select * from person where slug in ('jeremy-thomas','jeremy-...
+                      ^
+-- death-related tables
+pg_replication_origin_status
+
+=== dev subdomain
+dev: 308 size=0
+HTTP/2 200 
+alt-svc: h3=":443"; ma=2592000
+server: Caddy
+date: Mon, 14 Sep 2026 10:08:36 GMT
+
+
+=== sitemap.xml locally
+sitemap.xml: 200
+sitemap/0.xml: 200

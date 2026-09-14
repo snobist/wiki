@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-14 — query | stillcasting bug audit
+- Ran `bin/stillcasting-diag.sh` (key now at `~/.ssh/oci-mas.key`, SSH works from Claude Code), queried prod DB/logs, two code-review passes. Wrote [[stillcasting-bug-audit-2026-09-14]].
+- Headline: Wikipedia deaths checker attaches deaths to DOB-less same-name shells (Jeremy Thomas, Terence Donovan, ~10 more in 90 days); titles sitemap has 138,834 URLs in one file; `public/robots.txt` shadows `robots.ts`.
+- Open: fix nothing yet — Alex decides order; suggested order at the end of the audit page.
+
 ## 2026-09-14 — setup | stillcasting repo cloned to new Mac
 - Remote located (`git@github.com:snobist/stillcasting.app.git`, only reference was in the frozen old wiki) and cloned to `~/Documents/Private_Projects/stillcasting`, branch `develop`. Recorded in [[access]], [[environment]], [[stillcasting-index]].
 - Open: run the diag script / fixes against this checkout.
