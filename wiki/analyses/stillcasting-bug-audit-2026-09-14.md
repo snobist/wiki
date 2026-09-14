@@ -1,7 +1,7 @@
 # stillcasting.app — bug audit 2026-09-14
 
 Purpose: findings from a full assessment (live probes, prod DB/log queries via SSH, code review of `develop` @ f5a0f60).
-Status: findings only — nothing fixed yet. `Last-verified: 2026-09-14`. Raw diag: `raw/docs/stillcasting-diag-2026-09-14.txt`.
+Status: FIXES MERGED to `develop` 2026-09-14 (commit cc49224, branch `fix/audit-2026-09-14`) → staging auto-deploy; prod NOT deployed (needs a tag push). Prod data cleanup pending — see bottom. `Last-verified: 2026-09-14`. Raw diag: `raw/docs/stillcasting-diag-2026-09-14.txt`.
 Hub: [[stillcasting-index]]. Related: [[pipeline-science]] (record linkage), [[seo-indexing]].
 
 ## A. Confirmed data-integrity bug — false deaths from the Wikipedia deaths checker (HIGH, recurring)
@@ -65,3 +65,25 @@ Hub: [[stillcasting-index]]. Related: [[pipeline-science]] (record linkage), [[s
 1. A (wiki-checker matching + snapshot + photo-by-name) and clean the ~10 wrong shells (set living, null death fields, drop wrong photo).
 2. B1 (chunk titles sitemap) + B2 (delete `public/robots.txt`, fix rewrites) + B6.
 3. C1, C2, D1, D3. Then the rest.
+
+## Fix status (2026-09-14, same day)
+Merged into `develop` (staging auto-deploys on push). Verified on the OCI box in throwaway containers: backend 349 passed,
+worker 8 passed, `next build` OK. Prod deploy = tag push (`git tag vX && git push origin vX`) — not done.
+
+Fixed: A (Wikidata-id resolution + evidence-gated name match + snapshot-after-match + date corrections + no name-based
+photo + PATCH→living clears death fields + indexability recompute on wiki-checker/IMDb deaths), B1 (titles sitemap chunked,
+new `/titles/sitemap?chunk=` + `/titles/sitemap/count`; ids now 0=static, 1..T titles, T+1.. persons), B2 (`public/robots.txt`
+deleted, `robots.ts` allows `/api/media/`), B3, B4, B6, C1, C2, C3, C4, C6, C7 (utils.calcAge on date parts), C8, C9 (og:image
+w500 + wording), D1 (import-jobs dedup + allowlist), D2 (offset/year/q caps), D3 (row lock + 15-min orphan window), D4, D5,
+D6, D7, D11.
+NOT fixed (next iteration): B5 (deaths/born-in years in sitemap), B7 dev.stillcasting.app :443 (Caddy change on the box),
+C10 (death story not in SSR when bio exists), C11 (age-in-year sort), C12 (DeathInfoSection/TitleCastWrapper heavy polling),
+C15 a11y, D8/D13 (search writes race), D9 (wiki re-scan churn), D10 (docs/bugs SEC-04 wording), E stray prod files, /data 92 %.
+
+**Prod data cleanup — PENDING Alex's approval** (Claude Code's auto mode refused the remote write). Script:
+`bin/stillcasting-revert-false-deaths.sh` — reverts the 5 shells verified against Wikidata (TMDb id of the real person differs):
+jeremy-thomas 321670 (real 3056), virginio-gazzolo 368825 (real 103104, NOT in DB), dave-kendall 401991 (real 101826, NOT in DB),
+jeff-olson 28721 (real 1426772 = jeff-olson-3), terence-donovan 31948 (real 75394 = terence-donovan-1942); creates the two missing
+real persons as deceased with the Wikipedia date and queues their pipeline; deletes the two wrong portraits; refreshes caches.
+Verdicts for all 48 suspects: `raw/docs/stillcasting-shell-verdicts-2026-09-14.json` (4 "shell is correct", 5 false, rest unverifiable).
+Also to do on the box: `rm -rf /home/ubuntu/audit-test` (test clone) and `DROP DATABASE stillcasting_test` on the staging Postgres.

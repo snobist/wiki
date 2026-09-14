@@ -2,6 +2,12 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-14 — fix | stillcasting audit fixes merged to develop
+- ~25 audit findings fixed on `fix/audit-2026-09-14` → merged to `develop` (staging auto-deploy). Tests/build verified on the OCI box.
+  Backlog item recorded in [[proposals]]: sort "Careers Across Generations" by actor popularity.
+- Open: Alex runs `bin/stillcasting-revert-false-deaths.sh` (prod data; auto mode refused), then tag for prod. Remaining items listed
+  at the bottom of [[stillcasting-bug-audit-2026-09-14]].
+
 ## 2026-09-14 — query | stillcasting bug audit
 - Ran `bin/stillcasting-diag.sh` (key now at `~/.ssh/oci-mas.key`, SSH works from Claude Code), queried prod DB/logs, two code-review passes. Wrote [[stillcasting-bug-audit-2026-09-14]].
 - Headline: Wikipedia deaths checker attaches deaths to DOB-less same-name shells (Jeremy Thomas, Terence Donovan, ~10 more in 90 days); titles sitemap has 138,834 URLs in one file; `public/robots.txt` shadows `robots.ts`.
