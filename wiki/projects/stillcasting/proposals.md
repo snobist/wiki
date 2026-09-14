@@ -32,6 +32,14 @@ Last-verified: 2026-08-09. Full docs live in `../` (ClaudeProjects root) and `so
   Optional zero-maintenance alternative: always use the "of {Name}" ordering (loses a little keyword adjacency).
 
 ## Proposed (not started)
+### Homepage "Careers Across Generations" — sort by actor popularity (requested 2026-09-14)
+- Alex: "this guy has 2 appearances, so why should I care, while Mickey Rooney was really in a few famous movies".
+  Example: Stan Alexander (Bambi 1942 → Once Upon a Studio 2023, 2 credits) ranks next to Mickey Rooney.
+- Intent: order the section by actor notability (tmdb_popularity and/or credit count / known-for strength), not by span
+  alone; consider a minimum-credits floor so archive-footage / cameo-only spans don't qualify. Backend: `homepage.py`
+  spanning-generations query (commit a1d1869 already restricted it to "iconic films and real actors").
+- Status: backlog for next iteration; not part of the 2026-09-14 bug-fix pass ([[stillcasting-bug-audit-2026-09-14]]).
+
 ### Pipeline science upgrades
 - See [[pipeline-science]] — actuarial survival modeling, Bayesian death fusion, record linkage,
   survival-analysis content, hazard-based scan scheduling, anomaly guard.
