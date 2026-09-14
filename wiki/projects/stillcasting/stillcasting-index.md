@@ -23,3 +23,18 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 - Open: GSC API keys; lock down `dev.stillcasting.app`; backlinks; Marjane Satrapi false-death check; `MIN_CREDITS`.
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
+
+## External check 2026-09-14 (from Cowork; no server access)
+- Site up; homepage stats: 283,564 titles / 1,154,852 cast / 72% alive / 87,090 deceased.
+- Data is FRESH — "Remembered This Week" has deaths dated up to 2026-09-13 → workers are running again (contradicts
+  the 2026-08-28 "workers stopped" state above; server-side confirmation still needed: /data headroom, worker status).
+- robots.txt: Allow / (blocks /api/); citation bots allowed, training/SEO bots blocked; sitemaps at `/sitemap/0..4.xml`
+  (`/sitemap.xml` and `/sitemap-0.xml` are NOT valid paths). `/sitemap/0.xml` = 28 static URLs, latest lastmod 2026-06-06.
+- **Data-quality finding**: `/persons/jeremy-thomas` (1 credit, "Not Quite Hollywood" 2008, no bio, death 2026-09-12)
+  vs `/persons/jeremy-thomas-2` (the producer, b. 1949-07-26, death 2026-09-11 Oxfordshire). Looks like a duplicate
+  TMDb entity fused with the same death via name match, with a date off by one day — candidate for the record-linkage /
+  false-death checks in [[pipeline-science]]. Both appear on /died-this-week.
+- `dev.stillcasting.app` still resolves and serves something (binary/non-HTML response to the fetcher) — lock-down
+  item remains open.
+- Network note: stillcasting.app is blocked by the Cowork proxy (curl from both cloud and Mac VM → 403); only the
+  WebFetch tool reaches it. SSH to the OCI box is impossible from Cowork — use Claude Code / Terminal on the Mac.
