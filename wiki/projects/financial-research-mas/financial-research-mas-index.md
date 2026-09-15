@@ -3,6 +3,17 @@
 Async multi-agent system generating investment signals from news, earnings and portfolio monitoring.
 `Last-verified: 2026-08-09`. Migrated 2026-09-12 from `~/Documents/ClaudeProjects/financial-research-mas-wiki`.
 
+**Repo**: `git@github.com:snobist/mas.git` (private). Local clone `~/Documents/Private_Projects/financial-research-mas`
+(cloned 2026-09-15). `main` is the live branch; `develop` had been stale since 2026-06 and was fast-forwarded to `main`
+on 2026-09-15. Delivery = GitHub Actions: push `develop` → staging (`deploy-staging.yml`), push tag `v*` → prod
+(`deploy-prod.yml`); both rsync code (excluding `.env`) and rebuild. Old `deploy.sh` needs `mas_key.pem` and still
+has a hardcoded Serper API key in git — rotate it.
+
+**Models** (`Last-verified: 2026-09-15`): every role runs `deepseek/deepseek-v4.1-flash` via `AGENT_MODEL` in
+`app/config.py` (it overrides any `AGENT_{FAST,MID,STRONG,PREMIUM}_MODEL`, blank it to route per role). V4.1 Flash reasons
+by default at high effort and reasoning tokens count toward `max_tokens`, so `get_llm` sends `reasoning.enabled` per call,
+on only for `AGENT_REASONING_ROLES` (default `strong`). Merged to `develop` 2026-09-15 (commit efc2332); prod not tagged.
+
 **Stack**: Python 3.12, LangGraph orchestration, OpenRouter LLM routing, IBKR Client Portal API, Telegram output,
 FastAPI+HTMX dashboard on :8080, Langfuse prompts, Docker on OCI (prod + staging; images ~11.7 GB — see stillcasting infra).
 

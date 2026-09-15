@@ -2,6 +2,12 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-15 — change | MAS: all agents on deepseek/deepseek-v4.1-flash
+- Cloned `snobist/mas` to `~/Documents/Private_Projects/financial-research-mas`. Added `AGENT_MODEL` (overrides all roles) and
+  per-role reasoning control (`AGENT_REASONING_ROLES=strong`); footer shows real model names. Merged to `develop` → staging deploy.
+- Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
+- Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
+
 ## 2026-09-14 — fix | stillcasting audit fixes merged to develop
 - ~25 audit findings fixed on `fix/audit-2026-09-14` → merged to `develop` (staging auto-deploy). Tests/build verified on the OCI box.
   Backlog item recorded in [[proposals]]: sort "Careers Across Generations" by actor popularity.
