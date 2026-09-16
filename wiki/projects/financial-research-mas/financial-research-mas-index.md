@@ -12,7 +12,9 @@ has a hardcoded Serper API key in git — rotate it.
 **Models** (`Last-verified: 2026-09-15`): every role runs `deepseek/deepseek-v4.1-flash` via `AGENT_MODEL` in
 `app/config.py` (it overrides any `AGENT_{FAST,MID,STRONG,PREMIUM}_MODEL`, blank it to route per role). V4.1 Flash reasons
 by default at high effort and reasoning tokens count toward `max_tokens`, so `get_llm` sends `reasoning.enabled` per call,
-on only for `AGENT_REASONING_ROLES` (default `strong`). Merged to `develop` 2026-09-15 (commit efc2332); prod not tagged.
+on only for `AGENT_REASONING_ROLES` (default `strong`). Shipped to prod 2026-09-16 as tag `v1.1.0`; staging got it 2026-09-15.
+Verified in both live containers: all four roles report `deepseek/deepseek-v4.1-flash` and a smoke test of every role + tool
+calling returns valid JSON (the 300/320-token `fast`/`mid` calls prove reasoning is off there — with it on they return empty).
 
 **Stack**: Python 3.12, LangGraph orchestration, OpenRouter LLM routing, IBKR Client Portal API, Telegram output,
 FastAPI+HTMX dashboard on :8080, Langfuse prompts, Docker on OCI (prod + staging; images ~11.7 GB — see stillcasting infra).

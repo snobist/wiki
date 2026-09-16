@@ -2,6 +2,15 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-16 — change | MAS: deepseek/deepseek-v4.1-flash released to prod (v1.1.0)
+- Merged `develop` → `main`, tagged `v1.1.0`; `deploy-prod.yml` rsynced + rebuilt. Prod container recreated 10:12 CEST,
+  bot polling, scheduler up. Smoke test PASS in prod and staging (all 4 roles + tool calling).
+- OpenRouter credits had run out: prod threw 402 on every call for 48h+ (~398 errors), staging likewise — unrelated to the
+  model change. Alex topped up 2026-09-16; calls 200 again.
+- Timing gotcha: `deploy-prod.yml` rsyncs code first, then rebuilds — for ~2 min the box has new files but the OLD process.
+  A Gemini call in OpenRouter activity at 10:08 was prod's pre-restart process, not a config failure.
+- Open: rotate the Serper key hardcoded in `deploy.sh`. Watch the first full prod news run on DeepSeek for output quality.
+
 ## 2026-09-15 — change | MAS: all agents on deepseek/deepseek-v4.1-flash
 - Cloned `snobist/mas` to `~/Documents/Private_Projects/financial-research-mas`. Added `AGENT_MODEL` (overrides all roles) and
   per-role reasoning control (`AGENT_REASONING_ROLES=strong`); footer shows real model names. Merged to `develop` → staging deploy.
