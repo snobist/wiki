@@ -9,7 +9,14 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
   model change. Alex topped up 2026-09-16; calls 200 again.
 - Timing gotcha: `deploy-prod.yml` rsyncs code first, then rebuilds — for ~2 min the box has new files but the OLD process.
   A Gemini call in OpenRouter activity at 10:08 was prod's pre-restart process, not a config failure.
+- First prod run on DeepSeek: portfolio monitor #657 (10:14 CEST, /research_portfolio) — 9/9 positions, 18 LLM calls, full
+  report delivered to Telegram. No parse/empty-response failures.
+- Telegram gotcha: a command sent during a prod restart is queued by Telegram and answered only once polling resumes
+  (~2 min after container start, after the HF model load). Looks like "no reply"; the reply arrives late. Confirmed 2026-09-16.
+- Prod monitor run #654 (08:00 CEST, pre-top-up) has 402 errors baked into its report text — treat pre-2026-09-16-10:00 output as junk.
 - Open: rotate the Serper key hardcoded in `deploy.sh`. Watch the first full prod news run on DeepSeek for output quality.
+  Portfolio cache is stale (last IBKR import 2026-07-20) — monitor is rating a July snapshot. ~12 log strings still name the
+  old models ("Sonnet price levels", "Gemini extracted", "Llama filter") — misleading now that every role is DeepSeek.
 
 ## 2026-09-15 — change | MAS: all agents on deepseek/deepseek-v4.1-flash
 - Cloned `snobist/mas` to `~/Documents/Private_Projects/financial-research-mas`. Added `AGENT_MODEL` (overrides all roles) and
