@@ -24,6 +24,17 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-17 — fix | stillcasting media cleanup: images only for indexable pages
+- Finding: half the media volume was images for NOINDEX pages (117,245 titles, 216,499 persons) — crawlers trigger a photo download
+  on the first hit of every person page; every completed import stored a poster; backfill queued Wikipedia portraits for everyone.
+  Import cascade: 270,804/286,820 titles have complete cast; 331,794 failed import jobs.
+- Done with Alex's approval on prod: local paths nulled + folders deleted for all noindex entities (24 GB, /data 100 % → 57 %);
+  `worker-images` STOPPED and `images` queue purged so visits don't re-download; homepage/search Redis caches dropped, ISR revalidated.
+  Lists kept in `/home/ubuntu/media-cleanup-2026-09-17/`.
+- Code on `develop` (825e3d9): downloads gated on `indexable` in persons router, run_import_job, background rescan, wiki backfill.
+- Open: deploy develop to prod (tag), then `redis-cli del images` and `docker compose start worker-images`. Still to decide: TMDb CDN
+  instead of local JPEGs for the remaining ~25 GB; w500 posters; volume expansion. Kasm / MAS staging removal optional.
+
 ## 2026-09-17 — incident | stillcasting down: /data 100 % (Postgres PANIC, Redis MISCONF)
 - Cause: media volume 51 GB (TMDb poster/profile JPEGs, two sizes each, since May; ~1.5 GB/day) + 8.7 GB unrotated container logs.
   Homepage-only WebP feature is 0.25 GB — not the culprit. Prod code untouched (f5a0f60); staging rebuild on 09-14 ate some headroom.

@@ -31,7 +31,9 @@ Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environme
 ## Incident 2026-09-17 — /data full again (see log)
 - Media 51 GB = TMDb JPEGs (posters w500 19 GB / w300 8 GB, profiles w342 8.6 GB / w185 3 GB, wiki portraits 5.4 GB); WebP display set 0.25 GB.
 - Log rotation now on (prod override + compose files on develop). Staging stack is DOWN; deploy is manual (Actions → "Deploy → Staging").
-- Decision pending: serve TMDb CDN instead of local JPEGs (frees ~46 GB, frontend already falls back) / expand volume.
+- 2026-09-17 evening: images for noindex titles/persons deleted (24 GB, now 57 % used); `worker-images` is STOPPED until the
+  indexable-gated download code (develop 825e3d9) reaches prod — then purge `images` queue and start it.
+- Decision pending: serve TMDb CDN instead of local JPEGs for the rest (~25 GB) / expand volume.
 
 ## Audit 2026-09-14 (Claude Code, with server access)
 - Full findings + fix status: [[stillcasting-bug-audit-2026-09-14]]. Fixes merged to `develop` 2026-09-14 (staging); prod not tagged;
