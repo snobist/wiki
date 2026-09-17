@@ -24,6 +24,16 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-17 — incident | stillcasting down: /data 100 % (Postgres PANIC, Redis MISCONF)
+- Cause: media volume 51 GB (TMDb poster/profile JPEGs, two sizes each, since May; ~1.5 GB/day) + 8.7 GB unrotated container logs.
+  Homepage-only WebP feature is 0.25 GB — not the culprit. Prod code untouched (f5a0f60); staging rebuild on 09-14 ate some headroom.
+- Fixed with Alex's approval: truncated logs (+6 GB), staging stack down `--rmi all` (+1 GB), log rotation 50m×3 applied to prod via
+  `docker-compose.override.yml` (containers recreated 17:38 CEST, all healthy) and committed to both compose files on `develop`;
+  staging deploy workflow switched to manual (workflow_dispatch). /data now 90 % (7 GB free).
+- Open: real fix = stop storing TMDb images locally (serve CDN; keep Wikipedia portraits) or drop w500 posters (19 GB); expand volume.
+  Kasm (~2.4 GB) and MAS staging (~2 GB) are further candidates. False-death cleanup script and prod tag still pending.
+- Note: Claude Code auto mode blocks most remote writes; Alex must approve each server change explicitly in chat.
+
 ## 2026-09-14 — fix | stillcasting audit fixes merged to develop
 - ~25 audit findings fixed on `fix/audit-2026-09-14` → merged to `develop` (staging auto-deploy). Tests/build verified on the OCI box.
   Backlog item recorded in [[proposals]]: sort "Careers Across Generations" by actor popularity.
