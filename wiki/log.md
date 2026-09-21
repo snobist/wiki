@@ -24,6 +24,19 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-21 — deploy | stillcasting v1.267.36 to production (Alex: "deploy to prod")
+- main fast-forwarded to develop (6f0ae00), tag v1.267.36; pre-deploy suite run on the box in self-cleaning containers (349 backend + 9 worker passed).
+  CI gate passed, deployed in ~5 min, health 200. Added sink guards: download tasks refuse non-indexable entities.
+- 336,612 image tasks had queued in 4 days while `worker-images` was stopped — purged before the tag. Worker is running again; first 5 min:
+  235 refused `not_indexable`, 38 downloaded.
+- Verified live: robots.ts served (Allow /api/media/, Disallow /import); sitemap index 0..11, titles in 4 chunks (45k/45k/45k/10k, was 138k in one);
+  Googlebot/bingbot pages+images 200 (JSON API still 403); ChatGPT-User/OAI-SearchBot/PerplexityBot/ClaudeBot 200; GPTBot/SemrushBot 403;
+  doctor-who SSR cast rows 50 (was 0); deaths page title/og fixed.
+- Cleanup: dangling images 933 MB + build cache 2 GB pruned, compose override removed (effective config identical), test leftovers removed.
+  /data 57 % (31 GB free). NOTE: hourly `docker-disk-cleanup.sh` only prunes at >=70 %, so deploy residue is not auto-cleaned below that.
+- NEW FINDING: >=1,226 indexable titles are adult films (name-pattern lower bound; no `adult` flag stored) and are in the sitemap — from the August
+  import cascade. Not fixed; awaiting Alex. Also open: false-death cleanup script; GSC exports for the July drop; backend self-restart on 09-20/21 night.
+
 ## 2026-09-21 — query | stillcasting search traffic ~zero: crawler access measured, audit corrected
 - Googlebot/bingbot: pages 200, **all /api/media images 403** (Caddy rule, not robots.txt — my 09-14 audit claim was wrong). AI citation bots
   invited by robots.txt get **403 on every page**. Both fixed in Caddyfile on `develop`; not yet on prod.

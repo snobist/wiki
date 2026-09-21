@@ -28,6 +28,10 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
+## Release 2026-09-21 — v1.267.36 on prod
+- All audit fixes + crawler-access + indexable-only image downloads are LIVE. `worker-images` running. /data 57 %.
+- Open: adult titles in the indexable set/sitemap (>=1,226); false-death cleanup script not yet run; July search drop unexplained (needs GSC exports).
+
 ## Incident 2026-09-17 — /data full again (see log)
 - Media 51 GB = TMDb JPEGs (posters w500 19 GB / w300 8 GB, profiles w342 8.6 GB / w185 3 GB, wiki portraits 5.4 GB); WebP display set 0.25 GB.
 - Log rotation now on (prod override + compose files on develop). Staging stack is DOWN; deploy is manual (Actions → "Deploy → Staging").
