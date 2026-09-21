@@ -24,6 +24,12 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-21 — query | stillcasting search traffic ~zero: crawler access measured, audit corrected
+- Googlebot/bingbot: pages 200, **all /api/media images 403** (Caddy rule, not robots.txt — my 09-14 audit claim was wrong). AI citation bots
+  invited by robots.txt get **403 on every page**. Both fixed in Caddyfile on `develop`; not yet on prod.
+- July-14 drop: not a deploy, not the cascade (cascade = 08-17..08-31). Still unconfirmed; asked Alex for GSC exports (Pages compare,
+  Page indexing, Crawl stats, Sitemaps, Manual actions, URL inspection).
+
 ## 2026-09-17 — fix | stillcasting media cleanup: images only for indexable pages
 - Finding: half the media volume was images for NOINDEX pages (117,245 titles, 216,499 persons) — crawlers trigger a photo download
   on the first hit of every person page; every completed import stored a poster; backfill queued Wikipedia portraits for everyone.

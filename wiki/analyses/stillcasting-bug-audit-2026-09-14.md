@@ -87,3 +87,14 @@ jeff-olson 28721 (real 1426772 = jeff-olson-3), terence-donovan 31948 (real 7539
 real persons as deceased with the Wikipedia date and queues their pipeline; deletes the two wrong portraits; refreshes caches.
 Verdicts for all 48 suspects: `raw/docs/stillcasting-shell-verdicts-2026-09-14.json` (4 "shell is correct", 5 false, rest unverifiable).
 Also to do on the box: `rm -rf /home/ubuntu/audit-test` (test clone) and `DROP DATABASE stillcasting_test` on the staging Postgres.
+
+## Corrections 2026-09-21 (measured with crawler user agents against prod)
+- **B2 was wrong about the cause of the image block.** It is not robots.txt: the Caddy rules `@googlebot_api` / `@googleother_api` /
+  `@bingbot_api` answer **403** for everything under `/api/`, including `/api/media/*`. The `Allow: /api/media/` added to robots.ts
+  would not have made images crawlable. Fixed in the Caddyfile on `develop` (`not path /api/media/*`).
+- **[[seo-indexing]] "crawler policy STRONG" is wrong at the edge**: ChatGPT-User, OAI-SearchBot, PerplexityBot, ClaudeBot all get 403 on
+  every page (their UAs contain "bot"; missing from the `@generic_bots` allowlist). Added to the allowlist on `develop`.
+- **Mid-July impression collapse is NOT explained by the import cascade**: import_jobs show the cascade ran the weeks of 2026-08-17 and
+  2026-08-24 (137k done + 225k failed), a month after the ~07-14 drop. Nothing was deployed 07-10..07-16 (one commit 07-09). Cause still
+  unconfirmed — needs GSC page-level data (see [[gsc-performance]]).
+- Caddy access log now covers only ~4.6 h (50m×3 rotation at ~50k req/4.6 h) — too short for crawl analysis; raise caddy's cap or ship logs.
