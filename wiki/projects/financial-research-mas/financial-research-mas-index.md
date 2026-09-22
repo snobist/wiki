@@ -16,6 +16,8 @@ on only for `AGENT_REASONING_ROLES` (default `strong`). Shipped to prod 2026-09-
 Verified in both live containers: all four roles report `deepseek/deepseek-v4.1-flash` and a smoke test of every role + tool
 calling returns valid JSON (the 300/320-token `fast`/`mid` calls prove reasoning is off there — with it on they return empty).
 
+**Releases**: `v1.1.0` (2026-09-16) DeepSeek for all roles · `v1.2.0` (2026-09-22) `/earnings` paginated, 30 per page.
+
 **Stack**: Python 3.12, LangGraph orchestration, OpenRouter LLM routing, IBKR Client Portal API, Telegram output,
 FastAPI+HTMX dashboard on :8080, Langfuse prompts, Docker on OCI (prod + staging; images ~11.7 GB — see stillcasting infra).
 

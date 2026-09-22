@@ -2,6 +2,13 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-22 — change | MAS dashboard: /earnings paginated (v1.2.0)
+- portfolioview.stillcasting.app/earnings: htmx infinite scroll (`/earnings/feed`, removed) → `?page=N`, 30 predictions
+  per page, Newer/Older + numbered window. Display filters (mcap < $50M, no stored quote) now run before slicing.
+- Verified in a throwaway container on a prod DB copy, then live in prod: 309 predictions → 11 pages, last page 9.
+- Pattern for dashboard checks: `docker run --rm` the prod image with new `app/` mounted and a `docker cp` of `/data/mas.db`,
+  hit routes with FastAPI TestClient (`app.web.server.build_web_app`); blank WEB_PASSWORD disables basic auth there.
+
 ## 2026-09-16 — change | MAS: deepseek/deepseek-v4.1-flash released to prod (v1.1.0)
 - Merged `develop` → `main`, tagged `v1.1.0`; `deploy-prod.yml` rsynced + rebuilt. Prod container recreated 10:12 CEST,
   bot polling, scheduler up. Smoke test PASS in prod and staging (all 4 roles + tool calling).
