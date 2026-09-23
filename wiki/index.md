@@ -28,6 +28,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ### financial-research-mas — `projects/financial-research-mas/`
 - [[financial-research-mas-index]] — hub + state as of 2026-08-09.
+- [[functionality-map]] — MAS pipelines, Telegram commands, jobs, dashboard pages, usage, dead code.
 - [[signal-quality]] — track records, calibration, contamination fix.
 - [[earnings-scoring]] — decision-aware grading, reaction baseline, direction gates.
 - [[infra-deploys]] — OCI/Docker deploy gotchas.

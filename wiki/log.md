@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-23 — query | MAS functionality map
+- Read code + prod run_log; wrote [[functionality-map]] (pipelines, commands, jobs, pages, usage, dead code).
+
 ## 2026-09-22 — change | MAS dashboard: /earnings paginated (v1.2.0)
 - portfolioview.stillcasting.app/earnings: htmx infinite scroll (`/earnings/feed`, removed) → `?page=N`, 30 predictions
   per page, Newer/Older + numbered window. Display filters (mcap < $50M, no stored quote) now run before slicing.

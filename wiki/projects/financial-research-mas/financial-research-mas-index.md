@@ -22,6 +22,7 @@ calling returns valid JSON (the 300/320-token `fast`/`mid` calls prove reasoning
 FastAPI+HTMX dashboard on :8080, Langfuse prompts, Docker on OCI (prod + staging; images ~11.7 GB — see stillcasting infra).
 
 ## Pages
+- [[functionality-map]] — every pipeline, command, job and dashboard page, with real usage counts and dead code.
 - [[signal-quality]] — realised track records, DB-native calibration, rejected-candidate contamination fix, walk-forward lessons.
 - [[earnings-scoring]] — decision-aware grading, reaction baseline, direction/BUY gates, beats-don't-predict-direction.
 - [[infra-deploys]] — OCI/Docker/deploy gotchas (SSH drops, container conflicts, Langfuse prompt override, .env overwrite).
