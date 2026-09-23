@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-23 — query | Jev & Laya for MAS
+- Researched both decision models; wrote [[jev-laya-for-mas-2026-09-23]]. Proposed: Laya fine-tuned on earnings history, in shadow.
+
 ## 2026-09-23 — query | MAS functionality map
 - Read code + prod run_log; wrote [[functionality-map]] (pipelines, commands, jobs, pages, usage, dead code).
 

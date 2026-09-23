@@ -44,6 +44,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 - [[humanizer-alex]] — Alex's work voice (skill to port).
 
 ## Analyses
+- [[jev-laya-for-mas-2026-09-23]] — Jev/Laya decision models vs MAS: where they fit, the Laya-on-earnings-history experiment.
 - [[stillcasting-bug-audit-2026-09-14]] — full site/code/prod audit: false-death matcher bug (Jeremy Thomas), sitemap >50k URLs, robots.txt shadowing, 30+ findings.
 
 ## Personal
