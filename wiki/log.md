@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-23 — query | MAS pruning review
+- Code sweep + prod data. Wrote [[mas-pruning-review-2026-09-23]]: news critic inverted, 71% zero-signal news runs, weekend noise, gap-fill dead, Sheets perf stats garbage (+687) fed into prompts. Proposal only.
+
 ## 2026-09-23 — query | Jev & Laya for MAS
 - Researched both decision models; wrote [[jev-laya-for-mas-2026-09-23]]. Proposed: Laya fine-tuned on earnings history, in shadow.
 
