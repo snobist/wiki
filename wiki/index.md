@@ -22,7 +22,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 ### stillcasting.app — `projects/stillcasting/`
 - [[stillcasting-index]] — hub + state as of 2026-08-28 (infra: /data full, workers stopped).
 - [[seo-indexing]] — indexability system, soft-404 fix, sitemap/robots, canonicals.
-- [[gsc-performance]] — Search Console timeline, July impression drop, revenue model.
+- [[gsc-performance]] — Search Console timeline; 2026-09-24: site deindexed by Google since Jul 15 (API analysis), GA4 bot noise, proposal.
 - [[proposals]] — change proposals with status.
 - [[pipeline-science]] — survival modelling, death-data fusion, false-death risk.
 

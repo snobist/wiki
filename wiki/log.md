@@ -43,6 +43,12 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-24 — analysis | GSC + GA4 API connected; site is deindexed by Google since 2026-07-15
+- Service account wired (Restricted/Viewer), `bin/gsc-ga4-pull.py` pulls everything. Findings in [[gsc-performance]]: of 83 inspected URLs
+  only the homepage (+1) is indexed; hubs and top-25 persons/titles are "crawled – currently not indexed" (last crawl June/July) or never crawled.
+  GA4 "Direct" is JS-executing scrapers from HK/CN/SG; real organic is Bing/Yahoo/DDG. Proposal: curated small sitemap + hub links + backlinks.
+- ClaudeBot crawls ~300 req/min since it was allowed at the edge; load fine. Adult titles in sitemap and false-death cleanup still open.
+
 ## 2026-09-21 — deploy | stillcasting v1.267.36 to production (Alex: "deploy to prod")
 - main fast-forwarded to develop (6f0ae00), tag v1.267.36; pre-deploy suite run on the box in self-cleaning containers (349 backend + 9 worker passed).
   CI gate passed, deployed in ~5 min, health 200. Added sink guards: download tasks refuse non-indexable entities.
