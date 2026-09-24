@@ -31,7 +31,19 @@ Last-verified: 2026-08-09. Full docs live in `../` (ClaudeProjects root) and `so
 - **Only remaining blocker: a design mockup** (H1 grows ~9→~54 chars; eyebrow pattern, mobile+desktop).
   Optional zero-maintenance alternative: always use the "of {Name}" ordering (loses a little keyword adjacency).
 
-## Proposed (not started)
+## Built, awaiting prod deploy
+### Curated sitemap (2026-09-24, Alex's brief) — `develop` a15dce3 + 163c4f8
+- Google deindexed the site ~2026-07-15 (see [[gsc-performance]]). Sitemap now = `/sitemap/0.xml` (home, hubs, 15 cause pages,
+  `/deaths/{year}` with ≥25 deaths, `/born-in/{year}` with ≥50 indexable actors, 1900..today) + `/sitemap/1.xml` = top 1,500 movies by
+  TMDb popularity with complete cast, ≥5 verified, ≥50 % deceased, poster present, not adult. Persons and the long tail stay
+  "index, follow" but are not submitted. Backend: `/titles/sitemap/curated` (Redis 6 h), `/homepage/sitemap-years`; `Title.adult`
+  (migration 0029) from TMDb on import.
+- Meta validated on the set: 0 exact duplicates, 13 remake names → description now carries the year; 30 live pages sampled: all
+  distinct titles/descriptions, index-follow. Titles are 66–148 chars (the approved "How Many … Are Still Alive?" pattern; long but distinct).
+- After deploy (manual, GSC UI): resubmit `sitemap.xml`; URL-inspect → "Request indexing" for the hubs; watch Pages report weekly.
+- Not in the set: TV series (cast rarely "mostly gone"); consider a series variant later. TMDb `adult` flag is rarely set on softcore
+  Category-III style titles (e.g. Erotic Ghost Story III at rank 12) — a name/genre filter would be needed to drop those.
+
 ### Homepage "Careers Across Generations" — sort by actor popularity (requested 2026-09-14)
 - Alex: "this guy has 2 appearances, so why should I care, while Mickey Rooney was really in a few famous movies".
   Example: Stan Alexander (Bambi 1942 → Once Upon a Studio 2023, 2 credits) ranks next to Mickey Rooney.

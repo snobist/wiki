@@ -43,6 +43,11 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-24 — build | curated sitemap per Alex's brief (1,500 movies + year/cause hubs)
+- Selection profiled (55,643 eligible movies; rank-1500 popularity 2.65), meta validated, adult flag added (migration 0029).
+  On `develop` (163c4f8); backend 352 tests pass on the box. Deploy = tag; then resubmit sitemap + request indexing for hubs in GSC.
+- Details in [[proposals]] "Curated sitemap". Adult backfill for the whole catalogue still open (TMDb lookup of top-2500 found 0 flagged).
+
 ## 2026-09-24 — analysis | GSC + GA4 API connected; site is deindexed by Google since 2026-07-15
 - Service account wired (Restricted/Viewer), `bin/gsc-ga4-pull.py` pulls everything. Findings in [[gsc-performance]]: of 83 inspected URLs
   only the homepage (+1) is indexed; hubs and top-25 persons/titles are "crawled – currently not indexed" (last crawl June/July) or never crawled.
