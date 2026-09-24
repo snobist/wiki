@@ -28,6 +28,8 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
+## Release 2026-09-24 — v1.267.37: curated sitemap (1,500 movies + year/cause hubs). GSC resubmission pending on Alex.
+
 ## Release 2026-09-21 — v1.267.36 on prod
 - All audit fixes + crawler-access + indexable-only image downloads are LIVE. `worker-images` running. /data 57 %.
 - Open: adult titles in the indexable set/sitemap (>=1,226); false-death cleanup script not yet run; July search drop unexplained (needs GSC exports).

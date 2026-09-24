@@ -31,8 +31,8 @@ Last-verified: 2026-08-09. Full docs live in `../` (ClaudeProjects root) and `so
 - **Only remaining blocker: a design mockup** (H1 grows ~9→~54 chars; eyebrow pattern, mobile+desktop).
   Optional zero-maintenance alternative: always use the "of {Name}" ordering (loses a little keyword adjacency).
 
-## Built, awaiting prod deploy
-### Curated sitemap (2026-09-24, Alex's brief) — `develop` a15dce3 + 163c4f8
+## Shipped 2026-09-24 (v1.267.37)
+### Curated sitemap (Alex's brief) — 163c4f8
 - Google deindexed the site ~2026-07-15 (see [[gsc-performance]]). Sitemap now = `/sitemap/0.xml` (home, hubs, 15 cause pages,
   `/deaths/{year}` with ≥25 deaths, `/born-in/{year}` with ≥50 indexable actors, 1900..today) + `/sitemap/1.xml` = top 1,500 movies by
   TMDb popularity with complete cast, ≥5 verified, ≥50 % deceased, poster present, not adult. Persons and the long tail stay

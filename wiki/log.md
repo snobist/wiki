@@ -43,6 +43,13 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-24 — deploy | v1.267.37 curated sitemap live (Alex: "deploy")
+- Prod = 163c4f8. Live: sitemap index → /sitemap/0.xml (247 URLs: hubs, 15 cause, 109 death-year, 111 born-in-year) + /sitemap/1.xml
+  (1,500 movies, Godfather … Son of Frankenstein 1939); old chunks 404. Migration 0029 applied. Descriptions carry the year.
+- Cleanup: 4.7 GB images + 3.8 GB build cache pruned; test/lookup working dirs removed; /data 58 %. TMDb adult flag: 0 of the top 2,337
+  candidates flagged → no backfill needed for the curated set.
+- Alex's turn (GSC UI): resubmit sitemap.xml, Request indexing for hubs. Then watch weekly with `bin/gsc-ga4-pull.py`.
+
 ## 2026-09-24 — build | curated sitemap per Alex's brief (1,500 movies + year/cause hubs)
 - Selection profiled (55,643 eligible movies; rank-1500 popularity 2.65), meta validated, adult flag added (migration 0029).
   On `develop` (163c4f8); backend 352 tests pass on the box. Deploy = tag; then resubmit sitemap + request indexing for hubs in GSC.
