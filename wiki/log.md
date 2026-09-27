@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-27 — query | MAS change proposal
+- Consolidated the 2026-09-23 reviews into [[mas-change-proposal-2026-09-27]] (P0–P3). Prod unchanged since v1.2.0; portfolio still July.
+
 ## 2026-09-23 — query | MAS news collector review
 - Wrote [[mas-news-collector-review-2026-09-23]]: reliable, but filter keeps 71%, pipelines re-fetch, clustering 300→277, CNBC Earnings dead, Energy Storage News signals −7.1% at 21d.
 

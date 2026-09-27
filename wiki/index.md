@@ -44,6 +44,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 - [[humanizer-alex]] — Alex's work voice (skill to port).
 
 ## Analyses
+- [[mas-change-proposal-2026-09-27]] — MAS: prioritised change proposal P0–P3 + decisions needed.
 - [[mas-news-collector-review-2026-09-23]] — MAS news collector: reliability, filter, clustering, per-source signal outcomes.
 - [[mas-pruning-review-2026-09-23]] — MAS: dead code, runs with no payoff, broken perf stats, proposed schedule.
 - [[jev-laya-for-mas-2026-09-23]] — Jev/Laya decision models vs MAS: where they fit, the Laya-on-earnings-history experiment.
