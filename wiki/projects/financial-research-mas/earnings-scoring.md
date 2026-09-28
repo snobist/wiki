@@ -3,7 +3,7 @@
 Purpose: how earnings direction calls are graded, why the rules are what they are,
 and the empirical findings behind them.
 
-**Status:** active · **Last-verified:** 2026-08-09
+**Status:** active · **Last-verified:** 2026-09-28
 
 ## Grading rules (`app/tools/earnings_research.py`)
 - **Decision-aware** (`_grade_direction`): SKIP never graded (its ▲/▼ was a forced
@@ -36,6 +36,21 @@ and the empirical findings behind them.
 - Small-n honesty: n≈30 cannot distinguish 47% from a coin flip (binomial p≈0.4).
   Proposed-but-not-built: numeric calibrated P(up) as the primary signal; CI display
   on the dashboard accuracy stat.
+
+## Reality check 2026-09-28 (208 graded unique events, Jun–Sep)
+- **Model 58.2% vs always-"down" 59.1%** — no edge over the base rate (40.9% of reactions were up). Monthly "improvement"
+  (55→58→63%) tracked the base rate (63/55/61% down), not skill. Model calls down 72% of the time; down calls 62%,
+  up calls 48%. `confidence` = "medium" on all 208 → carries no information.
+- Magnitude-weighted it does slightly better: betting each call sums to +144% of reaction moves vs +102% for always-down
+  (≈+0.2%/event, not significant at n=208).
+- No single dossier feature beats the base rate: fade-30d-run-up 55.8%, short>10% 55.9%, sentiment 56.2%, momentum 43.8%.
+  P(up) is 30–50% in every bucket of 30d/6m return, implied move, beat rate, timing (bmo/amc), market cap.
+- Options-implied move vs measured reaction: median 8.0% vs 1.9%, actual smaller in 89% — NOT like-for-like (we measure
+  ~30 min after first open; implied spans the expiry). Measure close-to-close day-after before drawing conclusions.
+- Waste: 1,053 predictions for 327 events (~3.2× per event, only the last is graded); earnings_watch runs ~58 LLM calls.
+- The `hour` field (bmo/amc) IS present in Finnhub data on the cards now (earlier note said not stored).
+- Improvement plan: see [[mas-change-proposal-2026-09-27]] + 2026-09-28 log (baseline on dashboard, market-adjusted
+  reaction, numeric P(up), predict once per event, post-report drift (PEAD) track, magnitude track after proper measurement).
 
 ## Frozen-history policy
 Grades are frozen once measured — EXCEPT when the grading rules themselves change;

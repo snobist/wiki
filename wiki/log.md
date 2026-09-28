@@ -2,6 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-09-28 — change+query | perf stats from DB (v1.2.1); earnings reality check
+- v1.2.1: performance_cache + /retrospective built from DB (last 90d), Sheets output-only; +687 Monitor row gone; monitor track record n=35 WR 38% −1.5%.
+- Earnings: model 58.2% vs always-down 59.1% → no edge; confidence always medium; no simple feature beats base rate. Corrects the 2026-09-23 "earnings is the bright spot" claim. Details in [[earnings-scoring]].
+
 ## 2026-09-27 — query | MAS change proposal
 - Consolidated the 2026-09-23 reviews into [[mas-change-proposal-2026-09-27]] (P0–P3). Prod unchanged since v1.2.0; portfolio still July.
 
