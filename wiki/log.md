@@ -46,6 +46,15 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-09-28 — ops | scrapers identified; 202.46.0.0/16 blocked at Caddy
+- GA4 "Direct" spike (3–5k users/day since 09-22) = headless-Chrome scraper from 202.46.0.0/16 (cnsat.com.cn, 124 hosts). Blocked at Caddy
+  (commit 35d5f27 on main; applied on the box via `git checkout origin/main -- Caddyfile` + caddy recreate, no rebuild). 403 confirmed.
+- Second scraper: ~18k pages/h from rotating residential IPs with Mac-Chrome UAs, no JS (invisible to GA). Not blockable by IP/UA;
+  Cloudflare Bot Fight Mode is the proposed answer (Alex's decision).
+- Disk after the bots: /data 60 % (42 GB), +3.1 GB media since 09-21 (94k profile files 1.9 GB, 22k posters 1.2 GB; 1.6 GB on 09-23 alone),
+  now ~0.2 GB/day. Image worker: 1,480 downloads / 12,335 "no free photo found" Wikipedia lookups per day — the page-visit wiki-photo
+  trigger is wasted work under scraping; candidate to remove. Gotcha: `docker compose exec -T` inside `ssh bash -s` eats the rest of the script.
+
 ## 2026-09-24 — deploy | v1.267.37 curated sitemap live (Alex: "deploy")
 - Prod = 163c4f8. Live: sitemap index → /sitemap/0.xml (247 URLs: hubs, 15 cause, 109 death-year, 111 born-in-year) + /sitemap/1.xml
   (1,500 movies, Godfather … Son of Frankenstein 1939); old chunks 404. Migration 0029 applied. Descriptions carry the year.
