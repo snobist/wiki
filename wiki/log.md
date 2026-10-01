@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-01 — query | Private-investor reporting best practice
+- Web research → [[private-investor-reporting-practices-2026-10-01]]. MAS noise: ~143 scheduled reports/30d, ~85–90% with nothing new or not about holdings. Quiet-MAS proposal dismissed for now; nothing changed.
+
 ## 2026-09-29 — query | Can Jev run on the OCI box?
 - No (hosted-only). jeff (Jev-API-compatible, 400M) and Laya (421M) fit the box on CPU; not benchmarked. See [[jev-laya-for-mas-2026-09-23]].
 
