@@ -56,6 +56,10 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-06 — deploy | v1.267.38 live: person-page cohort block + sqlalchemy pin
+- Prod = f0a6571. Verified: `/homepage/born-in/1953/cohort` → 2,686 / 81 % alive; person pages render the cohort block (living and deceased
+  variants); backend image runs SQLAlchemy 2.0.54. Pruned 2.7 GB images + 3.9 GB build cache; /data 60 %.
+
 ## 2026-10-06 — build | person page: age in brackets + birth-year cohort block; sqlalchemy pinned <2.1
 - Alex's brief: "Born 15/05/1953 (73)" / "Died … (aged 77)" and a cohort line "Of the N actors born in YYYY, X % are still alive" with a bar,
   linking to /born-in/YYYY. New `/homepage/born-in/{year}/cohort` (counts only, 24 h cache). Dropped the average-age-at-death wording
