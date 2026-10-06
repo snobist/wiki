@@ -56,6 +56,11 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-06 — setup | scheduled growth run + status check
+- Status: GSC still ≈0 (sitemap index downloaded 2026-10-03 but no child URLs crawled; broken `sitemap.xml.` submission must be deleted by Alex);
+  only `/` re-crawled. GA: 202.46 block worked for 2 days, scraper came back from rotating IPs (≈850/day, China). PerplexityBot ≈12k req/h.
+- Created desktop scheduled task `stillcasting-growth` (every 2 days, 09:30, catches up on app launch) following [[growth-runbook]].
+
 ## 2026-09-28 — ops | scrapers identified; 202.46.0.0/16 blocked at Caddy
 - GA4 "Direct" spike (3–5k users/day since 09-22) = headless-Chrome scraper from 202.46.0.0/16 (cnsat.com.cn, 124 hosts). Blocked at Caddy
   (commit 35d5f27 on main; applied on the box via `git checkout origin/main -- Caddyfile` + caddy recreate, no rebuild). 403 confirmed.

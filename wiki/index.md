@@ -25,6 +25,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 - [[gsc-performance]] — Search Console timeline; 2026-09-24: site deindexed by Google since Jul 15 (API analysis), GA4 bot noise, proposal.
 - [[proposals]] — change proposals with status.
 - [[pipeline-science]] — survival modelling, death-data fusion, false-death risk.
+- [[growth-runbook]] — procedure for the scheduled 2-day growth run (data pull, health, one safe change, test, deploy, report).
 
 ### financial-research-mas — `projects/financial-research-mas/`
 - [[financial-research-mas-index]] — hub + state as of 2026-08-09.
@@ -44,6 +45,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 - [[humanizer-alex]] — Alex's work voice (skill to port).
 
 ## Analyses
+- `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
 - [[private-investor-reporting-practices-2026-10-01]] — how private/family-office systems report: policy, cadence, exception alerts, behavioural evidence.
 - [[mas-change-proposal-2026-09-27]] — MAS: prioritised change proposal P0–P3 + decisions needed.
 - [[mas-news-collector-review-2026-09-23]] — MAS news collector: reliability, filter, clustering, per-source signal outcomes.
