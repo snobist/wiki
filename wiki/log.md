@@ -56,6 +56,14 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-06 — build | person page: age in brackets + birth-year cohort block; sqlalchemy pinned <2.1
+- Alex's brief: "Born 15/05/1953 (73)" / "Died … (aged 77)" and a cohort line "Of the N actors born in YYYY, X % are still alive" with a bar,
+  linking to /born-in/YYYY. New `/homepage/born-in/{year}/cohort` (counts only, 24 h cache). Dropped the average-age-at-death wording
+  (survivor-biased for recent cohorts). On `develop` f0a6571; 353 tests + build green on the box. NOT deployed — awaiting Alex.
+- Gotcha found by the pre-deploy run: SQLAlchemy 2.1 (released since 09-24) makes `postgresql://` use psycopg 3 → "No module named psycopg".
+  Images install with plain pip from pyproject (no lock) → the next prod build would have crashed backend + workers. Pinned `<2.1` in both
+  pyproject files. Lesson for [[growth-runbook]]: always run the suite on the box before tagging; unpinned deps can break a deploy by themselves.
+
 ## 2026-10-06 — setup | scheduled growth run + status check
 - Status: GSC still ≈0 (sitemap index downloaded 2026-10-03 but no child URLs crawled; broken `sitemap.xml.` submission must be deleted by Alex);
   only `/` re-crawled. GA: 202.46 block worked for 2 days, scraper came back from rotating IPs (≈850/day, China). PerplexityBot ≈12k req/h.

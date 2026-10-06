@@ -11,7 +11,8 @@ Owner: Alex. `Last-verified: 2026-10-06`. Reports land in `wiki/analyses/stillca
   `frontend/src/app/sitemap.ts`), `robots.ts` (incl. Crawl-delay for AI bots), frontend rendering/performance bugs, accessibility, analytics tagging.
 - FORBIDDEN: production DB writes (no UPDATE/DELETE/INSERT), Caddyfile / compose / nginx / server config, deleting files on the box,
   auth or security code, the image/download pipeline, payments/ads, the Wikipedia deaths checker, anything touching persons' death data.
-- Deploy only if the backend suite AND the frontend build pass on the box (step 4). Never deploy when the site is unhealthy (step 2).
+- Deploy only if the backend suite AND the frontend build pass on the box (step 4). Production images install with plain `pip` from
+  pyproject (no lock file), so a new upstream release can break a deploy on its own — the test run is the only guard (SQLAlchemy 2.1 did this on 2026-10-06). Never deploy when the site is unhealthy (step 2).
 - Auto mode may refuse a remote write: do not work around it; record "needed Alex" in the report and stop that step.
 - Secrets: GSC/GA4 key at `.secrets/gsc-ga4-service-account.json`, OCI key `~/.ssh/oci-mas.key` (see [[access]]). Never print them.
 
