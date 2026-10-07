@@ -69,6 +69,14 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-07 — build | born-in page: optional exact-day filter (Alex's brief)
+- Under the year: "on a specific day ▾" → MM · DD steppers in the year's chevron style, "× whole year" reset; subtitle/stat chips/columns
+  filter to that birth date; films still by release year. URL `?day=MM-DD`, canonical stays on the year page, day views noindex.
+  Extras shipped: "Also on <date>: N cast members died — …" (`/homepage/born-in/{year}/died-on`), weekday in the subtitle, "Turns N today"
+  badge, sidebar "Born My Birthday" when a day is remembered. Fixed the false "100 % survival rate" (now 99.5 % when rounding would lie).
+- Backend filter is applied on top of the cached per-year cohort (no new heavy query). On `develop` 4e68fc7; 357 tests + build green on the
+  box. NOT deployed — awaiting Alex.
+
 ## 2026-10-06 — deploy | v1.267.38 live: person-page cohort block + sqlalchemy pin
 - Prod = f0a6571. Verified: `/homepage/born-in/1953/cohort` → 2,686 / 81 % alive; person pages render the cohort block (living and deceased
   variants); backend image runs SQLAlchemy 2.0.54. Pruned 2.7 GB images + 3.9 GB build cache; /data 60 %.
