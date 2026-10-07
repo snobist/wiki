@@ -69,6 +69,13 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-07 — deploy | v1.267.40 live: born-in exact-day filter (+ v1.267.39 shipped by the growth run)
+- The scheduled growth run had already tagged v1.267.39 (og-default.png 404 fix, 15:03Z) — so this went out as **v1.267.40** (4e68fc7).
+  Verified live: `?day=05-15` → title/H1 "Actors Born on 15 May 1899", noindex + canonical on the year page, steppers + "whole year" reset,
+  API filter/died-on correct, 1999 cohort now shows **99.5 %** (2,901/2,915) instead of 100 %. Pruned 0.8 GB images + 2 GB cache; /data 61 %.
+- Growth run reports: `analyses/stillcasting-growth/2026-10-06.md`, `2026-10-07.md` — Google unchanged; Bing/Yahoo/DDG up; bot share 96 %;
+  pre-existing red jest suite `sc605-search-dropdown` (13 tests) noted; Kasm containers restart-looping.
+
 ## 2026-10-07 — build | born-in page: optional exact-day filter (Alex's brief)
 - Under the year: "on a specific day ▾" → MM · DD steppers in the year's chevron style, "× whole year" reset; subtitle/stat chips/columns
   filter to that birth date; films still by release year. URL `?day=MM-DD`, canonical stays on the year page, day views noindex.
