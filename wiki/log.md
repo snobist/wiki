@@ -69,6 +69,12 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-07 — deploy | v1.267.41: person portrait no longer cropped
+- Cause: desktop frame stretched to the details-column height (align-self: stretch + height 100 % + object-fit cover); the cohort block made the
+  column taller → 180×1000 strip zoomed into the face. Now fixed 2:3 frame, `object-fit: contain` (letterbox, never crop), sticky on desktop.
+  CSS only; build green on the box; served stylesheet verified. Pruned 0.8 GB + 2 GB; /data 61 %.
+- Note: the desktop app's permission checker failed transiently ("no verdict") for ~15 min — every shell command refused; resolved by itself.
+
 ## 2026-10-07 — deploy | v1.267.40 live: born-in exact-day filter (+ v1.267.39 shipped by the growth run)
 - The scheduled growth run had already tagged v1.267.39 (og-default.png 404 fix, 15:03Z) — so this went out as **v1.267.40** (4e68fc7).
   Verified live: `?day=05-15` → title/H1 "Actors Born on 15 May 1899", noindex + canonical on the year page, steppers + "whole year" reset,

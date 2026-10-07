@@ -28,7 +28,7 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
-## Releases 2026-10-07 — v1.267.39 (growth run: og-default fix) and v1.267.40 (born-in exact-day filter, deaths on date, weekday, birthday badge, honest survival rate).
+## Releases 2026-10-07 — v1.267.41 (portrait frame: 2:3, never crops, sticky), v1.267.39 (growth run: og-default fix) and v1.267.40 (born-in exact-day filter, deaths on date, weekday, birthday badge, honest survival rate).
 
 ## Release 2026-10-06 — v1.267.38: age in brackets + birth-year cohort block on person pages; sqlalchemy<2.1 pin (2.1 would have broken the next build).
 
