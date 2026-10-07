@@ -12,6 +12,9 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Shipped: fallback og:image + Organization logo pointed at a missing `/og-default.png` → now `/opengraph-image`. Backend 353 passed, build green.
 - Needs Alex: GSC Request indexing for hubs, backlinks, auto-accept for the scheduled run, red sc605 jest suite, Kasm restart loop, /data 65 %.
 
+## 2026-10-07 — query | Can news beat 50/50?
+- Research + MAS data appended to [[mas-change-proposal-2026-09-27]]. Small, short-lived edges only; negative news + post-earnings drift best supported; MAS picks are a possible contrarian signal.
+
 ## 2026-10-01 — query | Private-investor reporting best practice
 - Web research → [[private-investor-reporting-practices-2026-10-01]]. MAS noise: ~143 scheduled reports/30d, ~85–90% with nothing new or not about holdings. Quiet-MAS proposal dismissed for now; nothing changed.
 

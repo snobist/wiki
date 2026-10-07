@@ -1,7 +1,7 @@
 # MAS change proposal — prioritised
 
 Consolidates [[mas-pruning-review-2026-09-23]], [[mas-news-collector-review-2026-09-23]], [[jev-laya-for-mas-2026-09-23]].
-`Last-verified: 2026-09-27` (prod unchanged since v1.2.0; portfolio still 2026-07-20). Status: proposal, awaiting Alex.
+`Last-verified: 2026-10-07` (prod unchanged since v1.2.0; portfolio still 2026-07-20). Status: proposal, awaiting Alex.
 
 ## P0 — stop being misled (now)
 1. Re-import the portfolio (IBKR Flex CSV via /update_portfolio) — Alex, no code.
@@ -30,3 +30,14 @@ stop-target levels. 12. Log strings naming old models. 13. EDGAR: broaden to all
 
 ## Decisions needed from Alex
 News Research → shadow? · RSU command or delete? · Keep Sheets writes for now? · Go for v1.3.0 (P0.2 + P1)?
+
+## 2026-10-07 — can news beat 50/50? (research + MAS data)
+- Evidence: next-day predictability from headlines exists but is small — LLM headline scores 51–56% (Lopez-Lira & Tang,
+  v. 2025-10), strongest in small caps and after NEGATIVE news; prices underreact to bad firm news and keep drifting down
+  (Chan 2003; Tetlock, Saar-Tsechansky & Macskassy 2008); post-earnings drift after real surprises persists for weeks,
+  weaker in mega-caps (PEAD). "High-probability" single-stock calls from public news are not realistic.
+- MAS's own data: News Research picks trail SPY over 21d 68% of the time (n=467, median −5.9%) — consistent with the
+  attention/reversal effect; a contrarian signal worth shadow-testing (caveats: overlapping signals, sector drift).
+- Alex's direction (2026-10-07): mute everything; keep earnings only for high-probability UP calls; alert on news about
+  held positions. Advice given: use news defensively (negative material news on holdings), move earnings to post-report
+  drift, shadow-test fade-the-picks + next-day headline scoring (bar: ≥55% out of sample, n≥100) before any alert.
