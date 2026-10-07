@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-07 — growth | no change; v1.267.39 live, Google still not crawling
+- Report: `analyses/stillcasting-growth/2026-10-07.md`. GSC unchanged (data ends 10-04, same window as the last run): 5 impr/0 clicks; 1/19 sample indexed, no new crawls.
+- Human GA4 sessions 151 (09-30…10-06, new filter method); Bing 31 / Yahoo 19 / DDG 12 / Google 0. Site healthy, /data 61 %, og:image fix verified live.
+- No change: last fix went live minutes before the check, nothing to measure yet. Needs Alex: GSC Request indexing, backlinks, openclaw-product-list-api + Kasm restart loops on the box.
+
 ## 2026-10-06 — growth | og:image/logo 404 fixed (v1.267.39); Google still not crawling
 - Report: `analyses/stillcasting-growth/2026-10-06.md`. GSC 5 impr/0 clicks (7 d); 1/19 sample indexed; engaged human sessions 55 → 68 (Bing/Yahoo/DDG).
 - Shipped: fallback og:image + Organization logo pointed at a missing `/og-default.png` → now `/opengraph-image`. Backend 353 passed, build green.
