@@ -46,6 +46,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
+  - `stillcasting-growth/2026-10-06.md` — first run: Google still 0 (only `/` re-crawled); fixed 404 default og:image/Organization logo (v1.267.39).
 - [[private-investor-reporting-practices-2026-10-01]] — how private/family-office systems report: policy, cadence, exception alerts, behavioural evidence.
 - [[mas-change-proposal-2026-09-27]] — MAS: prioritised change proposal P0–P3 + decisions needed.
 - [[mas-news-collector-review-2026-09-23]] — MAS news collector: reliability, filter, clustering, per-source signal outcomes.

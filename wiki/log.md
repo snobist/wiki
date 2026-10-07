@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-06 — growth | og:image/logo 404 fixed (v1.267.39); Google still not crawling
+- Report: `analyses/stillcasting-growth/2026-10-06.md`. GSC 5 impr/0 clicks (7 d); 1/19 sample indexed; engaged human sessions 55 → 68 (Bing/Yahoo/DDG).
+- Shipped: fallback og:image + Organization logo pointed at a missing `/og-default.png` → now `/opengraph-image`. Backend 353 passed, build green.
+- Needs Alex: GSC Request indexing for hubs, backlinks, auto-accept for the scheduled run, red sc605 jest suite, Kasm restart loop, /data 65 %.
+
 ## 2026-10-01 — query | Private-investor reporting best practice
 - Web research → [[private-investor-reporting-practices-2026-10-01]]. MAS noise: ~143 scheduled reports/30d, ~85–90% with nothing new or not about holdings. Quiet-MAS proposal dismissed for now; nothing changed.
 
