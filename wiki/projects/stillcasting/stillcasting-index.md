@@ -30,6 +30,9 @@ Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environme
 
 ## Releases 2026-10-07 — v1.267.41 (portrait frame: 2:3, never crops, sticky), v1.267.39 (growth run: og-default fix) and v1.267.40 (born-in exact-day filter, deaths on date, weekday, birthday badge, honest survival rate).
 
+## Release 2026-10-08 — v1.267.42: `/born-in` hub (was 404): survival-by-birth-year chart, 111 linked years (sitemap rule), data intro; linked from homepage + sitemap 0. Endpoint `/homepage/born-in/summary`. Backend 358 passed, build green. Prod tag push needed Alex's explicit go (auto mode blocks `git push origin v*`).
+- Open on born-in: adult/exploitation films in "Films released this year" (e.g. 1987), junk years `/born-in/1025|2030|2084` are 200 + indexable, Lise Davidsen shown deceased (likely false death), intro sentence on the hub reads clunky.
+
 ## Release 2026-10-06 — v1.267.38: age in brackets + birth-year cohort block on person pages; sqlalchemy<2.1 pin (2.1 would have broken the next build).
 
 ## Release 2026-09-24 — v1.267.37: curated sitemap (1,500 movies + year/cause hubs). GSC resubmission pending on Alex.

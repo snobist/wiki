@@ -2,6 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-08 — release | stillcasting v1.267.42: /born-in hub
+- New `/born-in` landing page (chart + all years + data intro), homepage link + sitemap. Verified live 200/index; Docker pruned (2.8 GB), /data 61 %.
+- Next: filter adult films from born-in "films that year", 404 junk birth years. Alex to Request indexing for /born-in.
+
 ## 2026-10-08 — query | stillcasting: hubs submitted for indexing, sitemap status
 - Alex requested indexing for 5 hubs in GSC. Hub audit + sitemap check (files valid; GSC "Temporary processing error", 0 discovered) added to `analyses/stillcasting-growth/2026-10-07.md`.
 - Open: `/spanning-generations` thin (6 rows server-side); openclaw service removal blocked by corporate-Mac process killer.
