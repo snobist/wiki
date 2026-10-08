@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-08 — release | stillcasting v1.267.44–45: duplicate persons and deaths
+- v1.267.44: scanner clears birthday/birthplace TMDb removed (Ray Anthony TMDb 9598 carried the 1922 bandleader's DOB); "twins" (same name + exact DOB, 523 groups / 1,050 records) shown once on born-in lists/counts, secondary person pages canonical to the primary (`services/twins.py`, migration 0030).
+- v1.267.45: death lists (recently deceased, died this week/on this day, deaths by year, cause, born-in died-on + count) keep one record per name + death date (migration 0031). Verified: 24 Jun 1987 Igor Starkov ×2 → ×1, 24 Jun 1986 James Harrison ×2 → ×1.
+- NEEDS ALEX: rescan of the 1,050 twin records (auto mode blocks prod DB access; command in session transcript — `scan_person_task` for name+DOB groups). Until then TMDb 9598 canonicalises to the bandleader. Status-conflict list (living vs deceased twins, e.g. Adelle August) still to produce.
+
 ## 2026-10-08 — release | stillcasting v1.267.42: /born-in hub
 - New `/born-in` landing page (chart + all years + data intro), homepage link + sitemap. Verified live 200/index; Docker pruned (2.8 GB), /data 61 %.
 - Next: filter adult films from born-in "films that year", 404 junk birth years. Alex to Request indexing for /born-in.
