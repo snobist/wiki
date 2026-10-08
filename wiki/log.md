@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-08 — release | stillcasting v1.267.46: enlarged photo above page
+- ImageLightbox renders via portal to <body>; the sticky photo column (v1.267.41) trapped its z-index and the cohort bar showed over the enlarged photo. Verified live on /persons/mary-tsoni. Note: frontend container swap caused ~10 s of 000s at 17:06Z.
+
 ## 2026-10-08 — release | stillcasting v1.267.44–45: duplicate persons and deaths
 - v1.267.44: scanner clears birthday/birthplace TMDb removed (Ray Anthony TMDb 9598 carried the 1922 bandleader's DOB); "twins" (same name + exact DOB, 523 groups / 1,050 records) shown once on born-in lists/counts, secondary person pages canonical to the primary (`services/twins.py`, migration 0030).
 - v1.267.45: death lists (recently deceased, died this week/on this day, deaths by year, cause, born-in died-on + count) keep one record per name + death date (migration 0031). Verified: 24 Jun 1987 Igor Starkov ×2 → ×1, 24 Jun 1986 James Harrison ×2 → ×1.
