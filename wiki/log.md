@@ -20,6 +20,9 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Shipped: fallback og:image + Organization logo pointed at a missing `/og-default.png` → now `/opengraph-image`. Backend 353 passed, build green.
 - Needs Alex: GSC Request indexing for hubs, backlinks, auto-accept for the scheduled run, red sc605 jest suite, Kasm restart loop, /data 65 %.
 
+## 2026-10-08 — query | OCI server parameters
+- Specs + exposure recorded in [[environment]]. Kasm broken ~3 weeks, restart-looping → dockerd burns a core. Ubuntu 20.04 out of standard support. Open: Kasm remove/repair, stale ufw rules, CUPS/rpcbind.
+
 ## 2026-10-07 — query | Can news beat 50/50?
 - Research + MAS data appended to [[mas-change-proposal-2026-09-27]]. Small, short-lived edges only; negative news + post-earnings drift best supported; MAS picks are a possible contrarian signal.
 
