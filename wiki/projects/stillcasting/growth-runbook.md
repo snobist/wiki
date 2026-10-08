@@ -58,7 +58,9 @@ update [[proposals]] if a proposal shipped. `bin/sync.sh`. Finish with a 5-line 
 
 ## Known state 2026-10-06 (starting point)
 - Google deindexed the site ~2026-07-15; curated sitemap live since 2026-09-24 (v1.267.37); Google re-crawled only `/` since. GSC ≈ 0–3 impressions/day.
-- GSC still lists a broken submission `sitemap.xml.` (trailing dot, 1 error) — Alex must delete it in the UI.
+- 2026-10-08: Alex manually requested indexing for `/statistics`, `/cause`, `/spanning-generations`, `/legends`, `/died-this-week` —
+  next runs: check their lastCrawlTime/coverageState moved. Sitemap children show "Temporary processing error" / 0 discovered in GSC (files valid).
+- (Gone as of 2026-10-06) GSC still lists a broken submission `sitemap.xml.` (trailing dot, 1 error) — Alex must delete it in the UI.
 - Scrapers: 202.46.0.0/16 blocked at Caddy 2026-09-28; a rotating-IP Chinese scraper (≈850 fake GA "users"/day) and a residential-proxy
   HTML scraper remain; PerplexityBot ≈ 12k req/h, ClaudeBot bursts ≈ 20k req/h. Candidate first change: `Crawl-delay` for AI bots in robots.ts.
 - Human traffic ≈ 5–10 sessions/day (Bing/Yahoo/DDG + a few from chatgpt.com).
