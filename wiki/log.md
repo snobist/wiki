@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-09 — growth | /spanning-generations renders 30 entries (v1.267.47)
+- Report: `analyses/stillcasting-growth/2026-10-09.md`. Google re-crawled the 5 requested hubs 10-08; all still "Crawled – currently not indexed". GSC 3 impr/0 clicks (7 d); human GA4 sessions 154, engaged 85 (+22); Bing 34 / Yahoo 17 / DDG 16 / Google 0.
+- Shipped: hub server-renders the full 30-entry pool (6 → 30 person links). Backend 363 passed, build + jest green; verified live; /data 61 %.
+- Needs Alex: re-request indexing for /spanning-generations, submit sitemap children individually, backlinks; openclaw/Kasm loops.
+
 ## 2026-10-08 — release | stillcasting v1.267.46: enlarged photo above page
 - ImageLightbox renders via portal to <body>; the sticky photo column (v1.267.41) trapped its z-index and the cohort bar showed over the enlarged photo. Verified live on /persons/mary-tsoni. Note: frontend container swap caused ~10 s of 000s at 17:06Z.
 

@@ -4,6 +4,10 @@ Purpose: every change proposal from the session, its intent, and status.
 Last-verified: 2026-08-09. Full docs live in `../` (ClaudeProjects root) and `sources/`.
 
 ## Shipped
+### /spanning-generations: server-render the full pool (2026-10-09, v1.267.47)
+- From the 2026-10-08 hub audit ("render ~30 rows + link titles"). SSR 6 → 30 entries shipped by the growth run.
+  Open half: link the film titles (needs title slugs from `/homepage/careers-across-generations`).
+
 ### Title indexability (indexing exception + Person schema enrichment)
 - Source: `stillcasting_seo_change_proposal_2026-06-06.md`.
 - The "popularity exception" for zero-death high-demand titles shipped as **Phase 2** of

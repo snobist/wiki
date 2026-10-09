@@ -30,6 +30,8 @@ Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environme
 
 ## Releases 2026-10-07 — v1.267.41 (portrait frame: 2:3, never crops, sticky), v1.267.39 (growth run: og-default fix) and v1.267.40 (born-in exact-day filter, deaths on date, weekday, birthday badge, honest survival rate).
 
+## Release 2026-10-09 — v1.267.47: `/spanning-generations` server-renders all 30 entries (growth run).
+
 ## Release 2026-10-08 — v1.267.43: `/born-in` year cards equal height (stats on two lines).
 
 ## Release 2026-10-08 — v1.267.42: `/born-in` hub (was 404): survival-by-birth-year chart, 111 linked years (sitemap rule), data intro; linked from homepage + sitemap 0. Endpoint `/homepage/born-in/summary`. Backend 358 passed, build green. Prod tag push needed Alex's explicit go (auto mode blocks `git push origin v*`).

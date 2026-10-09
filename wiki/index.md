@@ -46,6 +46,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
+  - `stillcasting-growth/2026-10-09.md` — 5 hubs re-crawled 10-08, still not indexed; /spanning-generations now SSRs 30 entries (v1.267.47).
   - `stillcasting-growth/2026-10-07.md` — no change; v1.267.39 verified live; GSC/inspection flat; openclaw + Kasm restart loops on the box.
   - `stillcasting-growth/2026-10-06.md` — first run: Google still 0 (only `/` re-crawled); fixed 404 default og:image/Organization logo (v1.267.39).
 - [[private-investor-reporting-practices-2026-10-01]] — how private/family-office systems report: policy, cadence, exception alerts, behavioural evidence.
