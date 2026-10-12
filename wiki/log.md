@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-12 — growth | /statistics links cause rows to /cause pages (v1.267.48)
+- Report: `analyses/stillcasting-growth/2026-10-12.md`. Flat: GSC 3 impr/0 clicks (7 d); inspection 1/11/7 unchanged, only `/` re-crawled (10-11); human GA4 sessions 140, engaged 87; Bing 37 / Yahoo 19 / DDG 16 / Google 0. Sitemap children submitted by Alex, pending.
+- Shipped: 6 cause rows + "All causes" link on /statistics (was 0 cause links). Backend 363 passed, build + jest green; verified live; /data 63 %.
+- Predeploy harness needs `pip install /repo/worker` and container-based clone removal (see report). Needs Alex: request indexing for /statistics, backlinks, IndexNow decision.
+
 ## 2026-10-09 — growth | /spanning-generations renders 30 entries (v1.267.47)
 - Report: `analyses/stillcasting-growth/2026-10-09.md`. Google re-crawled the 5 requested hubs 10-08; all still "Crawled – currently not indexed". GSC 3 impr/0 clicks (7 d); human GA4 sessions 154, engaged 85 (+22); Bing 34 / Yahoo 17 / DDG 16 / Google 0.
 - Shipped: hub server-renders the full 30-entry pool (6 → 30 person links). Backend 363 passed, build + jest green; verified live; /data 61 %.

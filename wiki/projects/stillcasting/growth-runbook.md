@@ -50,6 +50,9 @@ Green → `git checkout main && git merge --ff-only develop && git push`, tag `v
 Wait for prod HEAD to equal the tag and `/api/health` = 200 (≤ 20 min). Then `docker image prune -f; docker builder prune -af` on the box
 (the hourly cron only prunes at ≥70 %). Verify the change live (curl as Googlebot smartphone UA). Red → do not deploy; leave the commit on
 `develop` and describe the failure in the report.
+Harness gotchas (2026-10-12): the backend tests import `stillcasting_worker`, so mount the whole clone and `pip install /repo/worker ".[test]"`
+in `python:3.11-slim` (else every test errors at setup); containers write root-owned files, so `cleanup` must delete the clone via
+`docker run --rm -v /home/ubuntu:/h python:3.11-slim rm -rf /h/predeploy-test` before removing the images; wait on `pg_isready`, not a fixed sleep.
 
 ## 5. Record
 `wiki/analyses/stillcasting-growth/YYYY-MM-DD.md` (metrics table with deltas, findings, the change or "no change" + why, deploy tag, open items,
