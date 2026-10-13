@@ -4,7 +4,7 @@ What the system does, how each piece is triggered, and how much it is actually u
 `Last-verified: 2026-09-23` (code at `v1.2.0`; usage from prod `run_log`). Hub: [[financial-research-mas-index]].
 
 One container runs three things: APScheduler jobs, the Telegram bot (`@alex_fin_agent_bot`), and the
-FastAPI+HTMX dashboard (`portfolioview.stillcasting.app`, basic auth).
+FastAPI+HTMX dashboard (`portfolioview.stillcasting.app`, basic auth). Since 2026-10-13 (v1.2.2) scheduled jobs send nothing to Telegram (`SCHEDULED_PUSH_ENABLED=false`); only command replies.
 
 ## Pipelines (run_log counts: all-time / last 30d / hand-triggered all-time, last hand-triggered)
 | Pipeline | Trigger | Runs | Manual |

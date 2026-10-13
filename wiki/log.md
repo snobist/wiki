@@ -38,6 +38,9 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Shipped: fallback og:image + Organization logo pointed at a missing `/og-default.png` → now `/opengraph-image`. Backend 353 passed, build green.
 - Needs Alex: GSC Request indexing for hubs, backlinks, auto-accept for the scheduled run, red sc605 jest suite, Kasm restart loop, /data 65 %.
 
+## 2026-10-13 — change | MAS: scheduled Telegram pushes muted (v1.2.2)
+- `_send_telegram` returns early unless `SCHEDULED_PUSH_ENABLED=true` (default false). Live in prod 12:39 CEST; commands still reply. Next: decide which alerts to re-enable (holdings news, post-earnings drift) — only after shadow evidence. Kaufman-style test harness proposed (TSaM link was a pirated copy — not used).
+
 ## 2026-10-08 — query | OCI server parameters
 - Specs + exposure recorded in [[environment]]. Kasm broken ~3 weeks, restart-looping → dockerd burns a core. Ubuntu 20.04 out of standard support. Open: Kasm remove/repair, stale ufw rules, CUPS/rpcbind.
 
