@@ -43,6 +43,12 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Shipped: fallback og:image + Organization logo pointed at a missing `/og-default.png` → now `/opengraph-image`. Backend 353 passed, build green.
 - Needs Alex: GSC Request indexing for hubs, backlinks, auto-accept for the scheduled run, red sc605 jest suite, Kasm restart loop, /data 65 %.
 
+## 2026-10-13 — change | ORCL RSU lots updated (Fidelity, Sept 2026 vests)
+- Added 3 lots via `add_manual_lot` (broker Fidelity, lot_type rsu): 2026-09-15 66 @ $144.79, 2026-09-19 75 @ $147.61,
+  2026-09-20 184 @ $147.61 (full deposit, no shares withheld). Fidelity RSU now 6 lots / 649 sh, vest-date cost $145,814.33;
+  ORCL total 749 incl. 100 at IBKR. Cross-check: 2026 dividends $162/qtr = 324 sh × $0.50 matched the 2025 lots.
+- 2026 Fidelity: 15% US withholding on dividends (treaty rate, W-8BEN OK); net dividends kept as cash in the account.
+
 ## 2026-10-13 — query | Backtest data inventory
 - [[mas-backtest-data-inventory-2026-10-13]]: price/earnings rules backtestable (yfinance 1986+/2014+, Massive news 2023+); LLM decisions forward-only; news not archived (7-day cache).
 
