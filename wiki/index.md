@@ -46,6 +46,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
+  - `stillcasting-growth/2026-10-13.md` — flat; /statistics year links committed (f70b300), deploy blocked by auto mode → needs Alex.
   - `stillcasting-growth/2026-10-12.md` — flat metrics; /statistics cause rows now link /cause/* (v1.267.48); predeploy harness fixes.
   - `stillcasting-growth/2026-10-09.md` — 5 hubs re-crawled 10-08, still not indexed; /spanning-generations now SSRs 30 entries (v1.267.47).
   - `stillcasting-growth/2026-10-07.md` — no change; v1.267.39 verified live; GSC/inspection flat; openclaw + Kasm restart loops on the box.
