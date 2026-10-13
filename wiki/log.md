@@ -2,10 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
-## 2026-10-13 — growth | /statistics year links committed, deploy blocked (needs Alex)
+## 2026-10-13 — growth | /statistics links recent years to /deaths/<year> (v1.267.49)
 - Report: `analyses/stillcasting-growth/2026-10-13.md`. Flat: GSC 3 impr/0 clicks (same 7-d window, no new GSC data); inspection 1/11/7, nothing re-crawled; human GA4 sessions 132 (10-06…10-12), engaged 85; Bing 32 / Yahoo 17 / DDG 19 / Google 0. Healthy, /data 62 %.
 - Change: crawlable `/deaths/<year>` links under /statistics year charts (f70b300 on develop). Backend 363 passed, build + jest green on the box.
-- Deploy (ff main + tag v1.267.49) denied by auto mode → needs Alex. Sitemap children still pending; Baiduspider now top named bot (~640 req/h).
+- Scheduled deploy was denied by auto mode; deployed later the same day on Alex's go, verified live, pruned 6.7 GB. Sitemap children still pending; Baiduspider now top named bot (~640 req/h).
 
 ## 2026-10-12 — growth | /statistics links cause rows to /cause pages (v1.267.48)
 - Report: `analyses/stillcasting-growth/2026-10-12.md`. Flat: GSC 3 impr/0 clicks (7 d); inspection 1/11/7 unchanged, only `/` re-crawled (10-11); human GA4 sessions 140, engaged 87; Bing 37 / Yahoo 19 / DDG 16 / Google 0. Sitemap children submitted by Alex, pending.
