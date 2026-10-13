@@ -43,6 +43,9 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Shipped: fallback og:image + Organization logo pointed at a missing `/og-default.png` → now `/opengraph-image`. Backend 353 passed, build green.
 - Needs Alex: GSC Request indexing for hubs, backlinks, auto-accept for the scheduled run, red sc605 jest suite, Kasm restart loop, /data 65 %.
 
+## 2026-10-13 — query | Backtest data inventory
+- [[mas-backtest-data-inventory-2026-10-13]]: price/earnings rules backtestable (yfinance 1986+/2014+, Massive news 2023+); LLM decisions forward-only; news not archived (7-day cache).
+
 ## 2026-10-13 — query | Kaufman TSaM review
 - Chapter map vs MAS → [[kaufman-tsam-review-for-mas-2026-10-13]]. Found: MAS stops/targets fixed % (no volatility), no sizing, never backtested.
 
