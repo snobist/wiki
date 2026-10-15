@@ -54,6 +54,10 @@ Harness gotchas (2026-10-12): the backend tests import `stillcasting_worker`, so
 in `python:3.11-slim` (else every test errors at setup); containers write root-owned files, so `cleanup` must delete the clone via
 `docker run --rm -v /home/ubuntu:/h python:3.11-slim rm -rf /h/predeploy-test` before removing the images; wait on `pg_isready`, not a fixed sleep.
 
+More gotchas (2026-10-15): nothing after the image name in `docker run … postgres:16-alpine` (it becomes the postgres command → DB never starts, all tests error);
+pre-pull images with `docker pull -q` so pull noise doesn't push the pytest summary out of `tail`; the deploy Action does `git reset --hard <tag>` ~3 min before
+containers are recreated, so wait on the frontend container's `CreatedAt`, not `git describe`, and prune only after recreation.
+
 ## 5. Record
 `wiki/analyses/stillcasting-growth/YYYY-MM-DD.md` (metrics table with deltas, findings, the change or "no change" + why, deploy tag, open items,
 anything that "needed Alex"); add the page to [[index]] under Analyses on first creation; one `## YYYY-MM-DD — growth | …` entry in [[log]];
