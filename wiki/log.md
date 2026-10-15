@@ -2,6 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-15 — project | stillcasting backlink kit + /last-survivors page (not deployed)
+- New page `/last-survivors` on branch `feat/last-survivors` (d2c40cf): 982 classics checked, 37 % have no top-billed star alive, 146 have exactly one. Backend 365 passed, build + jest green on the box. Waiting for Alex's go to merge and tag.
+- Kit: `projects/stillcasting/backlinks-outreach.md`. Headline claims fact-checked (Novak, Andress, Vera Miles, Eastwood, Moreno, Mills, Caine alive; Duvall, Perrine and Eva Marie Saint deaths confirmed and in the DB). Ranked targets and templates included; Alex sends everything himself.
+
 ## 2026-10-15 — growth | homepage links /deaths/<year> + top /cause pages (v1.267.50)
 - Report: `analyses/stillcasting-growth/2026-10-15.md`. Flat: GSC 3 impr/0 clicks (10-06…10-12); inspection 1/11/7, nothing re-crawled; sitemap index re-downloaded 10-14 (children pending). Human GA4 sessions 113 (10-08…10-14), engaged 78; Bing 29 / Yahoo 17 / DDG 21 / Google 0. Healthy, /data 62 %.
 - Shipped: homepage prose links /deaths/2026, /deaths/2025 and 4 cause pages, because `/` is the only page Google re-crawls. Backend 363 passed, build + jest green; deployed unattended, verified live, pruned 2.9 GB.

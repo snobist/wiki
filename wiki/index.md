@@ -26,6 +26,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 - [[proposals]] — change proposals with status.
 - [[pipeline-science]] — survival modelling, death-data fusion, false-death risk.
 - [[growth-runbook]] — procedure for the scheduled 2-day growth run (data pull, health, one safe change, test, deploy, report).
+- [[backlinks-outreach]] — /last-survivors data page + fact-checked claims, ranked outreach targets, pitch templates (2026-10-15; nothing sent).
 
 ### financial-research-mas — `projects/financial-research-mas/`
 - [[financial-research-mas-index]] — hub + state as of 2026-08-09.
