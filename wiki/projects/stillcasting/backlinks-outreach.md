@@ -2,7 +2,7 @@
 
 `Last-verified: 2026-10-15`. Why: Google judges the site "crawled – currently not indexed" at scale because the domain has close to no authority
 (see [[gsc-performance]]). Internal linking alone has not moved it in six growth runs. The site needs real links.
-Asset: `/last-survivors` (branch `feat/last-survivors`, commit d2c40cf, tests green; **not deployed** until Alex says go).
+Asset: **https://stillcasting.app/last-survivors**, live since 2026-10-15 in v1.267.51 (commit d2c40cf). Verified as Googlebot: 200, `index, follow`, canonical, ItemList JSON-LD, in `/sitemap/0.xml`, linked from `/`.
 Rule: Alex sends every email or post himself. Nothing here has been sent.
 
 ## The asset: "Last Surviving Stars of Classic Films"
@@ -17,6 +17,8 @@ Rule: Alex sends every email or post himself. Nothing here has been sent.
   - **Clint Eastwood** (96) is the last of *Where Eagles Dare* and *Kelly's Heroes* (Donald Sutherland died 2024-06-20).
   - **Rita Moreno** (94) is the last of *Singin' in the Rain*. The Plaza Classic Film Festival says the same.
   - **Hayley Mills** (80) is the last of *The Parent Trap* (1961). **Michael Caine** (93) is the last of *The Italian Job* (1969).
+  - **Angie Dickinson** (95) is the last of five: *Rio Bravo*, *Ocean's Eleven*, *Point Blank*, *The Killers*, *Jessica*. This is the strongest hook, but there was no reliable 2026 confirmation that she is alive (and no death report), so check before naming her.
+  - Live page (2026-10-15): 983 films checked, 359 with none left, **147** with one left, 22 people who are the last survivor of 2+ films (Margaret O'Brien 4, Kim Novak 4, Debra Paget 3).
   - 2026 deaths that created survivors: Robert Duvall (2026-02-15), which leaves Kim Darby in *True Grit*; Valerie Perrine (2026-03-23), which leaves Jack O'Halloran in *Superman* (1978).
 - Caveat to state honestly when asked: "top-billed" means the first 10 credited cast in TMDb billing order. Rita Moreno is #8 in *Singin' in
   the Rain*, and for some films TMDb's order puts bit players in the top 10 (Bess Flowers in *Vertigo*). Films with any

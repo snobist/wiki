@@ -2,7 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
-## 2026-10-15 — project | stillcasting backlink kit + /last-survivors page (not deployed)
+## 2026-10-15 — release | stillcasting v1.267.51: /last-survivors live
+- Merged on Alex's go; containers recreated, verified as Googlebot (200, index, canonical, JSON-LD, sitemap, homepage link). 983 checked / 147 one-left. Pruned 2.8 GB; /data 62 %.
+- Cosmetic: a double period after titles ending in punctuation ("Support Your Local Sheriff!.").
+
+## 2026-10-15 — project | stillcasting backlink kit + /last-survivors page
 - New page `/last-survivors` on branch `feat/last-survivors` (d2c40cf): 982 classics checked, 37 % have no top-billed star alive, 146 have exactly one. Backend 365 passed, build + jest green on the box. Waiting for Alex's go to merge and tag.
 - Kit: `projects/stillcasting/backlinks-outreach.md`. Headline claims fact-checked (Novak, Andress, Vera Miles, Eastwood, Moreno, Mills, Caine alive; Duvall, Perrine and Eva Marie Saint deaths confirmed and in the DB). Ranked targets and templates included; Alex sends everything himself.
 
