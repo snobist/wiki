@@ -30,6 +30,8 @@ Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environme
 
 ## Releases 2026-10-07 — v1.267.41 (portrait frame: 2:3, never crops, sticky), v1.267.39 (growth run: og-default fix) and v1.267.40 (born-in exact-day filter, deaths on date, weekday, birthday badge, honest survival rate).
 
+## Release 2026-10-17 — v1.267.52: `/born-in/<year>` outside 1900..today−16 is noindex (growth run; closes the "junk years indexable" born-in item).
+
 ## Release 2026-10-15 — v1.267.51: `/last-survivors` data page (classic films with one top-billed star left; backlink asset, see [[backlinks-outreach]]). Endpoint `/homepage/last-survivors` (1 h cache). Linked from `/` and sitemap 0.
 
 ## Release 2026-10-15 — v1.267.50: homepage SEO prose links `/deaths/<year>` (current + previous) and `/cause/{cancer,heart_disease,stroke,alzheimers}` (growth run).

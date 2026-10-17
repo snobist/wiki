@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-17 — growth | noindex /born-in/<year> outside 1900..today−16 (v1.267.52)
+- Report: `analyses/stillcasting-growth/2026-10-17.md`. Flat: GSC 3 impr/0 clicks (10-08…10-14); inspection 1/11/7, nothing re-crawled (`/` still 10-11); sitemap children pending. Human GA4 sessions 105 (10-10…10-16), engaged 72; Bing 40 (+11) / Yahoo 16 / DDG 19 / Google 0. GA4 bot share 94.7 % (CN/SG surge 10-15/16). Healthy, /data 63 %.
+- Shipped: junk birth years (1025, 2084 …) render noindex; sitemap range unchanged. Backend 365 passed, build + jest green; deployed unattended, verified live, pruned 2.8 GB.
+- Open: request indexing for `/`; PerplexityBot back up to ~150/h; GA4 bot filter is UI-only for Alex.
+
 ## 2026-10-15 — release | stillcasting v1.267.51: /last-survivors live
 - Merged on Alex's go; containers recreated, verified as Googlebot (200, index, canonical, JSON-LD, sitemap, homepage link). 983 checked / 147 one-left. Pruned 2.8 GB; /data 62 %.
 - Cosmetic: a double period after titles ending in punctuation ("Support Your Local Sheriff!.").
