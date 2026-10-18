@@ -136,6 +136,14 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-18 — incident | Gal Gadot shown as deceased (TMDb vandalism) → scanner guards built
+- Cause: TMDb edit 2026-10-17 11:45Z added deathday 2026-10-17 (+ birthday 1885); reverted on TMDb 19:59Z; our TMDb scan at 18:30Z published
+  it and the scanner never downgrades DECEASED. Wikidata never had a death. Only vandalism case in 30 days (40 TMDb-only deaths checked:
+  18 Wikidata-confirmed, 17 no Wikidata item, 4 still on TMDb). Side finding: james-sloyan DOD wrong in DB (09-21 vs 07-22 on TMDb/Wikidata).
+- Fix on `develop` 8a15c36: (1) fresh (≤7 d) TMDb death of a popular person (popularity ≥5) needs Wikidata P570, else deferred + re-queued 6 h;
+  (2) TMDb retracting a TMDb-only death with no Wikidata death → auto-revert (provenance `tmdb_retraction`), recompute, cache refresh.
+  370 tests green. NOT deployed; after deploy: rescan 18829 (auto-reverts) and 23420 (date fix). /data 66 % — creeping up again.
+
 ## 2026-10-07 — deploy | v1.267.41: person portrait no longer cropped
 - Cause: desktop frame stretched to the details-column height (align-self: stretch + height 100 % + object-fit cover); the cohort block made the
   column taller → 180×1000 strip zoomed into the face. Now fixed 2:3 frame, `object-fit: contain` (letterbox, never crop), sticky on desktop.
