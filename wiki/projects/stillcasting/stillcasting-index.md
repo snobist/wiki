@@ -28,6 +28,8 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
+## Release 2026-10-18 — v1.267.53: scanner guards against TMDb vandalism (defer unconfirmed fresh deaths of popular people; revert retracted TMDb-only deaths). v1.267.42–.52 shipped by the growth runs / other sessions 10-08…10-17 (see growth reports).
+
 ## Releases 2026-10-07 — v1.267.41 (portrait frame: 2:3, never crops, sticky), v1.267.39 (growth run: og-default fix) and v1.267.40 (born-in exact-day filter, deaths on date, weekday, birthday badge, honest survival rate).
 
 ## Release 2026-10-17 — v1.267.52: `/born-in/<year>` outside 1900..today−16 is noindex (growth run; closes the "junk years indexable" born-in item).

@@ -136,6 +136,11 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-18 — deploy | v1.267.53: TMDb vandalism guards live; Gal Gadot reverted
+- Prod = 8a15c36 (prod had been on v1.267.52 from the growth runs + another session: tags .42–.52 on 10-08…10-17). Rescans queued:
+  Gal Gadot → auto-reverted to living via `tmdb_retraction` in 24 s (homepage clean, title "Is Gal Gadot Still Alive?"); James Sloyan DOD
+  corrected to 2026-07-22. Pruned 0.8 GB + 2 GB; /data 66 %.
+
 ## 2026-10-18 — incident | Gal Gadot shown as deceased (TMDb vandalism) → scanner guards built
 - Cause: TMDb edit 2026-10-17 11:45Z added deathday 2026-10-17 (+ birthday 1885); reverted on TMDb 19:59Z; our TMDb scan at 18:30Z published
   it and the scanner never downgrades DECEASED. Wikidata never had a death. Only vandalism case in 30 days (40 TMDb-only deaths checked:
