@@ -11,7 +11,8 @@ Owner: Alex. `Last-verified: 2026-10-06`. Reports land in `wiki/analyses/stillca
   `frontend/src/app/sitemap.ts`), `robots.ts` (incl. Crawl-delay for AI bots), frontend rendering/performance bugs, accessibility, analytics tagging.
 - FORBIDDEN: production DB writes (no UPDATE/DELETE/INSERT), Caddyfile / compose / nginx / server config, deleting files on the box,
   auth or security code, the image/download pipeline, payments/ads, the Wikipedia deaths checker, anything touching persons' death data.
-- Deploy only if the backend suite AND the frontend build pass on the box (step 4). Production images install with plain `pip` from
+- Deploy only if the backend suite AND the frontend build pass on the box (step 4).
+- Production data: the only allowed write is queueing a rescan for a flagged false death (section 2b); it uses the normal pipeline. Production images install with plain `pip` from
   pyproject (no lock file), so a new upstream release can break a deploy on its own — the test run is the only guard (SQLAlchemy 2.1 did this on 2026-10-06). Never deploy when the site is unhealthy (step 2).
 - Auto mode may refuse a remote write: do not work around it; record "needed Alex" in the report and stop that step.
 - Secrets: GSC/GA4 key at `.secrets/gsc-ga4-service-account.json`, OCI key `~/.ssh/oci-mas.key` (see [[access]]). Never print them.
@@ -32,6 +33,20 @@ Record coverageState + lastCrawlTime for each. Quota is 2,000/day; stay under 10
 image worker outcomes `docker logs --since 48h stillcasting-worker-images-1 | grep -o "not_indexable\|'ok': True, 'path'\|no_free_photo_found" | sort | uniq -c`,
 Caddy top user agents + top /16 networks (bots: ClaudeBot, PerplexityBot, GPTBot; scrapers: many IPs, Chrome UA, no `/_next/static` fetches).
 If health fails → report only, no deploy.
+
+## 2b. False-death audit (read-only, every run) — added 2026-10-18 after the Gal Gadot case
+```bash
+python3 ~/Documents/wiki/bin/stillcasting-false-death-check.py --days 14 --json /tmp/growth-$(date +%F)/false-deaths.json
+```
+Verdicts: `TMDB_RETRACTED` (TMDb dropped a death only TMDb ever gave us, Wikidata has none → vandalism), `WIKIDATA_MISMATCH` /
+`TMDB_MISMATCH` (our date differs from the source), `NAME_TWIN` (same name died within 3 days on two records → one death, two records),
+`UNCONFIRMED` (TMDb-only, Wikidata item exists but no death — fine for obscure people, suspect when popularity ≥ 5), `OK`.
+What the run may do about it (this is the ONE exception to "no production writes", because it goes through the normal pipeline):
+- `TMDB_RETRACTED`, `WIKIDATA_MISMATCH`, `TMDB_MISMATCH` → queue a rescan: on the box
+  `docker exec stillcasting-worker-1 python -c "from stillcasting_worker.tasks import scan_person_task; scan_person_task.apply_async(args=[ID], queue='scans')" </dev/null`.
+  The scanner (v1.267.53+) reverts retracted TMDb-only deaths and refreshes dates itself. Re-check after 60 s and report before/after.
+- `NAME_TWIN` and popular `UNCONFIRMED` → report with both records' slugs for Alex; never change status or dates directly (no SQL, no PATCH).
+- Also report anything with `date_of_death` in the future. Put a "False-death audit" table in the report even when everything is OK.
 
 ## 3. Assess (write the report first, then decide)
 Metrics table, this run vs previous report: GSC impressions & clicks (last 7 days), avg position, pages with impressions; inspection sample:
