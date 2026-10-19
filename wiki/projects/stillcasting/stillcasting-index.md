@@ -28,6 +28,8 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
+## Release 2026-10-19 — v1.267.55: Caddy blocks Tencent scraper 43.172/16 + 43.173/16; SC-605 search tests green again (full jest suite now passes).
+
 ## Release 2026-10-19 — v1.267.54: `/last-survivors` no double period after titles ending in !/? (growth run).
 
 ## Release 2026-10-18 — v1.267.53: scanner guards against TMDb vandalism (defer unconfirmed fresh deaths of popular people; revert retracted TMDb-only deaths). v1.267.42–.52 shipped by the growth runs / other sessions 10-08…10-17 (see growth reports).

@@ -69,7 +69,7 @@ Harness gotchas (2026-10-12): the backend tests import `stillcasting_worker`, so
 in `python:3.11-slim` (else every test errors at setup); containers write root-owned files, so `cleanup` must delete the clone via
 `docker run --rm -v /home/ubuntu:/h python:3.11-slim rm -rf /h/predeploy-test` before removing the images; wait on `pg_isready`, not a fixed sleep.
 
-More gotchas (2026-10-19): run the harness ssh with `-o ServerAliveInterval=20 -o ServerAliveCountMax=30` (an idle pytest phase dropped the connection once); full `npx jest` has a failing `sc605-search-dropdown` suite (not a deploy gate); GA4 human filter uses avg duration < 1 s (bots show 0.0x s).
+More gotchas (2026-10-19): run the harness ssh with `-o ServerAliveInterval=20 -o ServerAliveCountMax=30` (an idle pytest phase dropped the connection once); full `npx jest` is green since v1.267.55 (run all suites, not a subset); Caddy is restarted not recreated by the deploy, so check `State.StartedAt`; scraper ranges blocked at Caddy: 202.46/16, 43.172/16, 43.173/16; GA4 human filter uses avg duration < 1 s (bots show 0.0x s).
 
 More gotchas (2026-10-15): nothing after the image name in `docker run … postgres:16-alpine` (it becomes the postgres command → DB never starts, all tests error);
 pre-pull images with `docker pull -q` so pull noise doesn't push the pytest summary out of `tail`; the deploy Action does `git reset --hard <tag>` ~3 min before

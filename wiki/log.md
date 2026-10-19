@@ -2,6 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-19 — release | stillcasting v1.267.55: Tencent scraper blocked, sc605 tests fixed
+- On Alex's go: Caddy 403 for 43.172.0.0/16 + 43.173.0.0/16 (source of the 199k GA4 sessions); verified live (1,066 × 403 in 2 min, others 200).
+- sc605 search-dropdown suite: tests waited on the listbox, not results; actor links /persons/; loading row role=status; jest setupFilesAfterEnv typo. Jest 61/61, backend 370, build green.
+
 ## 2026-10-19 — growth | /last-survivors double period fixed (v1.267.54); false-death audit clean
 - Report: `analyses/stillcasting-growth/2026-10-19.md`. GSC 17 impr/0 clicks (10-11…10-17), first person/title impressions since Sept (10 pages on 10-17); inspection 1/11/7, nothing re-crawled. Human GA4 sessions 99, engaged 62; Bing 35 / Yahoo 15 / DDG 11 / Google 0. GA4 bot spike: 199k Singapore Direct sessions on 10-18 (Tencent 43.172–173/16 scraper). Healthy, /data 67 %.
 - False-death audit: 58 checked, 54 OK, 2 date-only Wikidata mismatches (rescans queued, no change), 2 low-pop unconfirmed. No false deaths.
