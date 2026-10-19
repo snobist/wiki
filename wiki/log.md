@@ -146,6 +146,14 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-19 — deploy | v1.267.56: 404→5xx on backend failure; person indexability rule A applied
+- Prod = c546950. Backfill run on prod (approved "A"): indexable persons 331,065 → 215,558 (115,507 thin pages now noindex, follow; still
+  online). Verified: lesa-weis/maev-alexander noindex, carla-boudreau/stallone index. Rule lives in `seo_service.person_is_indexable`
+  (bio, or photo & ≥3 credits, or dated death & ≥2 credits). Pruned 0.8 GB + 2 GB. **/data 69 %** — the 70 % cron threshold is next;
+  media keeps growing ~0.5 pt/day → the TMDb-CDN decision or a bigger volume is due.
+- Note: the clone has uncommitted work in `split-money/app/styles.css` from another session — left untouched; released via
+  `git push origin origin/develop:main` + tag on the commit instead of checking out main.
+
 ## 2026-10-19 — fix | GSC "Not found (404)" examples: deploy-time 404s + thin person pages
 - All 9 example URLs exist and are 200; GSC inspection says "Soft 404, fetch successful" (lesa-weis: 178 visible words, no bio/photo).
   Two causes: (1) person/title pages caught fetch errors → `notFound()` → real 404 during deploys/outages (dates match deploy days) —

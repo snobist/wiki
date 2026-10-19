@@ -25,7 +25,8 @@ Persisted `Title.indexable`; recomputed via `recompute_title_indexable` on cast/
   **AND** a synced non-empty filmography (`last_filmography_synced_at` set, `credits >= MIN_CREDITS`).
   The synced-filmography requirement also closes the `FilmographyAutoImport` empty-shell gap
   (client-side import means Googlebot otherwise saw an empty SSR page).
-- `MIN_CREDITS` open decision (default 1; raise to 2–3 if thin pages persist).
+- **Rule A since 2026-10-19 (v1.267.56):** on top of the anchor + ≥1 credit, a page needs a bio, or a photo with ≥3 credits, or a dated death
+  with ≥2 credits. Backfill flipped 115,507 of 331,065 persons to noindex (Google had marked such ~180-word pages "Soft 404").
 - Verified live 2026-08-09: `shameer-khan`, `redin-kingsley`, `nidhi-arun`, `dimple-rose`,
   `sandy-j-christopher` → `noindex, follow` and removed from sitemap; `sylvester-stallone` → still `index`.
 
