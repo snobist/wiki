@@ -2,6 +2,12 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-19 — growth | /last-survivors double period fixed (v1.267.54); false-death audit clean
+- Report: `analyses/stillcasting-growth/2026-10-19.md`. GSC 17 impr/0 clicks (10-11…10-17), first person/title impressions since Sept (10 pages on 10-17); inspection 1/11/7, nothing re-crawled. Human GA4 sessions 99, engaged 62; Bing 35 / Yahoo 15 / DDG 11 / Google 0. GA4 bot spike: 199k Singapore Direct sessions on 10-18 (Tencent 43.172–173/16 scraper). Healthy, /data 67 %.
+- False-death audit: 58 checked, 54 OK, 2 date-only Wikidata mismatches (rescans queued, no change), 2 low-pop unconfirmed. No false deaths.
+- Shipped: `sentenceEnd()` drops the "Them!." double period on the backlink page. Backend 370 passed, build green (jest sc605 suite fails, pre-existing); deployed unattended, verified live, pruned 2.8 GB.
+- Open: Caddy block for 43.172/16 + 43.173/16 (Alex); sc605 jest failures; Loyd Price date.
+
 ## 2026-10-17 — growth | noindex /born-in/<year> outside 1900..today−16 (v1.267.52)
 - Report: `analyses/stillcasting-growth/2026-10-17.md`. Flat: GSC 3 impr/0 clicks (10-08…10-14); inspection 1/11/7, nothing re-crawled (`/` still 10-11); sitemap children pending. Human GA4 sessions 105 (10-10…10-16), engaged 72; Bing 40 (+11) / Yahoo 16 / DDG 19 / Google 0. GA4 bot share 94.7 % (CN/SG surge 10-15/16). Healthy, /data 63 %.
 - Shipped: junk birth years (1025, 2084 …) render noindex; sitemap range unchanged. Backend 365 passed, build + jest green; deployed unattended, verified live, pruned 2.8 GB.
