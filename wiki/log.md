@@ -146,6 +146,13 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-19 — fix | GSC "Not found (404)" examples: deploy-time 404s + thin person pages
+- All 9 example URLs exist and are 200; GSC inspection says "Soft 404, fetch successful" (lesa-weis: 178 visible words, no bio/photo).
+  Two causes: (1) person/title pages caught fetch errors → `notFound()` → real 404 during deploys/outages (dates match deploy days) —
+  fixed on `develop` b708446 (errors now propagate → 5xx; build green, NOT deployed); (2) indexability rule too lax (331,066 indexable
+  persons). Candidate rules: A = bio OR (photo & ≥3 credits) OR (deceased w/ date & ≥2) → keep 215,558 / drop 115,508;
+  B = bio OR (photo & ≥2) → keep 227,439 / drop 103,627. Decision pending Alex. Full 404 list needs a GSC export (not in the API).
+
 ## 2026-10-18 — deploy | v1.267.53: TMDb vandalism guards live; Gal Gadot reverted
 - Prod = 8a15c36 (prod had been on v1.267.52 from the growth runs + another session: tags .42–.52 on 10-08…10-17). Rescans queued:
   Gal Gadot → auto-reverted to living via `tmdb_retraction` in 24 s (homepage clean, title "Is Gal Gadot Still Alive?"); James Sloyan DOD
