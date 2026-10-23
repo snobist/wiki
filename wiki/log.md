@@ -2,6 +2,12 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-23 — growth | no change; Google re-crawled `/`; false-death audit clean
+- Report: `analyses/stillcasting-growth/2026-10-23.md`. GSC 20 impr/0 clicks (10-14…10-20); inspection 1/11/7, `/` re-crawled 10-23 (first since 10-11). Human GA4 sessions 143 (+28), engaged 53 (−12); Bing 33 / Yahoo 17 / DDG 9 / Google 0. Caddy 403s down 93 % (Tencent scraper gave up). Healthy, /data 69 %.
+- False-death audit: 53 checked, 48 OK, 2 date-only Wikidata mismatches (rescans queued, unchanged: Price, Sabesh), 3 low-pop unconfirmed. No false deaths.
+- No change: waiting to see the effect of the `/` re-crawl; develop has 14 unreleased worth-watching/home-weather commits a growth deploy would carry.
+- Open: release develop from its owning sessions (Alex); backlinks; Loyd Price date.
+
 ## 2026-10-21 — growth | no change; Tencent block verified in GA4; false-death audit clean
 - Report: `analyses/stillcasting-growth/2026-10-21.md`. GSC 17 impr/0 clicks (10-12…10-18); inspection 1/11/7, Godfather re-crawled 10-20 (not indexed), `/` still 10-11. Human GA4 sessions 115 (+16), engaged 65; Bing 38 / Yahoo 16 / DDG 11 / Google 0. Singapore Direct 136k (10-19) → 1 (10-20). Healthy, /data 68 %, prod v1.267.58.
 - False-death audit: 58 checked, 52 OK, 3 Wikidata date mismatches (rescans: Bracardi fixed, Price + Sabesh unchanged), 3 low-pop unconfirmed. No false deaths.
