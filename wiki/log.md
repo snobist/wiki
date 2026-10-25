@@ -2,6 +2,12 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-25 — growth | no change; hubs still not discovered; false-death audit clean
+- Report: `analyses/stillcasting-growth/2026-10-25.md`. GSC 23 impr/0 clicks (10-17…10-23); inspection 1/11/7, nothing re-crawled since `/` on 10-23; sitemap index re-fetched 10-24. Human GA4 sessions 179 (+36), engaged 67 (+14); Bing 39 / Yahoo 19 / DDG 14 / Google 0. Healthy, /data 68 %, prod v1.267.63.
+- False-death audit: 51 checked, 46 OK, same 2 date-only Wikidata mismatches (rescans queued, unchanged) and 3 low-pop unconfirmed. No false deaths.
+- No change: waiting for Google to follow the homepage hub links; develop holds 7 unreleased tv-player/split-money commits.
+- Open: release develop (Alex); backlinks; IndexNow; Googlebot 0 hits in 6 h sample.
+
 ## 2026-10-23 — growth | no change; Google re-crawled `/`; false-death audit clean
 - Report: `analyses/stillcasting-growth/2026-10-23.md`. GSC 20 impr/0 clicks (10-14…10-20); inspection 1/11/7, `/` re-crawled 10-23 (first since 10-11). Human GA4 sessions 143 (+28), engaged 53 (−12); Bing 33 / Yahoo 17 / DDG 9 / Google 0. Caddy 403s down 93 % (Tencent scraper gave up). Healthy, /data 69 %.
 - False-death audit: 53 checked, 48 OK, 2 date-only Wikidata mismatches (rescans queued, unchanged: Price, Sabesh), 3 low-pop unconfirmed. No false deaths.

@@ -47,6 +47,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
+  - `stillcasting-growth/2026-10-25.md` — GSC 23 impr; nothing re-crawled; sitemap index fetched 10-24; audit clean; no change (7 foreign commits on develop).
   - `stillcasting-growth/2026-10-23.md` — GSC 20 impr; Google re-crawled `/` 10-23; Tencent 403s −93 %; audit clean; no change (develop holds 14 unreleased foreign commits).
   - `stillcasting-growth/2026-10-21.md` — flat GSC (17 impr); Godfather re-crawled 10-20; Tencent block cut GA4 Singapore junk to ~0; audit clean (Bracardi date refreshed); no change.
   - `stillcasting-growth/2026-10-19.md` — GSC 17 impr (deep pages back on 10-17); false-death audit clean; /last-survivors double period fixed (v1.267.54); Tencent scraper → GA4 199k-session spike.
