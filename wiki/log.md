@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-27 — growth | no change; still no Google re-crawl; false-death audit clean
+- Report: `analyses/stillcasting-growth/2026-10-27.md`. GSC 9 impr/0 clicks (10-19…10-25); inspection 1/11/7, nothing re-crawled since `/` on 10-23. Human GA4 sessions 270 (+91, US Direct suspect), engaged 77 (+10); Bing 47 / Yahoo 17 / DDG 20 / Google 0. GA4 bot flood gone (11k vs 355k sessions). Healthy, /data 68 %, prod v1.267.64.
+- False-death audit: 46 checked, 42 OK, same 2 date-only Wikidata mismatches (rescans queued, unchanged), 2 low-pop unconfirmed. No false deaths.
+- No change: on-site levers look exhausted; Google isn't following links. Asked Alex to pick IndexNow / backlinks / weekly cadence.
+
 ## 2026-10-25 — growth | no change; hubs still not discovered; false-death audit clean
 - Report: `analyses/stillcasting-growth/2026-10-25.md`. GSC 23 impr/0 clicks (10-17…10-23); inspection 1/11/7, nothing re-crawled since `/` on 10-23; sitemap index re-fetched 10-24. Human GA4 sessions 179 (+36), engaged 67 (+14); Bing 39 / Yahoo 19 / DDG 14 / Google 0. Healthy, /data 68 %, prod v1.267.63.
 - False-death audit: 51 checked, 46 OK, same 2 date-only Wikidata mismatches (rescans queued, unchanged) and 3 low-pop unconfirmed. No false deaths.
