@@ -169,6 +169,12 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-28 — fix | duplicate "Ray Anthony" on /legends
+- Cause: TMDb 9598 (Australian crew member) once carried bandleader Ray Anthony's DOB/birthplace on TMDb; TMDb corrected it, our record
+  (69404) was never rescanned, so the Oct-8 "drop birth data TMDb removed" logic never ran for it. 423 living same-name+same-DOB pairs exist.
+- Code on `develop` d55c3e2 (376 tests green, not deployed): legends / milestones / born-in collapse same (name, DOB) to one row.
+- Data: rescans needed for records whose DOB TMDb no longer has (auto mode refused the queue; awaiting Alex). /data 69 %.
+
 ## 2026-10-19 — deploy | v1.267.56: 404→5xx on backend failure; person indexability rule A applied
 - Prod = c546950. Backfill run on prod (approved "A"): indexable persons 331,065 → 215,558 (115,507 thin pages now noindex, follow; still
   online). Verified: lesa-weis/maev-alexander noindex, carla-boudreau/stallone index. Rule lives in `seo_service.person_is_indexable`
