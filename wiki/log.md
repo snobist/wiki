@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-10-29 — growth | no change; still no Google re-crawl; false-death audit clean
+- Report: `analyses/stillcasting-growth/2026-10-29.md`. GSC 10 impr/0 clicks (10-21…10-27); inspection 1/11/7, nothing re-crawled since `/` on 10-23. Human GA4 sessions 251 (−19), engaged 92 (+15); Bing 54 / Yahoo 22 / DDG 23 / Google 0. Healthy, /data 68 %, prod v1.267.65 (deployed by another session 07:05 UTC, 500s only during restart).
+- False-death audit: 49 checked, 44 OK, 3 Wikidata mismatches (rescans queued, unchanged; adam-wolke is a checker false positive from a year-precision P570), 2 low-pop unconfirmed. No false deaths.
+- No change: scope question (IndexNow / backlinks / weekly) still with Alex. Mac-UA scraper up to ~1.5k req/h.
+
 ## 2026-10-27 — growth | no change; still no Google re-crawl; false-death audit clean
 - Report: `analyses/stillcasting-growth/2026-10-27.md`. GSC 9 impr/0 clicks (10-19…10-25); inspection 1/11/7, nothing re-crawled since `/` on 10-23. Human GA4 sessions 270 (+91, US Direct suspect), engaged 77 (+10); Bing 47 / Yahoo 17 / DDG 20 / Google 0. GA4 bot flood gone (11k vs 355k sessions). Healthy, /data 68 %, prod v1.267.64.
 - False-death audit: 46 checked, 42 OK, same 2 date-only Wikidata mismatches (rescans queued, unchanged), 2 low-pop unconfirmed. No false deaths.

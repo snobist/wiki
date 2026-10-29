@@ -47,6 +47,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
+  - `stillcasting-growth/2026-10-29.md` — GSC 10 impr; nothing re-crawled; organic Bing/Yahoo/DDG 99 sessions; audit clean (adam-wolke checker FP); no change.
   - `stillcasting-growth/2026-10-27.md` — GSC 9 impr; nothing re-crawled; GA4 bot flood gone; audit clean; no change (on-site levers exhausted, scope question to Alex).
   - `stillcasting-growth/2026-10-25.md` — GSC 23 impr; nothing re-crawled; sitemap index fetched 10-24; audit clean; no change (7 foreign commits on develop).
   - `stillcasting-growth/2026-10-23.md` — GSC 20 impr; Google re-crawled `/` 10-23; Tencent 403s −93 %; audit clean; no change (develop holds 14 unreleased foreign commits).
