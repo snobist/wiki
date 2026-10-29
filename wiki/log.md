@@ -169,6 +169,12 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 - Auto mode blocked reading the prod box, so prod `.env` model vars are unseen; the override makes that moot.
 - Open: confirm staging CI and deploy went green, then Alex tags `v*` for prod. Rotate the Serper key hardcoded in `deploy.sh`. See [[financial-research-mas-index]].
 
+## 2026-10-29 — deploy | v1.267.65: one row per person on legends / milestones / born-in
+- Prod = d55c3e2 (prod had reached .64 from other sessions). Cached list entries (hp:oldest_living, hp:milestones, 210 hp:born_in actors)
+  dropped so the collapse took effect at once: /legends shows one Ray Anthony (14 titles), /born-in/1922 one row. Pruned 1.2 GB; /data 69 %.
+- Still pending Alex: "rescan" for the 24 records whose DOB TMDb cleared (ids in the 10-28 entry's check; list in the session) — the scanner
+  drops the stale date itself. 389 pairs are genuine TMDb duplicate entities (both carry the DOB) — display-collapsed, not merged.
+
 ## 2026-10-28 — fix | duplicate "Ray Anthony" on /legends
 - Cause: TMDb 9598 (Australian crew member) once carried bandleader Ray Anthony's DOB/birthplace on TMDb; TMDb corrected it, our record
   (69404) was never rescanned, so the Oct-8 "drop birth data TMDb removed" logic never ran for it. 423 living same-name+same-DOB pairs exist.
