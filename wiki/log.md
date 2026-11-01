@@ -1,11 +1,11 @@
 # Log
 
-Append-only, newest at top. Format: `## 2026-11-01 — growth | GSC 17 impr, Google still not re-crawling; audit finds Emmy Williams dead in 2060; no site change
+Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
+
+## 2026-11-01 — growth | GSC 17 impr, Google still not re-crawling; audit finds Emmy Williams dead in 2060; no site change
 - Report: analyses/stillcasting-growth/2026-11-01.md. Prod v1.267.65; develop +13 tv-player commits.
 - bin/gsc-ga4-pull.py: retries added (connection resets killed the pull twice). bin/stillcasting-false-death-check.py: new FUTURE_DATE verdict.
 - Open for Alex: emmy-williams 2060-12-31 + scanner future-date guard; growth-run scope; tv-player release.
-
-## YYYY-MM-DD — <op> | <title>`.
 
 ## 2026-10-31 — growth | GSC 14 impr; nothing re-crawled; organic Bing/Yahoo/DDG 108; false-death audit clean (3 Wikidata date mismatches rescanned, unchanged); no change. Report: analyses/stillcasting-growth/2026-10-31.md
 
