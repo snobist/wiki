@@ -46,6 +46,7 @@ What the run may do about it (this is the ONE exception to "no production writes
   `docker exec stillcasting-worker-1 python -c "from stillcasting_worker.tasks import scan_person_task; scan_person_task.apply_async(args=[ID], queue='scans')" </dev/null`.
   The scanner (v1.267.53+) reverts retracted TMDb-only deaths and refreshes dates itself. Re-check after 60 s and report before/after.
 - `NAME_TWIN` and popular `UNCONFIRMED` → report with both records' slugs for Alex; never change status or dates directly (no SQL, no PATCH).
+- `FUTURE_DATE` (added 2026-11-01; checked first) → no rescan (TMDb itself carries the date); list under "Needs Alex".
 - Also report anything with `date_of_death` in the future. Put a "False-death audit" table in the report even when everything is OK.
 
 ## 3. Assess (write the report first, then decide)

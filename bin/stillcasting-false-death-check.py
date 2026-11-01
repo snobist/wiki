@@ -60,7 +60,9 @@ def main():
         has_item, wd_dod = wikidata_dod(tmdb, wd); time.sleep(0.6)
         srcs = set(filter(None, (src or "").split(",")))
         tmdb_only = srcs <= {"tmdb_scan"}
-        if tmdb_only and tmdb and not tmdb_dod and not wd_dod:
+        if dod > time.strftime("%Y-%m-%d"):
+            verdict = "FUTURE_DATE"  # e.g. TMDb gave Emmy Williams (b. 2004) 2060-12-31; both sources "agree", still wrong
+        elif tmdb_only and tmdb and not tmdb_dod and not wd_dod:
             verdict = "TMDB_RETRACTED"
         elif wd_dod and wd_dod != dod:
             verdict = "WIKIDATA_MISMATCH"
@@ -76,7 +78,7 @@ def main():
             verdict = "OK"  # no Wikidata item at all: obscure, TMDb is the only source there is
         results.append({"id": int(pid), "slug": slug, "name": name, "tmdb_id": tmdb, "ours": dod, "tmdb": tmdb_dod or None,
                         "wikidata": wd_dod, "popularity": float(pop or 0), "sources": sorted(srcs), "twin": twin or None, "verdict": verdict})
-    order = {"TMDB_RETRACTED": 0, "WIKIDATA_MISMATCH": 1, "TMDB_MISMATCH": 2, "NAME_TWIN": 3, "UNCONFIRMED": 4, "OK": 5}
+    order = {"FUTURE_DATE": -1, "TMDB_RETRACTED": 0, "WIKIDATA_MISMATCH": 1, "TMDB_MISMATCH": 2, "NAME_TWIN": 3, "UNCONFIRMED": 4, "OK": 5}
     results.sort(key=lambda r: (order[r["verdict"]], -r["popularity"]))
     counts = {}
     for r in results: counts[r["verdict"]] = counts.get(r["verdict"], 0) + 1
