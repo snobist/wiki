@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-03 — growth | second (duplicate) firing: healthy, PerplexityBot plateau ≈4.7k/h, audit unchanged (2 mismatches rescanned again, unchanged); no change
+- Addendum appended to analyses/stillcasting-growth/2026-11-03.md. Open for Alex: schedule fired twice today; emmy-williams 2060; growth-run scope.
+
 ## 2026-11-03 — growth | GSC 21 impr, Google still idle; PerplexityBot burst 4.7k/h; audit clean (Emmy Williams 2060 persists); no site change
 - Report: analyses/stillcasting-growth/2026-11-03.md. Prod v1.267.67; develop = main (backlog released by another session 11-02).
 - Audit: 51 checked, no false deaths; 2 Wikidata date mismatches rescanned, unchanged. Healthy, /data 69 %.
