@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-03 — growth | GSC 21 impr, Google still idle; PerplexityBot burst 4.7k/h; audit clean (Emmy Williams 2060 persists); no site change
+- Report: analyses/stillcasting-growth/2026-11-03.md. Prod v1.267.67; develop = main (backlog released by another session 11-02).
+- Audit: 51 checked, no false deaths; 2 Wikidata date mismatches rescanned, unchanged. Healthy, /data 69 %.
+- Open for Alex: emmy-williams + scanner future-date guard; growth-run scope. Watch PerplexityBot (Crawl-delay if > 5k/h sustained).
+
 ## 2026-11-01 — growth | GSC 17 impr, Google still not re-crawling; audit finds Emmy Williams dead in 2060; no site change
 - Report: analyses/stillcasting-growth/2026-11-01.md. Prod v1.267.65; develop +13 tv-player commits.
 - bin/gsc-ga4-pull.py: retries added (connection resets killed the pull twice). bin/stillcasting-false-death-check.py: new FUTURE_DATE verdict.
