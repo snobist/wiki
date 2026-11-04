@@ -2,6 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-04 — fix | Kasm repaired + admin password reset
+- Cause: kasm_db stopped 2026-09-17 (No space left on /data), restart 09-21 failed (veth/bridge error). `docker start kasm_db` → api/share/manager healthy.
+- No saved install creds anywhere → reset `admin@kasm.local` via kasm_db (sha256(pw+salt), verified against Kasm docs); password in `.secrets/kasm-admin`, pointer in [[access]].
+
 ## 2026-11-03 — growth | second (duplicate) firing: healthy, PerplexityBot plateau ≈4.7k/h, audit unchanged (2 mismatches rescanned again, unchanged); no change
 - Addendum appended to analyses/stillcasting-growth/2026-11-03.md. Open for Alex: schedule fired twice today; emmy-williams 2060; growth-run scope.
 

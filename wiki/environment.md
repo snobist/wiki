@@ -14,8 +14,8 @@
   8443 (Caddy → Kasm). 8080 (MAS dashboard) is published by Docker but filtered by the OCI security list — reached via
   portfolioview (443). Docker-published ports bypass ufw. Stale ufw allows with nothing listening: 3000, 5000, 8000,
   12414, 18789. CUPS (631) + rpcbind (111) run but are firewalled.
-  **Kasm broken since ~2026-09-17**: kasm_db exited, kasm_api/share/manager in restart loops (24–29k restarts) →
-  dockerd ~100% of one core, load avg up to ~3.8, I/O wait spikes. Decision pending: remove Kasm or repair kasm_db. `/data` volume is
+  Kasm was broken 2026-09-17 → 2026-11-04 (kasm_db died on a full /data, then a networking error on restart;
+  rest of Kasm crash-looped, dockerd ~1 core). **Repaired 2026-11-04**: `docker start kasm_db`, all 8 containers healthy. `/data` volume is
   74 GB and chronically full (see [[infra-deploys]], stillcasting log 2026-08-26/28). 2026-09-17: hit 100 % (outage); after log truncation + staging teardown 90 %, 7 GB free. Log rotation 50m×3 now set on all prod containers. Docker root is `/data/docker`.
 
 ## Where sessions run
