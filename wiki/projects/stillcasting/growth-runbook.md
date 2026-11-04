@@ -34,6 +34,8 @@ image worker outcomes `docker logs --since 48h stillcasting-worker-images-1 | gr
 Caddy top user agents + top /16 networks (bots: ClaudeBot, PerplexityBot, GPTBot; scrapers: many IPs, Chrome UA, no `/_next/static` fetches).
 If health fails → report only, no deploy.
 
+Runs are triggered by Alex as well as by the schedule — several runs a day or on consecutive days are expected, not a duplicate-trigger bug (2026-11-04).
+
 ## 2b. False-death audit (read-only, every run) — added 2026-10-18 after the Gal Gadot case
 ```bash
 python3 ~/Documents/wiki/bin/stillcasting-false-death-check.py --days 14 --json /tmp/growth-$(date +%F)/false-deaths.json
@@ -46,13 +48,14 @@ What the run may do about it (this is the ONE exception to "no production writes
   `docker exec stillcasting-worker-1 python -c "from stillcasting_worker.tasks import scan_person_task; scan_person_task.apply_async(args=[ID], queue='scans')" </dev/null`.
   The scanner (v1.267.53+) reverts retracted TMDb-only deaths and refreshes dates itself. Re-check after 60 s and report before/after.
 - `NAME_TWIN` and popular `UNCONFIRMED` → report with both records' slugs for Alex; never change status or dates directly (no SQL, no PATCH).
-- `FUTURE_DATE` (added 2026-11-01; checked first) → no rescan (TMDb itself carries the date); list under "Needs Alex".
+- `FUTURE_DATE` (added 2026-11-01; checked first) → since v1.267.68 the scanner ignores future death dates and reverts TMDb-only ones, so queue a rescan like the mismatches; list under "Needs Alex" only if it survives the rescan.
 - Also report anything with `date_of_death` in the future. Put a "False-death audit" table in the report even when everything is OK.
 
 ## 3. Assess (write the report first, then decide)
 Metrics table, this run vs previous report: GSC impressions & clicks (last 7 days), avg position, pages with impressions; inspection sample:
-indexed / crawled-not-indexed / unknown, URLs re-crawled since last run; GA4 **human** users (exclude channel Direct from China/Hong Kong/Singapore
-and sessions with 0 s duration), organic by engine (Google/Bing/Yahoo/DDG), bot share; disk %, media growth; crawler request rates.
+indexed / crawled-not-indexed / unknown, URLs re-crawled since last run; GA4 **human** sessions via
+`python3 -W ignore ~/Documents/wiki/bin/stillcasting-ga-human.py START END $OUT/ga_human_grain.json` (drops Direct from China/Hong Kong/Singapore,
+rows with avg duration < 1 s, and — since 2026-11-04 — Direct rows with ≥ 10 sessions and < 10 % engagement; re-run it for the previous window so deltas compare like with like), organic by engine (Google/Bing/Yahoo/DDG), bot share; disk %, media growth; crawler request rates.
 Then pick at most one improvement with a clear mechanism (e.g. hub never crawled → link it from a page Google does crawl; description duplicates;
 missing JSON-LD; Crawl-delay for an AI bot exceeding ~5k req/h; a curated-set rule that admits junk). Write the rationale into the report.
 
