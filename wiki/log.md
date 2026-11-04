@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-04 — growth | GSC 21 impr flat, Google fetched sitemap index 11-03 (first in 10 d) but no page re-crawls; audit clean; no change
+- Report: analyses/stillcasting-growth/2026-11-04.md. Prod v1.267.67, healthy (containers restarted 08:40 by Kasm fix), /data 73 % (+3 G).
+- Audit: 51 checked, no false deaths; lucia-modugno + gisela-marx Wikidata mismatches rescanned, unchanged (checker FPs). PerplexityBot burst over.
+- Open for Alex: emmy-williams 2060; schedule firing daily; growth-run scope; GA4 filter leaks Iran/Russia Direct bots.
+
 ## 2026-11-04 — fix | Kasm repaired + admin password reset
 - Cause: kasm_db stopped 2026-09-17 (No space left on /data), restart 09-21 failed (veth/bridge error). `docker start kasm_db` → api/share/manager healthy.
 - Login failed with 0 failed attempts recorded → /api 502 via Caddy (stale nginx upstream in kasm_proxy). `sudo systemctl restart docker` (Alex OK'd): all 22 containers back, Kasm /api 200, dockerd CPU ~100% → ~1%.
