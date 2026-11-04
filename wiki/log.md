@@ -4,6 +4,7 @@ Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
 ## 2026-11-04 — fix | Kasm repaired + admin password reset
 - Cause: kasm_db stopped 2026-09-17 (No space left on /data), restart 09-21 failed (veth/bridge error). `docker start kasm_db` → api/share/manager healthy.
+- Login failed with 0 failed attempts recorded → /api 502 via Caddy (stale nginx upstream in kasm_proxy). `sudo systemctl restart docker` (Alex OK'd): all 22 containers back, Kasm /api 200, dockerd CPU ~100% → ~1%.
 - No saved install creds anywhere → reset `admin@kasm.local` via kasm_db (sha256(pw+salt), verified against Kasm docs); password in `.secrets/kasm-admin`, pointer in [[access]].
 
 ## 2026-11-03 — growth | second (duplicate) firing: healthy, PerplexityBot plateau ≈4.7k/h, audit unchanged (2 mismatches rescanned again, unchanged); no change

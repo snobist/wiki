@@ -15,7 +15,9 @@
   portfolioview (443). Docker-published ports bypass ufw. Stale ufw allows with nothing listening: 3000, 5000, 8000,
   12414, 18789. CUPS (631) + rpcbind (111) run but are firewalled.
   Kasm was broken 2026-09-17 → 2026-11-04 (kasm_db died on a full /data, then a networking error on restart;
-  rest of Kasm crash-looped, dockerd ~1 core). **Repaired 2026-11-04**: `docker start kasm_db`, all 8 containers healthy. `/data` volume is
+  rest of Kasm crash-looped, dockerd ~1 core). **Repaired 2026-11-04**: `docker start kasm_db`, all 8 containers healthy.
+  Login then 502'd: kasm_proxy (nginx, up 4 months) held a stale upstream for kasm_api → fixed by `systemctl restart docker`
+  (all 22 containers back in ~5 s, healthy in ~60 s), which also took dockerd from ~100% CPU to ~1%. `/data` volume is
   74 GB and chronically full (see [[infra-deploys]], stillcasting log 2026-08-26/28). 2026-09-17: hit 100 % (outage); after log truncation + staging teardown 90 %, 7 GB free. Log rotation 50m×3 now set on all prod containers. Docker root is `/data/docker`.
 
 ## Where sessions run
