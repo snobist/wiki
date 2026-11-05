@@ -28,6 +28,8 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
+## Release 2026-11-05 — v1.267.69: Next.js 14.2.15 → 14.2.35 (latest 14.2.x security patch; server-action probes no longer 500).
+
 ## Release 2026-11-04 — v1.267.68: scanner ignores TMDb death dates in the future (guard 3; Emmy Williams 2060-12-31 case).
 
 ## Release 2026-10-19 — v1.267.55: Caddy blocks Tencent scraper 43.172/16 + 43.173/16; SC-605 search tests green again (full jest suite now passes).

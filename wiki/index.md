@@ -47,7 +47,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
-  - `stillcasting-growth/2026-11-05.md` — GSC 19 impr; Google re-crawled `/` 11-05, Googlebot ×22; audit clean (2 checker FPs); no change.
+  - `stillcasting-growth/2026-11-05.md` — GSC 19 impr; Google re-crawled `/` 11-05, Googlebot ×22; audit clean (2 checker FPs); no change. Addendum: v1.267.69 Next 14.2.35 + checker precision fix.
   - `stillcasting-growth/2026-11-04.md` — GSC 21 impr; sitemap index fetched 11-03, no page re-crawls; audit clean (2 checker FPs); no change.
   - `stillcasting-growth/2026-11-03.md` — GSC 21 impr; nothing re-crawled; PerplexityBot 4.7k/h burst (under threshold); audit clean, emmy-williams 2060 persists; no change.
   - `stillcasting-growth/2026-11-01.md` — GSC 17 impr; nothing re-crawled; bingbot ×10; audit: Emmy Williams dated 2060 (FUTURE_DATE, needs Alex); no change.

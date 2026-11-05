@@ -32,11 +32,13 @@ done
 '''
 
 def wikidata_dod(tmdb_id: str, wikidata_id: str):
-    """(has_item, dod) via Wikidata: by TMDb id first, else by Q-id."""
+    """(has_item, dod) via Wikidata: by TMDb id first, else by Q-id.
+    dod is truncated to the value's precision (11 day → YYYY-MM-DD, 10 month → YYYY-MM, 9 year → YYYY), so a
+    year-only "2026" (stored as 2026-01-01) no longer looks like a different date (lucia-modugno, gisela-marx, 2026-11-05)."""
     if tmdb_id:
-        q = f'SELECT ?item ?dod WHERE {{ ?item wdt:P4985 "{tmdb_id}" . OPTIONAL {{ ?item wdt:P570 ?dod }} }} LIMIT 3'
+        q = f'SELECT ?item ?dod ?prec WHERE {{ ?item wdt:P4985 "{tmdb_id}" . OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 3'
     elif wikidata_id:
-        q = f'SELECT ?item ?dod WHERE {{ BIND(wd:{wikidata_id} AS ?item) OPTIONAL {{ ?item wdt:P570 ?dod }} }} LIMIT 3'
+        q = f'SELECT ?item ?dod ?prec WHERE {{ BIND(wd:{wikidata_id} AS ?item) OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 3'
     else:
         return (False, None)
     try:
@@ -46,7 +48,9 @@ def wikidata_dod(tmdb_id: str, wikidata_id: str):
         return (None, None)
     if not b:
         return (False, None)
-    dods = [x["dod"]["value"][:10] for x in b if "dod" in x]
+    width = {11: 10, 10: 7}  # day, month; anything coarser compares the year only
+    dods = sorted(((x["dod"]["value"].lstrip("+")[:width.get(int(x.get("prec", {}).get("value", 11)), 4)]) for x in b if "dod" in x),
+                  key=len, reverse=True)  # most precise statement first
     return (True, dods[0] if dods else None)
 
 def main():
@@ -64,7 +68,7 @@ def main():
             verdict = "FUTURE_DATE"  # e.g. TMDb gave Emmy Williams (b. 2004) 2060-12-31; both sources "agree", still wrong
         elif tmdb_only and tmdb and not tmdb_dod and not wd_dod:
             verdict = "TMDB_RETRACTED"
-        elif wd_dod and wd_dod != dod:
+        elif wd_dod and not dod.startswith(wd_dod):  # wd_dod is truncated to its precision
             verdict = "WIKIDATA_MISMATCH"
         elif tmdb_dod and tmdb_dod != dod:
             verdict = "TMDB_MISMATCH"

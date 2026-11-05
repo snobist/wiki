@@ -47,6 +47,7 @@ What the run may do about it (this is the ONE exception to "no production writes
 - `TMDB_RETRACTED`, `WIKIDATA_MISMATCH`, `TMDB_MISMATCH` → queue a rescan: on the box
   `docker exec stillcasting-worker-1 python -c "from stillcasting_worker.tasks import scan_person_task; scan_person_task.apply_async(args=[ID], queue='scans')" </dev/null`.
   The scanner (v1.267.53+) reverts retracted TMDb-only deaths and refreshes dates itself. Re-check after 60 s and report before/after.
+- Since 2026-11-05 the checker truncates Wikidata P570 to its precision (year-only "2026", month-only "2026-10"), so `WIKIDATA_MISMATCH` means a real day/month/year disagreement.
 - `NAME_TWIN` and popular `UNCONFIRMED` → report with both records' slugs for Alex; never change status or dates directly (no SQL, no PATCH).
 - `FUTURE_DATE` (added 2026-11-01; checked first) → since v1.267.68 the scanner ignores future death dates and reverts TMDb-only ones, so queue a rescan like the mismatches; list under "Needs Alex" only if it survives the rescan.
 - Also report anything with `date_of_death` in the future. Put a "False-death audit" table in the report even when everything is OK.

@@ -2,6 +2,10 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-05 — release | v1.267.69 Next.js 14.2.35; audit checker honours Wikidata date precision
+- Alex's go on both items from the 11-05 growth report. Box harness green (378 backend, jest 61/61, build). Action deployed 12:48 UTC; probe POSTs no longer 500.
+- false-death-check: P570 truncated to its precision → year/month-only Wikidata dates stop raising WIKIDATA_MISMATCH (50/50 OK).
+
 ## 2026-11-05 — growth | GSC 19 impr flat; Google re-crawled `/` today + Googlebot 44 req/24 h; audit clean; no change
 - Report: analyses/stillcasting-growth/2026-11-05.md. Prod v1.267.68, healthy, /data 71 %. Human GA4 122 (was 117).
 - Audit: 50 checked, no false deaths; lucia-modugno + gisela-marx Wikidata-precision FPs rescanned, unchanged.
