@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-05 — growth | GSC 19 impr flat; Google re-crawled `/` today + Googlebot 44 req/24 h; audit clean; no change
+- Report: analyses/stillcasting-growth/2026-11-05.md. Prod v1.267.68, healthy, /data 71 %. Human GA4 122 (was 117).
+- Audit: 50 checked, no false deaths; lucia-modugno + gisela-marx Wikidata-precision FPs rescanned, unchanged.
+- One-minute 502 burst 00:03 UTC; Next-Action exploit probes → 500s (Next 14.2.15, not affected; upgrade suggested to Alex).
+
 ## 2026-11-04 — fix | scanner ignores future death dates (v1.267.68); GA4 human filter tightened; Emmy Williams rescan
 - Alex's go: guard 3 in scanner_service (future deathday = no death → TMDb-only future deaths revert). 378 backend tests + build green on the box.
 - bin/stillcasting-ga-human.py: drops Direct rows ≥10 sessions <10 % engaged (Iran/Russia bots). Human 7 d ≈ 117 (was mis-counted 220).
