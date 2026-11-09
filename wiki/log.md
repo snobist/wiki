@@ -2,6 +2,11 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-09 — growth | GSC 3 impr (only `/`), no re-crawls; audit 46/46 OK; ClaudeBot 39k req/h → Crawl-delay 2 shipped (v1.267.70)
+- Report: analyses/stillcasting-growth/2026-11-09.md. Healthy, /data 71 %. Real human GA4 ≈ 120 flat (Direct bot leak doubled to ~108).
+- ClaudeBot volume shrank Caddy's log window to ~1–2 h. Box harness green (378 / jest 65 / build); live robots.txt verified.
+- Lightpanda → nginx worker_connections exhaustion twice more (11-08 00:21, 23:27) — still needs Alex.
+
 ## 2026-11-07 — growth | GSC 14 impr; Google re-crawled `/` + Terminator; audit 55/55 OK; Lightpanda swarm → nightly 502 minute; no change
 - Report: analyses/stillcasting-growth/2026-11-07.md. Prod v1.267.69, healthy, /data 71 %. Human GA4 ≈ 124 real (164 incl. a Direct bot leaking under the filter).
 - 00:32 UTC 502 burst: Lightpanda/1.0 headless swarm (4.6k residential IPs) exhausted nginx worker_connections 512. Server config → needs Alex.

@@ -4,6 +4,10 @@ Purpose: every change proposal from the session, its intent, and status.
 Last-verified: 2026-08-09. Full docs live in `../` (ClaudeProjects root) and `sources/`.
 
 ## Shipped
+### robots.txt: Crawl-delay for ClaudeBot (2026-11-09, v1.267.70)
+- From the 2026-09-24 [[gsc-performance]] proposal item 4 ("throttle ClaudeBot"). ClaudeBot hit ~39k req/h on 2026-11-09; own rule,
+  same allow/disallow, `Crawl-delay: 2` (≈ 1,800 req/h). Shipped by the growth run; effect to be checked next run.
+
 ### /spanning-generations: server-render the full pool (2026-10-09, v1.267.47)
 - From the 2026-10-08 hub audit ("render ~30 rows + link titles"). SSR 6 → 30 entries shipped by the growth run.
   Open half: link the film titles (needs title slugs from `/homepage/careers-across-generations`).
