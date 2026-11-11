@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-11 — growth | GSC 4 impr (`/` only, re-crawled 11-10); ClaudeBot 39k → 1.8k req/h after Crawl-delay; audit 47 OK + eddie-deezen UNCONFIRMED (pop 1.7); no change
+Prod v1.267.74 healthy, /data 71 %. Open for Alex: Lightpanda/nginx worker_connections (00:08 again), GA4 Direct leak, scope question. Report: analyses/stillcasting-growth/2026-11-11.md.
+
 ## 2026-11-09 — growth | GSC 3 impr (only `/`), no re-crawls; audit 46/46 OK; ClaudeBot 39k req/h → Crawl-delay 2 shipped (v1.267.70)
 - Report: analyses/stillcasting-growth/2026-11-09.md. Healthy, /data 71 %. Real human GA4 ≈ 120 flat (Direct bot leak doubled to ~108).
 - ClaudeBot volume shrank Caddy's log window to ~1–2 h. Box harness green (378 / jest 65 / build); live robots.txt verified.
