@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-12 — ops | stillcasting v1.267.88: Lightpanda blocked at Caddy, nginx worker_connections 2048
+Fixes the nightly 502 minute (Lightpanda bursts filled nginx's 512 default). Verified live; next growth run checks 00:xx UTC.
+
 ## 2026-11-11 — growth | GSC 4 impr (`/` only, re-crawled 11-10); ClaudeBot 39k → 1.8k req/h after Crawl-delay; audit 47 OK + eddie-deezen UNCONFIRMED (pop 1.7); no change
 Prod v1.267.74 healthy, /data 71 %. Open for Alex: Lightpanda/nginx worker_connections (00:08 again), GA4 Direct leak, scope question. Report: analyses/stillcasting-growth/2026-11-11.md.
 

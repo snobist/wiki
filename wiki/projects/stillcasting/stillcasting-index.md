@@ -28,6 +28,8 @@ Built in ~3 weeks, spec-driven / vertical slices, with Claude Code. GSC domain p
 
 Full history: `raw/project-wikis/stillcasting-wiki/log.md`. Related: [[environment]], [[access]].
 
+## Release 2026-11-12 — v1.267.88: Caddy 403s `User-Agent ~ (?i)lightpanda` (headless swarm, nightly 502 minute); nginx `worker_connections 2048` (was default 512). Alex's go, not a growth run.
+
 ## Release 2026-11-09 — v1.267.70: robots.txt `Crawl-delay: 2` for ClaudeBot (was ~39k req/h; growth run).
 
 ## Release 2026-11-05 — v1.267.69: Next.js 14.2.15 → 14.2.35 (latest 14.2.x security patch; server-action probes no longer 500).
