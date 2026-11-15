@@ -47,6 +47,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
+  - `stillcasting-growth/2026-11-15.md` — GSC 5 impr; sitemap re-fetched 11-14; audit: 2 TMDB_RETRACTED reverted by rescan; Lightpanda gone; no change.
   - `stillcasting-growth/2026-11-11.md` — GSC 4 impr; Google re-crawled `/` 11-10; ClaudeBot Crawl-delay works (39k → 1.8k req/h); audit 47 OK + eddie-deezen UNCONFIRMED (pop 1.7); no change.
   - `stillcasting-growth/2026-11-09.md` — GSC 3 impr (`/` only); no re-crawls; audit 46/46 OK; ClaudeBot 39k req/h → robots Crawl-delay 2 (v1.267.70, deployed).
   - `stillcasting-growth/2026-11-07.md` — GSC 14 impr; Google re-crawled `/` + Terminator; audit 55/55 OK; Lightpanda swarm → 00:32 UTC 502 minute (nginx worker_connections); no change.

@@ -1,6 +1,9 @@
 # Log
 
-Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
+Append-only, newest at top. Format: `## 2026-11-15 — growth | GSC 5 impr (`/` only), sitemap re-fetched 11-14; audit: 2 TMDB_RETRACTED (irmelin-krause, jorge-montejo) reverted by rescan; no change
+Prod v1.267.95 healthy, /data 71 %, ClaudeBot 1.6k/h, Lightpanda gone. Real human (organic+AI) 109 (+8). Report: analyses/stillcasting-growth/2026-11-15.md.
+
+## YYYY-MM-DD — <op> | <title>`.
 
 ## 2026-11-12 — ops | stillcasting v1.267.88: Lightpanda blocked at Caddy, nginx worker_connections 2048
 Fixes the nightly 502 minute (Lightpanda bursts filled nginx's 512 default). Verified live; next growth run checks 00:xx UTC.
