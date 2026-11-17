@@ -1,6 +1,9 @@
 # Log
 
-Append-only, newest at top. Format: `## 2026-11-15 — growth | GSC 5 impr (`/` only), sitemap re-fetched 11-14; audit: 2 TMDB_RETRACTED (irmelin-krause, jorge-montejo) reverted by rescan; no change
+Append-only, newest at top. Format: `## 2026-11-17 — growth | GSC 9 impr / 6 pages; retracted deaths (irmelin-krause, jorge-montejo) reappeared after 11-15 revert, rescanned again; no change
+Report `analyses/stillcasting-growth/2026-11-17.md`. Prod v1.267.101 healthy, /data 72 %. Unknown writer re-sets status/DOD without provenance → needs Alex. Fixed token refresh in `bin/gsc-ga4-pull.py`.
+
+## 2026-11-15 — growth | GSC 5 impr (`/` only), sitemap re-fetched 11-14; audit: 2 TMDB_RETRACTED (irmelin-krause, jorge-montejo) reverted by rescan; no change
 Prod v1.267.95 healthy, /data 71 %, ClaudeBot 1.6k/h, Lightpanda gone. Real human (organic+AI) 109 (+8). Report: analyses/stillcasting-growth/2026-11-15.md.
 
 ## YYYY-MM-DD — <op> | <title>`.
