@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-19 — growth | GSC 11 impr flat; "retracted" deaths were real (checker missed Wikidata-by-IMDb) → no rescan, checker fixed; guard/IMDb-sync flip-flop on ~400 persons; no change
+Report `analyses/stillcasting-growth/2026-11-19.md`. Prod v1.267.101 healthy, /data 72 %, ClaudeBot 3.6k/h. Needs Alex: scanner retraction guard vs `daily_imdb_sync_task` (no provenance) — 398 persons reverted then re-killed, 75 more than once.
+
 ## 2026-11-17 — growth | GSC 9 impr / 6 pages; retracted deaths (irmelin-krause, jorge-montejo) reappeared after 11-15 revert, rescanned again; no change
 Report `analyses/stillcasting-growth/2026-11-17.md`. Prod v1.267.101 healthy, /data 72 %. Unknown writer re-sets status/DOD without provenance → needs Alex. Fixed token refresh in `bin/gsc-ga4-pull.py`.
 
