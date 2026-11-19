@@ -15,32 +15,35 @@ import argparse, json, subprocess, sys, time, urllib.parse, urllib.request
 
 HOST = "ubuntu@130.61.219.74"
 KEY = "~/.ssh/oci-mas.key"
-UA = {"User-Agent": "StillCastingAudit/1.0 (snobist@gmail.com)", "Accept": "application/sparql-results+json"}
+UA = {"User-Agent": "StillCastingAudit/1.0 (+https://stillcasting.app)", "Accept": "application/sparql-results+json"}
 
 REMOTE = r'''
 cd /home/ubuntu/stillcasting; k=$(grep -E '^TMDB_API_KEY=' .env | cut -d= -f2- | tr -d '"'"'"' ')
 docker exec stillcasting-postgres-1 psql -U postgres -d stillcasting -Atc "
-select p.id, p.slug, p.name, coalesce(p.tmdb_id,''), coalesce(p.wikidata_id,''), p.date_of_death, coalesce(p.tmdb_popularity,0),
+select p.id, p.slug, p.name, coalesce(p.tmdb_id,''), coalesce(p.wikidata_id,''), coalesce(p.imdb_id,''), p.date_of_death, coalesce(p.tmdb_popularity,0),
        (select string_agg(distinct s.source_type, ',') from status_provenance s where s.person_id=p.id and s.status='deceased'),
        (select string_agg(o.slug||'@'||o.date_of_death, ' ') from persons o where o.id<>p.id and lower(o.name)=lower(p.name)
           and o.status='deceased' and abs(o.date_of_death - p.date_of_death) <= 3)
 from persons p where p.status='deceased' and p.date_of_death >= current_date - %d order by p.tmdb_popularity desc nulls last" </dev/null \
-| while IFS='|' read id slug name tmdb wd dod pop src twin; do
+| while IFS='|' read id slug name tmdb wd imdb dod pop src twin; do
   td=""; if [ -n "$tmdb" ]; then td=$(curl -s -m 15 "https://api.themoviedb.org/3/person/$tmdb?api_key=$k" | python3 -c "import json,sys; print(json.load(sys.stdin).get('deathday') or '')" 2>/dev/null); sleep 0.25; fi
-  printf '%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\n' "$id" "$slug" "$name" "$tmdb" "$wd" "$dod" "$pop" "$src" "$twin" "$td"
+  printf '%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\t%%s\n' "$id" "$slug" "$name" "$tmdb" "$wd" "$imdb" "$dod" "$pop" "$src" "$twin" "$td"
 done
 '''
 
-def wikidata_dod(tmdb_id: str, wikidata_id: str):
-    """(has_item, dod) via Wikidata: by TMDb id first, else by Q-id.
+def wikidata_dod(tmdb_id: str, wikidata_id: str, imdb_id: str = ""):
+    """(has_item, dod) via Wikidata: items matched by TMDb id, Q-id OR IMDb id (union).
+    IMDb id added 2026-11-19: irmelin-krause / jorge-montejo have Wikidata deaths on items without P4985, so the
+    TMDb-only lookup said "no death" → false TMDB_RETRACTED → rescans reverted two real deaths (11-15, 11-17).
     dod is truncated to the value's precision (11 day → YYYY-MM-DD, 10 month → YYYY-MM, 9 year → YYYY), so a
     year-only "2026" (stored as 2026-01-01) no longer looks like a different date (lucia-modugno, gisela-marx, 2026-11-05)."""
-    if tmdb_id:
-        q = f'SELECT ?item ?dod ?prec WHERE {{ ?item wdt:P4985 "{tmdb_id}" . OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 3'
-    elif wikidata_id:
-        q = f'SELECT ?item ?dod ?prec WHERE {{ BIND(wd:{wikidata_id} AS ?item) OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 3'
-    else:
+    alts = []
+    if tmdb_id: alts.append(f'{{ ?item wdt:P4985 "{tmdb_id}" }}')
+    if wikidata_id: alts.append(f'{{ BIND(wd:{wikidata_id} AS ?item) }}')
+    if imdb_id: alts.append(f'{{ ?item wdt:P345 "{imdb_id}" }}')
+    if not alts:
         return (False, None)
+    q = f'SELECT ?item ?dod ?prec WHERE {{ {" UNION ".join(alts)} OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 6'
     try:
         url = "https://query.wikidata.org/sparql?" + urllib.parse.urlencode({"query": q, "format": "json"})
         b = json.load(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30))["results"]["bindings"]
@@ -58,10 +61,10 @@ def main():
     a = ap.parse_args()
     out = subprocess.run(["ssh", "-i", KEY, "-o", "ConnectTimeout=25", "-o", "ConnectionAttempts=3", HOST, "bash -s"],
                          input=REMOTE % a.days, capture_output=True, text=True, timeout=1800)
-    rows = [l.split("\t") for l in out.stdout.splitlines() if l.count("\t") == 9]
+    rows = [l.split("\t") for l in out.stdout.splitlines() if l.count("\t") == 10]
     results = []
-    for pid, slug, name, tmdb, wd, dod, pop, src, twin, tmdb_dod in rows:
-        has_item, wd_dod = wikidata_dod(tmdb, wd); time.sleep(0.6)
+    for pid, slug, name, tmdb, wd, imdb, dod, pop, src, twin, tmdb_dod in rows:
+        has_item, wd_dod = wikidata_dod(tmdb, wd, imdb); time.sleep(0.6)
         srcs = set(filter(None, (src or "").split(",")))
         tmdb_only = srcs <= {"tmdb_scan"}
         if dod > time.strftime("%Y-%m-%d"):
