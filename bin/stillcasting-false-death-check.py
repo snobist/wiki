@@ -32,18 +32,24 @@ done
 '''
 
 def wikidata_dod(tmdb_id: str, wikidata_id: str, imdb_id: str = ""):
-    """(has_item, dod) via Wikidata: items matched by TMDb id, Q-id OR IMDb id (union).
+    """(has_item, dod) via Wikidata: by TMDb id, else Q-id; then by IMDb id (P345) when no death was found.
     IMDb id added 2026-11-19: irmelin-krause / jorge-montejo have Wikidata deaths on items without P4985, so the
     TMDb-only lookup said "no death" → false TMDB_RETRACTED → rescans reverted two real deaths (11-15, 11-17).
     dod is truncated to the value's precision (11 day → YYYY-MM-DD, 10 month → YYYY-MM, 9 year → YYYY), so a
     year-only "2026" (stored as 2026-01-01) no longer looks like a different date (lucia-modugno, gisela-marx, 2026-11-05)."""
-    alts = []
-    if tmdb_id: alts.append(f'{{ ?item wdt:P4985 "{tmdb_id}" }}')
-    if wikidata_id: alts.append(f'{{ BIND(wd:{wikidata_id} AS ?item) }}')
-    if imdb_id: alts.append(f'{{ ?item wdt:P345 "{imdb_id}" }}')
-    if not alts:
-        return (False, None)
-    q = f'SELECT ?item ?dod ?prec WHERE {{ {" UNION ".join(alts)} OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 6'
+    if tmdb_id:
+        q = f'SELECT ?item ?dod ?prec WHERE {{ ?item wdt:P4985 "{tmdb_id}" . OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 3'
+    elif wikidata_id:
+        q = f'SELECT ?item ?dod ?prec WHERE {{ BIND(wd:{wikidata_id} AS ?item) OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 3'
+    else:
+        q = None
+    has_item, dod = _wd_query(q) if q else (False, None)
+    if not dod and imdb_id:  # separate query: a UNION of the two times out on WDQS (2026-11-19)
+        h2, d2 = _wd_query(f'SELECT ?item ?dod ?prec WHERE {{ ?item wdt:P345 "{imdb_id}" . OPTIONAL {{ ?item p:P570/psv:P570 [ wikibase:timeValue ?dod; wikibase:timePrecision ?prec ] }} }} LIMIT 3')
+        has_item, dod = (has_item or h2), (d2 or dod)
+    return (has_item, dod)
+
+def _wd_query(q):
     try:
         url = "https://query.wikidata.org/sparql?" + urllib.parse.urlencode({"query": q, "format": "json"})
         b = json.load(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30))["results"]["bindings"]
