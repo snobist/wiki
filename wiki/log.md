@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-22 — growth | GSC 11 impr flat, Google re-crawled `/` 11-20; audit 46 OK, 2 WIKIDATA_MISMATCH rescanned (ray-tintori 11-10→11-16, yevhen-shakh unchanged); no change
+Report `analyses/stillcasting-growth/2026-11-22.md`. Prod v1.267.101 healthy, /data 72 %, ClaudeBot 1.8k/h. Real human 126 (+11). Needs Alex: guard/IMDb-sync flip-flop (open), yevhen-shakh date, brew python 3.15 lacks packages.
+
 ## 2026-11-19 — growth | GSC 11 impr flat; "retracted" deaths were real (checker missed Wikidata-by-IMDb) → no rescan, checker fixed; guard/IMDb-sync flip-flop on ~400 persons; no change
 Report `analyses/stillcasting-growth/2026-11-19.md`. Prod v1.267.101 healthy, /data 72 %, ClaudeBot 3.6k/h. Needs Alex: scanner retraction guard vs `daily_imdb_sync_task` (no provenance) — 398 persons reverted then re-killed, 75 more than once.
 

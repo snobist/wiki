@@ -20,7 +20,7 @@ Owner: Alex. `Last-verified: 2026-10-06`. Reports land in `wiki/analyses/stillca
 ## 1. Pull data (read-only)
 ```bash
 OUT=/tmp/growth-$(date +%F); mkdir -p $OUT
-python3 -W ignore ~/Documents/wiki/bin/gsc-ga4-pull.py $OUT          # GSC daily/pages/queries/sitemaps, GA4 channels/sources
+/usr/bin/python3 -W ignore ~/Documents/wiki/bin/gsc-ga4-pull.py $OUT          # GSC daily/pages/queries/sitemaps, GA4 channels/sources
 ```
 Then URL-inspect (API `urlInspection/index:inspect`, siteUrl `sc-domain:stillcasting.app`) these 19: `/`, `/legends`, `/milestones`,
 `/recently-deceased`, `/statistics`, `/cause`, `/cause/cancer`, `/spanning-generations`, `/died-this-week`, `/deaths/<current year>`,
