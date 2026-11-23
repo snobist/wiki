@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-23 — growth | GSC 10 impr flat, no re-crawls; audit 42 OK, yevhen-shakh WIKIDATA_MISMATCH fixed by rescan (11-14→11-13); no change
+Report `analyses/stillcasting-growth/2026-11-23.md`. Prod v1.267.102 healthy, /data 75 % (+3), ClaudeBot 1.8k/h. Real human 120 (−6). Needs Alex: guard/IMDb-sync flip-flop (open), /data trend.
+
 ## 2026-11-22 — growth | GSC 11 impr flat, Google re-crawled `/` 11-20; audit 46 OK, 2 WIKIDATA_MISMATCH rescanned (ray-tintori 11-10→11-16, yevhen-shakh unchanged); no change
 Report `analyses/stillcasting-growth/2026-11-22.md`. Prod v1.267.101 healthy, /data 72 %, ClaudeBot 1.8k/h. Real human 126 (+11). Needs Alex: guard/IMDb-sync flip-flop (open), yevhen-shakh date, brew python 3.15 lacks packages.
 
