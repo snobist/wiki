@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-25 — growth | GSC 5 impr / 1 click, no re-crawls, sitemap re-fetched 11-25; audit 40 OK + 1 low-pop UNCONFIRMED; no change
+Report `analyses/stillcasting-growth/2026-11-25.md`. Prod v1.267.102 healthy, /data 72 % (−3). Real human 117 (−3). Numeric /persons/<id> URLs verified 308 + canonical OK. Needs Alex: guard/IMDb-sync flip-flop (open).
+
 ## 2026-11-23 — growth | GSC 10 impr flat, no re-crawls; audit 42 OK, yevhen-shakh WIKIDATA_MISMATCH fixed by rescan (11-14→11-13); no change
 Report `analyses/stillcasting-growth/2026-11-23.md`. Prod v1.267.102 healthy, /data 75 % (+3), ClaudeBot 1.8k/h. Real human 120 (−6). Needs Alex: guard/IMDb-sync flip-flop (open), /data trend.
 

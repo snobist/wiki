@@ -47,6 +47,7 @@ Catalog of every page. One line each. Update on every ingest. (Wiki root: `~/Doc
 
 ## Analyses
 - `analyses/stillcasting-growth/` — dated reports from the scheduled growth run (from 2026-10-06).
+  - `stillcasting-growth/2026-11-25.md` — GSC 5 impr / 1 click, sitemap re-fetched; audit clean; numeric person URLs OK; no change.
   - `stillcasting-growth/2026-11-23.md` — GSC 10 impr flat, no re-crawls; audit: yevhen-shakh date fixed by rescan; /data 75 %; no change.
   - `stillcasting-growth/2026-11-22.md` — GSC 11 impr flat, `/` re-crawled 11-20; audit: 2 WIKIDATA_MISMATCH rescanned (ray-tintori date refreshed, yevhen-shakh needs Alex); no change.
   - `stillcasting-growth/2026-11-19.md` — GSC 11 impr flat; audit TMDB_RETRACTED was a checker false positive (real deaths, Wikidata via IMDb id) → no rescan, checker fixed; scanner guard ↔ IMDb sync flip-flop on ~400 persons, needs Alex; no change.
