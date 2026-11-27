@@ -2,6 +2,9 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-27 — growth | GSC 8 impr / 2 clicks, `/` re-crawled 11-27; OAI-SearchBot ≈10–12k req/h (not throttled: it feeds ChatGPT referrals); audit 44 OK, gerbert-morales WIKIDATA_MISMATCH rescanned (unchanged); no change
+Report `analyses/stillcasting-growth/2026-11-27.md`. Prod v1.267.102 healthy, /data 69 % (−3). Real human 114 (−3). Needs Alex: gerbert-morales + ray-tintori dates, guard/IMDb-sync flip-flop (open), OAI-SearchBot throttle call.
+
 ## 2026-11-25 — growth | GSC 5 impr / 1 click, no re-crawls, sitemap re-fetched 11-25; audit 40 OK + 1 low-pop UNCONFIRMED; no change
 Report `analyses/stillcasting-growth/2026-11-25.md`. Prod v1.267.102 healthy, /data 72 % (−3). Real human 117 (−3). Numeric /persons/<id> URLs verified 308 + canonical OK. Needs Alex: guard/IMDb-sync flip-flop (open).
 
