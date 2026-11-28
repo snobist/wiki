@@ -6,7 +6,7 @@
 - **Current Mac**: `alexs-macbook-pro-local`, macOS arm64, user `alexgrtsenko`. Home: `/Users/alexgrtsenko`.
 - **Old Mac** (retired ~2026-08-31): user `oleksandrgrytsenko`. Any path starting `/Users/oleksandrgrytsenko/` in
   raw sources is stale and must be re-mapped (lint item).
-- **OCI VPS** — hosts stillcasting prod/staging, financial-research-mas (prod+staging), Kasm.
+- **OCI VPS** (hostname `openclaw`; hung 2026-11-28 after 225 days up, rebooted from the console — see log) — hosts stillcasting prod/staging, financial-research-mas (prod+staging), Kasm.
   Specs (2026-10-08): `VM.Standard.A1.Flex`, eu-frankfurt-1 AD-3, created 2026-03-18 — 4 OCPU ARM Neoverse-N1
   (aarch64), 24 GB RAM + 2 GB swap, no GPU, 4 Gbps network; disks: / 45 GB (44% used), /data 74 GB (66%, ~+0.3 GB/day);
   Ubuntu 20.04.6 LTS (out of standard support since 2025-05), kernel 5.15.0-1081-oracle; Docker 28.1.1, Compose 2.35.1;

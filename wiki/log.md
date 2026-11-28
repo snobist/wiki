@@ -2,6 +2,21 @@
 
 Append-only, newest at top. Format: `## YYYY-MM-DD — <op> | <title>`.
 
+## 2026-11-28 — incident | OCI box hung (all sites down ~11:23–12:58 UTC, degraded from 05:00 UTC) → rebooted from the console
+- Symptom: no ping/SSH/HTTPS; console showed instance **Running**, public IP intact, monitoring charts empty (agent silent) → OS hang.
+  Journal of the dead boot: trouble starts 06:00 CET (05:00 UTC): docker health-check timeouts, log timestamps hours late, snapd start
+  timeouts, `kasm_db` (53 events) / `kasm_api` (23) restart-looping; last line 12:23 CET. **No OOM/hung-task/I-O kernel lines** — cause
+  unconfirmed. Suspects: Kasm restart loop + 05:00 UTC `daily_imdb_sync_task` (loads the 300 MB IMDb dump in RAM); 2 GB swap, swappiness 60,
+  no container memory limits, no oomd/earlyoom. Disk was fine (/data 69 %). Uptime before: 225 days.
+- Fix: graceful Reboot via the Oracle console in Alex's Chrome (he said "you can use cli"; the CLI session token from 11-20 was expired,
+  config region is us-phoenix-1 but the box is eu-frankfurt-1). OS ignored ACPI → powered off at the 15-min mark; SSH back 12:57:56Z; all 23
+  containers auto-started; Postgres WAL recovery clean. First 5 min: homepage 504 while ~10 copies of the deaths duplicate-filter query
+  (`NOT EXISTS ... lower(dt.name)=lower(p.name)`) ran 1–3 min each on cold buffers (load 15) → drained by 13:02Z, homepage 200 in 0.1 s.
+- Access facts: tenancy / cloud account name **grytsenkoa** (root compartment `grytsenkoa (root)`), instance `instance-20260318-1649`,
+  VM.Standard.A1.Flex 4 OCPU / 24 GB, AD-3, private IP 10.0.0.33. Hostname on the box: `openclaw`.
+- Open: decide Kasm (remove or fix the loop); memory limits or earlyoom; an index for the duplicate-death filter (cold-start pile-up);
+  an external uptime check (nobody noticed for hours); `oci session authenticate --region eu-frankfurt-1` whenever CLI access is wanted.
+
 ## 2026-11-27 — growth | GSC 8 impr / 2 clicks, `/` re-crawled 11-27; OAI-SearchBot ≈10–12k req/h (not throttled: it feeds ChatGPT referrals); audit 44 OK, gerbert-morales WIKIDATA_MISMATCH rescanned (unchanged); no change
 Report `analyses/stillcasting-growth/2026-11-27.md`. Prod v1.267.102 healthy, /data 69 % (−3). Real human 114 (−3). Needs Alex: gerbert-morales + ray-tintori dates, guard/IMDb-sync flip-flop (open), OAI-SearchBot throttle call.
 
